@@ -42,9 +42,10 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
         if (cachedResponse) {
+          console.log("loaded from cache")
           return cachedResponse;
         }
-
+        console.log("loading from web")
         return caches.open(RUNTIME).then(cache => {
           return fetch(event.request).then(response => {
             // Put a copy of the response in the runtime cache.
@@ -55,14 +56,5 @@ self.addEventListener('fetch', event => {
         });
       })
     );
-    event.waitUntil(
-      return caches.open(RUNTIME).then(cache => {
-          return fetch(event.request).then(response => {
-            // Put a copy of the response in the runtime cache.
-            return cache.put(event.request, response.clone()).then(() => {
-              return response;
-            });
-          });
-        });
-    );
+    
 });
