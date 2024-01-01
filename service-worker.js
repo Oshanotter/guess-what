@@ -52,9 +52,10 @@ self.addEventListener('fetch', function(evt) {
 
 // Open the cache where the assets were stored and search for the requested resource. Notice that in case of no matching, the promise still resolves but it does with undefined as value.
 function fromCache(request) {
-  return caches.open(RUNTIME).then(function (cache) {
-    return cache.match(request);
-  });
+  caches.match(request).then(cachedResponse => {
+        if (cachedResponse) {
+          return cachedResponse;
+        }
 }
 
 // Update consists in opening the cache, performing a network request and storing the new response data.
