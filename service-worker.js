@@ -1,75 +1,59 @@
-const PRECACHE = 'precache-v2';
-const RUNTIME = 'runtime';
+var CACHE = 'cache-and-update';
+//On install, cache some resources.
 
-// A list of local resources we always want to be cached.
-const PRECACHE_URLS = [
-  'index.html',
-  './', // Alias for index.html
-  'astyles.css',
-  'script.js', 
-  'manifest.json',
-  'icon.png'
-];
+ 
+self.addEventListener('install', function(evt) {
+  console.log('The service worker is being installed.');
+//Ask the service worker to keep installing until the returning promise resolves.
 
-// The install handler takes care of precaching the resources we always need.
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(PRECACHE)
-      .then(cache => cache.addAll(PRECACHE_URLS))
-      .then(self.skipWaiting())
-  );
+ 
+  evt.waitUntil(precache());
 });
+//On fetch, use cache but update the entry with the latest contents from the server.
 
-// The activate handler takes care of cleaning up old caches.
-self.addEventListener('activate', event => {
-  const currentCaches = [PRECACHE, RUNTIME];
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
-    }).then(cachesToDelete => {
-      return Promise.all(cachesToDelete.map(cacheToDelete => {
-        return caches.delete(cacheToDelete);
-      }));
-    }).then(() => self.clients.claim())
-  );
-});
-
-// The fetch handler serves responses for same-origin resources from a cache.
-// If no response is found, it populates the runtime cache with the response
-// from the network before returning it to the page.
-// On fetch, use cache but update the entry with the latest contents from the server.
+ 
 self.addEventListener('fetch', function(evt) {
   console.log('The service worker is serving the asset.');
-  // You can use respondWith() to answer ASAP…
-  evt.respondWith(fromCache(evt.request));
-  // ...and waitUntil() to prevent the worker to be killed until the cache is updated.
-  evt.waitUntil(
-    update(evt.request)
-    // Finally, send a message to the client to inform it about the resource is up to date.
-    .then(refresh)
-  );
-});
+//You can use respondWith() to answer immediately, without waiting for the network response to reach the service worker…
 
-// Open the cache where the assets were stored and search for the requested resource. Notice that in case of no matching, the promise still resolves but it does with undefined as value.
-function fromCache(request) {
-  return caches.open(RUNTIME).then(function (cache) {
-    return cache.match(request);
+ 
+  evt.respondWith(fromCache(evt.request));
+//…and waitUntil() to prevent the worker from being killed until the cache is updated.
+
+ 
+  evt.waitUntil(update(evt.request));
+});
+//Open a cache and use addAll() with an array of assets to add all of them to the cache. Return a promise resolving when all the assets are added.
+
+ 
+function precache() {
+  return caches.open(CACHE).then(function (cache) {
+    return cache.addAll([
+      'index.html',
+  './', // Alias for index.html
+  'astyles.css',
+  'main.css',
+  'demo.js'
+    ]);
   });
 }
+//Open the cache where the assets were stored and search for the requested resource. Notice that in case of no matching, the promise still resolves but it does with undefined as value.
 
-// Update consists in opening the cache, performing a network request and storing the new response data.
-function update(request) {
-  return caches.open(RUNTIME).then(function (cache) {
-    return fetch(request).then(function (response) {
-      return cache.put(request, response.clone()).then(function () {
-        return response;
-      });
+ 
+function fromCache(request) {
+  return caches.open(CACHE).then(function (cache) {
+    return cache.match(request).then(function (matching) {
+      return matching || Promise.reject('no-match');
     });
   });
 }
+//Update consists in opening the cache, performing a network request and storing the new response data.
 
-// Sends a message to the clients.
-function refresh(response) {
-  client.postMessage("update");
-  console.log("update me")
+ 
+function update(request) {
+  return caches.open(CACHE).then(function (cache) {
+    return fetch(request).then(function (response) {
+      return cache.put(request, response);
+    });
+  });
 }
