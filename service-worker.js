@@ -22,8 +22,9 @@ const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
   'styles.css',
-  'main.css',
-  'demo.js'
+  'script.js', 
+  'manifest.json',
+  'icon.png'
 ];
 
 // The install handler takes care of precaching the resources we always need.
@@ -52,22 +53,51 @@ self.addEventListener('activate', event => {
 // The fetch handler serves responses for same-origin resources from a cache.
 // If no response is found, it populates the runtime cache with the response
 // from the network before returning it to the page.
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    // Try to respond with the content from the cache
-    caches.match(event.request).then((cachedResponse) => {
-      // If the network is available, fetch from the network in the background
-      const fetchPromise = fetch(event.request).then((networkResponse) => {
-        // Update the cache with the new response
-        caches.open(CACHE_PREFIX).then((cache) => {
-          cache.put(event.request, networkResponse.clone());
-        });
-        return networkResponse;
-      })
-      .catch(() => cachedResponse); // If network fetch fails, return the cached response
-
-      // Return the cached response immediately, but also fetch from the network in the background
-      return Promise.race([cachedResponse, fetchPromise]);
-    })
+// On fetch, use cache but update the entry with the latest contents from the server.
+self.addEventListener('fetch', function(evt) {
+  console.log('The service worker is serving the asset.');
+  // You can use respondWith() to answer ASAP…
+  evt.respondWith(fromCache(evt.request));
+  // ...and waitUntil() to prevent the worker to be killed until the cache is updated.
+  evt.waitUntil(
+    update(evt.request)
+    // Finally, send a message to the client to inform it about the resource is up to date.
+    .then(refresh)
   );
 });
+
+// Open the cache where the assets were stored and search for the requested resource. Notice that in case of no matching, the promise still resolves but it does with undefined as value.
+function fromCache(request) {
+  return caches.open(RUNTIME).then(function (cache) {
+    return cache.match(request);
+  });
+}
+
+// Update consists in opening the cache, performing a network request and storing the new response data.
+function update(request) {
+  return caches.open(RUNTIME).then(function (cache) {
+    return fetch(request).then(function (response) {
+      return cache.put(request, response.clone()).then(function () {
+        return response;
+      });
+    });
+  });
+}
+
+// Sends a message to the clients.
+function refresh(response) {
+  return self.clients.matchAll().then(function (clients) {
+    clients.forEach(function (client) {
+    // Encode which resource has been updated. By including the ETag the client can check if the content has changed.
+      var message = {
+        type: 'refresh',
+        url: response.url,
+        // Notice not all servers return the ETag header. If this is not provided you should use other cache headers or rely on your own means to check if the content has changed.
+        eTag: response.headers.get('ETag')
+      };
+
+      // Tell the client about the update.
+      client.postMessage(JSON.stringify(message));
+    });
+  });
+}

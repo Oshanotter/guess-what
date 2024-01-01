@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <script>
-    // Get the value of the 'url' parameter from the current URL
-    const urlParam = new URLSearchParams(window.location.search).get('url');
-
-    // If 'url' parameter exists, redirect to that URL
-    if (urlParam) {
-      window.location.replace(urlParam);
-    } else {
-      document.write('No URL parameter found.');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1, initial-scale=1, minimal-ui, viewport-fit=cover">
+    <title>Guess</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap">
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" href="icon.png" />
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  If you are not redirected, <a href="#">click here</a>.
+
+<!-- Button to trigger createOverlay -->
+<button onclick="getGameList('Gen I')">Create Overlay</button>
+
+<script>
+
+    if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js');
+    }
+
+</script>
+<script src="script.js" defer></script>
+
 </body>
 </html>
