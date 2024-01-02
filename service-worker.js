@@ -1,5 +1,4 @@
-const PRECACHE = 'precache-v2';
-const RUNTIME = 'runtime';
+const PRECACHE = 'precache';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
@@ -22,7 +21,7 @@ self.addEventListener('install', event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
-  const currentCaches = [PRECACHE, RUNTIME];
+  const currentCaches = [PRECACHE];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
@@ -34,19 +33,16 @@ self.addEventListener('activate', event => {
   );
 });
 
-// The fetch handler serves responses for same-origin resources from a cache.
-// If no response is found, it populates the runtime cache with the response
-// from the network before returning it to the page.
+
 // On fetch, use cache but update the entry with the latest contents from the server.
 self.addEventListener('fetch', function(evt) {
-  console.log('page loading');
   // You can use respondWith() to answer ASAP…
   evt.respondWith(fromCache(evt.request));
   // ...and waitUntil() to prevent the worker to be killed until the cache is updated.
   evt.waitUntil(
     update(evt.request)
     // Finally, send a message to the client to inform it about the resource is up to date.
-    .then(refresh)
+    //.then(refresh)
   );
 });
 
@@ -59,7 +55,6 @@ function fromCache(request) {
 
 // Update consists in opening the cache, performing a network request and storing the new response data.
 function update(request) {
- console.log("updating cache")
   return caches.open(PRECACHE).then(function (cache) {
     return fetch(request).then(function (response) {
       return cache.put(request, response.clone()).then(function () {
