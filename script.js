@@ -270,7 +270,7 @@ var overlay;
 
 
 
-function installPrompt() {
+
 	
 	
 	// Detects if device is on iOS
@@ -318,4 +318,3 @@ if (isIos() && !isInStandaloneMode()) {
 	
 }
 
-installPrompt()
