@@ -125,7 +125,7 @@ var overlay;
 
     function getGameList(gameName){
         // remove me later v
-        var list = ["Articuno", "Zapdos", "Moltres"]
+        var list = ["Dratini", "Dragonair", "Dragonite"]
         var gamesDict = {}
         gamesDict["Gen I"] = list
         // remove me later ^
