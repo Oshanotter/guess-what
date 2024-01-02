@@ -261,3 +261,61 @@ var overlay;
             }*/
         }, 3000);
     }
+
+
+
+
+
+
+
+
+
+function installPrompt() {
+	
+	
+	// Detects if device is on iOS
+const isIos = () => {
+  const userAgent = window.navigator.userAgent.toLowerCase();
+  return /iphone|ipad|ipod/.test(userAgent);
+}
+
+// Detects if device is in standalone mode
+const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+
+// Check for beforeinstallprompt event for Android
+const beforeInstallPromptEvent = new Promise((resolve) => {
+  window.addEventListener('beforeinstallprompt', (event) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    event.preventDefault();
+    resolve(event);
+  });
+});
+
+// Checks if should display install popup notification:
+if (isIos() && !isInStandaloneMode()) {
+  // Show some text in the div tag to prompt to “add to home screen” for iOS
+  const installPromptDiv = document.createElement('div');
+  installPromptDiv.textContent = 'Add this app to your home screen for a better experience.';
+
+  // Customize the styling and appearance of the div here
+
+  document.body.appendChild(installPromptDiv);
+} else {
+  // For Android devices, show a button to trigger the installation prompt
+  beforeInstallPromptEvent.then((event) => {
+    const installButton = document.createElement('button');
+    installButton.textContent = 'Install App';
+    // Customize the styling and appearance of the button here
+
+    installButton.addEventListener('click', () => {
+      event.prompt();
+    });
+
+    document.body.appendChild(installButton);
+  });
+}
+	
+	
+}
+
+installPrompt()
