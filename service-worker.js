@@ -52,32 +52,10 @@ self.addEventListener('fetch', function(evt) {
 
 // Open the cache where the assets were stored and search for the requested resource. Notice that in case of no matching, the promise still resolves but it does with undefined as value.
 function fromCache(request) {
-  console.log("Fetching from cache");
-
-  return caches.open(RUNTIME)
-    .then((cache) => {
-      return cache.match(request);
-    })
-    .catch((error) => {
-      console.error("Runtime cache error:", error);
-      return runDefault(); // Run the default function if runtime cache fails
-    })
-    .then((response) => {
-      // If response is not found in runtime cache, try precache
-      if (!response) {
-        return caches.open(PRECACHE).then((cache) => {
-          return cache.match(request);
-        });
-      } else {
-        return response;
-      }
-    })
-    .catch((error) => {
-      console.error("Precache cache error:", error);
-      throw error; // Re-throw the error for further handling if needed
-    });
+  return caches.open(PRECACHE).then(function (cache) {
+    return cache.match(request);
+  });
 }
-
 
 // Update consists in opening the cache, performing a network request and storing the new response data.
 function update(request) {
