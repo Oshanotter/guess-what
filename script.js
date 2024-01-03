@@ -324,4 +324,12 @@ function installPrompt() {
 	
 }
 
-window.onload = installPrompt();
+function retry() {
+	try{
+		installPrompt()
+	}catch{
+		setTimeout(installPrompt, 1000)
+	}
+}
+
+retry()
