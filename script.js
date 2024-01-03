@@ -24,6 +24,10 @@ var overlay;
     }
 
     function createOverlay() {
+      // first, make sure that the html tag always stays the same direction
+      document.querySelector("html").classList.add("lockRotation");
+
+      // create the overlay
       overlay = document.createElement('div');
       overlay.id = "overlay";
       overlay.style.height = "100%";
@@ -84,6 +88,8 @@ var overlay;
       exitButton.innerText = '< Back';
       exitButton.addEventListener('click', function () {
           document.body.removeChild(overlay);
+	  // make sure that the html tag is set back to normal
+          document.querySelector("html").classList.remove("lockRotation");
       });
       banner.appendChild(exitButton);
 
