@@ -22,6 +22,50 @@
 
 </script>
 <script src="script.js" defer></script>
+<script>
+    function installPrompt() {
+	
+	// Create a new div element
+	var newDiv = document.createElement('div');
+	
+	// Style the div
+	newDiv.style.position = 'fixed';
+    newDiv.style.top = '50%';
+    newDiv.style.left = '50%';
+    newDiv.style.transform = 'translate(-50%, -50%)';
+    newDiv.style.padding = '10px';
+	newDiv.style.border = '1px solid #0000ff';
+	
+	var theText = document.createElement('p');
+	theText.innerText = "Please install the PWA"
+	newDiv.appendChild(theText)
+	
+	// Style the close button
+	var closeBtn = document.createElement('span');
+	closeBtn.style.cursor = 'pointer';
+	closeBtn.style.float = 'right';
+	closeBtn.innerText = "x"
+	newDiv.appendChild(closeBtn)
+	
+	// Add a click event listener to close the div
+	closeBtn.addEventListener('click', function() {
+	  document.body.removeChild(newDiv);
+	});
+	
+	// Append the div to the body
+	document.body.appendChild(newDiv);
+	
+	if (isiOS){
+		// prompt to install on iOS
+		theText.innerText = "Please install the PWA for iOS"
+	}else{
+		// prompt to install on Android
+		theText.innerText = "Please install the PWA for Android"
+	}
+	
+    }
+    installPrompt()
+</script>
 
 </body>
 </html>
