@@ -17,6 +17,11 @@ var overlay;
         [array[i], array[j]] = [array[j], array[i]];
       }
     }
+    
+    // Check if the user is on an iOS device
+    function isiOS() {
+      return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
 
     function createOverlay() {
       overlay = document.createElement('div');
@@ -177,6 +182,7 @@ var overlay;
 
     function requestPermission() {
         if (window.DeviceOrientationEvent) {
+            if (isIos()){
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
@@ -190,6 +196,10 @@ var overlay;
                     console.error('Error requesting device orientation permission:', error);
                     return false;
                 });
+                }else{
+                    window.addEventListener('deviceorientation', handleOrientation);
+                    return true;
+                    }
         } else {
             return false;
         }
