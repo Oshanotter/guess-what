@@ -287,9 +287,6 @@ function installPrompt() {
 	// Create a new div element
 	var newDiv = document.createElement('div');
 	
-	// Set the content for the div
-	newDiv.innerHTML = '<p>Your text goes here</p><span id="closeBtn">X</span>';
-	
 	// Style the div
 	newDiv.style.position = 'fixed';
     newDiv.style.top = '50%';
@@ -300,6 +297,7 @@ function installPrompt() {
 	
 	var theText = document.createElement('p');
 	theText.innerText = "Please install the PWA"
+	newDiv.appendChild(theText)
 	
 	// Style the close button
 	var closeBtn = document.createElement('span');
