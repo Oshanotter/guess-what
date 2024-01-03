@@ -23,9 +23,13 @@ var overlay;
       return /iPhone|iPad|iPod/i.test(navigator.userAgent);
     }
     
-    // Detects if device is in standalone mode
+    // Detects if iOS device is in standalone mode
     const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
 
+    // Detects is Android device is in standalone mode
+    function isRunningStandalone() {
+      return (window.matchMedia('(display-mode: standalone)').matches);
+    }
 
     function createOverlay() {
       // first, make sure that the html tag always stays the same direction
@@ -328,7 +332,7 @@ function installPrompt() {
 	// Append the div to the body
 	document.body.appendChild(newDiv);
 	
-	if (isiOS() && !isInStandaloneMode()){
+	if (isiOS() && !isRunningStandalone()){
 		// prompt to install on iOS
 		theText.innerHTML = "<p>The experience is better with the App!</p><p>Download it by tapping the share button <img src='https://i.imgur.com/eUbPxhg.png' style='display: inline; height: 10px; width: auto;' alt='img-mail' /> below, then tap on 'Add to Home Screen'</p>"
 		
