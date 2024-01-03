@@ -332,7 +332,7 @@ function installPrompt() {
 		// prompt to install on iOS
 		theText.innerHTML = "<p>The experience is better with the App!</p><p>Download it by tapping the share button <img src='https://i.imgur.com/eUbPxhg.png' style='display: inline; height: 10px; width: auto;' alt='img-mail' /> below, then tap on 'Add to Home Screen'</p>"
 		
-	}else{
+	}else if (!isiOS()){
 		// prompt to install on Android
 		theText.innerText = "Please install the PWA for Android"
 	}
