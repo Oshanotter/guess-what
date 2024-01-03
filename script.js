@@ -25,6 +25,7 @@ var overlay;
 
     function createOverlay() {
       overlay = document.createElement('div');
+      overlay.id = "overlay";
       overlay.style.height = "100%";
       overlay.style.width = "100%";
       overlay.style.overflow = "hidden";
