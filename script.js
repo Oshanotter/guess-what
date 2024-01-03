@@ -182,8 +182,9 @@ var overlay;
 
     function requestPermission() {
         if (window.DeviceOrientationEvent) {
-            if (!isIos()){
+            if (!isiOS()){
                 window.addEventListener('deviceorientation', handleOrientation);
+                return true;
             }
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
