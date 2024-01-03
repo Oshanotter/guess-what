@@ -326,4 +326,6 @@ function installPrompt() {
 	
 }
 
-installPrompt()
+document.addEventListener('DOMContentLoaded', function() {
+    installPrompt();
+});
