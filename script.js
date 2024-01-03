@@ -339,5 +339,5 @@ function retry() {
 		setTimeout(retry, 1000)
 	}
 }
-
+alert("hi there")
 retry()
