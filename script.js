@@ -282,16 +282,46 @@ var overlay;
 
 	
 	
-// Detects if device is on iOS 
-const isIos = () => {
-  const userAgent = window.navigator.userAgent.toLowerCase();
-  return /iphone|ipad|ipod/.test( userAgent );
+function installPrompt() {
+	
+	// Create a new div element
+	var newDiv = document.createElement('div');
+	
+	// Set the content for the div
+	newDiv.innerHTML = '<p>Your text goes here</p><span id="closeBtn">X</span>';
+	
+	// Style the div
+	newDiv.style.position = 'fixed';
+	newDiv.style.top = '10px';
+	newDiv.style.left = '10px';
+	newDiv.style.padding = '10px';
+	newDiv.style.border = '1px solid #0000ff';
+	
+	var theText = document.createElement('p');
+	theText.innerText = "Please install the PWA"
+	
+	// Style the close button
+	var closeBtn = document.createElement('span');
+	closeBtn.style.cursor = 'pointer';
+	closeBtn.style.float = 'right';
+	closeBtn.innerText = "x"
+	newDiv.appendChild(closeBtn)
+	
+	// Add a click event listener to close the div
+	closeBtn.addEventListener('click', function() {
+	  document.body.removeChild(newDiv);
+	});
+	
+	// Append the div to the body
+	document.body.appendChild(newDiv);
+	
+	if (isiOS){
+		// prompt to install on iOS
+		theText.innerText = "Please install the PWA for iOS"
+	}else{
+		// prompt to install on Android
+		theText.innerText = "Please install the PWA for Android"
+	}
+	
 }
-// Detects if device is in standalone mode
-const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
-
-// Checks if should display install popup notification:
-if (isIos() && !isInStandaloneMode()) {
-  //this.setState({ showInstallMessage: true });
-  alert("install the web app")
-}
+installPrompt()
