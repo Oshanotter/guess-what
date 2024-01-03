@@ -182,7 +182,9 @@ var overlay;
 
     function requestPermission() {
         if (window.DeviceOrientationEvent) {
-            if (isIos()){
+            if (!isIos()){
+                window.addEventListener('deviceorientation', handleOrientation);
+            }
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
@@ -196,10 +198,6 @@ var overlay;
                     console.error('Error requesting device orientation permission:', error);
                     return false;
                 });
-                }else{
-                    window.addEventListener('deviceorientation', handleOrientation);
-                    return true;
-                    }
         } else {
             return false;
         }
