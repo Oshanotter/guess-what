@@ -9,6 +9,7 @@ var overlay;
     var passCorrectList = [];
     var cardList = [];
     var currentPosition = "NEUTRAL";
+    var gamesDict;
 
     function shuffleList(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -145,9 +146,9 @@ var overlay;
 
     function getGameList(gameName){
         // remove me later v
-        var list = ["Belsprout", "Weepenbel", "Victreebel"]
-        var gamesDict = {}
-        gamesDict["Gen I"] = list
+        //var list = ["Belsprout", "Weepenbel", "Victreebel"]
+        //var gamesDict = {}
+        //gamesDict["Gen I"] = list
         // remove me later ^
         // get the array from the dictionary
         gameList = gamesDict[gameName];
@@ -285,6 +286,33 @@ var overlay;
             }*/
         }, 3000);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+async function getDictionary(path) {
+  try {
+    // Fetch the JSON file
+    const response = await fetch(path);
+    gamesDict = await response.json();
+
+    // Access and use the data from the JSON file
+    console.log(data);
+
+    
+    
+  } catch (error) {
+    console.error('Error fetching or parsing JSON:', error);
+  }
+}
 
 
 
