@@ -283,37 +283,43 @@ var overlay;
 	
 	
 function installPrompt() {
-	
+	console.log("starting install prompt...")
 	// Create a new div element
 	var newDiv = document.createElement('div');
-	
+
+	console.log("styling...")
 	// Style the div
 	newDiv.style.position = 'fixed';
-    newDiv.style.top = '50%';
-    newDiv.style.left = '50%';
-    newDiv.style.transform = 'translate(-50%, -50%)';
-    newDiv.style.padding = '10px';
+    	newDiv.style.top = '50%';
+    	newDiv.style.left = '50%';
+    	newDiv.style.transform = 'translate(-50%, -50%)';
+    	newDiv.style.padding = '10px';
 	newDiv.style.border = '1px solid #0000ff';
 	
+	console.log("adding text...")
 	var theText = document.createElement('p');
 	theText.innerText = "Please install the PWA"
 	newDiv.appendChild(theText)
-	
+
+	console.log("adding close button...")
 	// Style the close button
 	var closeBtn = document.createElement('span');
 	closeBtn.style.cursor = 'pointer';
 	closeBtn.style.float = 'right';
 	closeBtn.innerText = "x"
 	newDiv.appendChild(closeBtn)
-	
+
+	console.log("adding event listener...")
 	// Add a click event listener to close the div
 	closeBtn.addEventListener('click', function() {
 	  document.body.removeChild(newDiv);
 	});
-	
+
+	console.log("appending to body...")
 	// Append the div to the body
 	document.body.appendChild(newDiv);
-	
+
+	console.log("checking device type...")
 	if (isiOS){
 		// prompt to install on iOS
 		theText.innerText = "Please install the PWA for iOS"
@@ -321,14 +327,16 @@ function installPrompt() {
 		// prompt to install on Android
 		theText.innerText = "Please install the PWA for Android"
 	}
-	
+	console.log("done...")
 }
 
 function retry() {
 	try{
+		console.log("trying...")
 		installPrompt()
 	}catch{
-		setTimeout(installPrompt, 1000)
+		console.log("error upon try. trying again...")
+		setTimeout(retry, 1000)
 	}
 }
 
