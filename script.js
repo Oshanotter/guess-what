@@ -292,9 +292,10 @@ function installPrompt() {
 	
 	// Style the div
 	newDiv.style.position = 'fixed';
-	newDiv.style.top = '10px';
-	newDiv.style.left = '10px';
-	newDiv.style.padding = '10px';
+    newDiv.style.top = '50%';
+    newDiv.style.left = '50%';
+    newDiv.style.transform = 'translate(-50%, -50%)';
+    newDiv.style.padding = '10px';
 	newDiv.style.border = '1px solid #0000ff';
 	
 	var theText = document.createElement('p');
@@ -324,4 +325,5 @@ function installPrompt() {
 	}
 	
 }
+
 installPrompt()
