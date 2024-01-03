@@ -21,7 +21,7 @@ body, html {
         }
 
         @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-          .rotate {
+          .lockRotation {
             transform: rotate(90deg);
             transform-origin: right top;
             width: 100vh;
