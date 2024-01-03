@@ -304,6 +304,9 @@ function installPrompt() {
 	closeBtn.style.cursor = 'pointer';
 	closeBtn.style.float = 'right';
 	closeBtn.innerText = "x"
+	closeBtn.style.position = "relative";
+	closeBtn.style.top = 0;
+	closeBtn.style.left = 0;
 	newDiv.appendChild(closeBtn)
 
 	// Add a click event listener to close the div
