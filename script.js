@@ -302,11 +302,11 @@ function installPrompt() {
 	// Style the close button
 	var closeBtn = document.createElement('span');
 	closeBtn.style.cursor = 'pointer';
-	closeBtn.style.float = 'right';
 	closeBtn.innerText = "x"
-	closeBtn.style.position = "relative";
+	closeBtn.style.position = "absolute";
 	closeBtn.style.top = 0;
 	closeBtn.style.left = 0;
+	closeBtn.style.display = "flex";
 	newDiv.appendChild(closeBtn)
 
 	// Add a click event listener to close the div
