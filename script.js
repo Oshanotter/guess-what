@@ -369,7 +369,7 @@ function buildGamePreview(title, description) {
 	chooseTimeText.innerText = "Game Timer Options"
 	timeOptionsDiv.appendChild(chooseTimeText);
 	var theOptions = document.createElement('div');
-	theOptions.className = "gamePreview"
+	theOptions.className = "gamePreview";
 	theOptions.style.display = 'flex';
 	theOptions.style.flexDirection = 'row';
 	theOptions.style.justifyContent = 'center';
@@ -377,16 +377,17 @@ function buildGamePreview(title, description) {
 	
 	// Create options (60s, 90s, 120s)
 	const timeOptions = [60, 90, 120];
-	timeOptions.className = "gamePreview"
+	timeOptions.className = "gamePreview";
 	timeOptions.forEach((option) => {
 	    optionDiv = document.createElement('div');
-	    optionDiv.className = "gamePreview"
+	    optionDiv.className = "gamePreview";
 	    optionDiv.textContent = option + "s";
 	    optionDiv.style.cursor = 'pointer';
 	    optionDiv.style.paddingLeft = '10%'; // Add margin to separate options
 	    optionDiv.style.paddingRight = '10%';
 	    optionDiv.style.paddingTop = '3%';
 	    optionDiv.style.paddingBottom = '3%';
+	    optionDiv.style.borderRadius = "999px";
 	    if (defaultTimer == option){
 		    optionDiv.classList.add('selectedTimer');
 	    }
@@ -395,11 +396,12 @@ function buildGamePreview(title, description) {
 	        roundTimer = option;
 		// Find all elements with the class name 'selectedTimer'
 		const selectedTimers = document.getElementsByClassName('selectedTimer');
-		
+		console.log(selectedTimers)
 		// Loop through the collection and remove the 'selectedTimer' class from each element
 		for (let i = 0; i < selectedTimers.length; i++) {
 		    const element = selectedTimers[i];
 		    element.classList.remove('selectedTimer');
+		    console.log(i)
 		}
 		optionDiv.classList.add('selectedTimer');
 	    });
@@ -441,7 +443,7 @@ function buildGamePreview(title, description) {
 	});
 	
 	mainDiv.style.borderRadius = "2vmin";
-	timeOptionsDiv.style.borderRadius = "3vmin";
+	timeOptionsDiv.style.borderRadius = "999px";
 	
 	// Append created elements to the main container
 	mainDiv.appendChild(closeButton);
