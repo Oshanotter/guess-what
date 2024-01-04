@@ -40,11 +40,19 @@ body, html {
 
         }
 
-        div {
+        div:not(.gamePreview) {
           display: flex;
           justify-content: center;
           align-items: center;
           text-align: center;
+        }
+
+        .gamePreview {
+          background-color: inherit;
+        }
+
+        .selectedTimer {
+                  background-color: blue;
         }
 
         span {
