@@ -49,7 +49,6 @@ var overlay;
       overlay.style.overflow = "hidden";
       overlay.style.top = "0";
       overlay.style.position = "fixed";
-    console.log("1")
 
       resultsPage = document.createElement('div');
       resultsPage.style.height = "85%";
@@ -59,7 +58,6 @@ var overlay;
       resultsPage.style.alignItems = "flex-start"
       resultsPage.style.backgroundColor = "yellow";
       overlay.appendChild(resultsPage);
-    console.log("2")
 
       var banner = document.createElement('div');
       banner.style.backgroundColor = "blue";
@@ -68,7 +66,6 @@ var overlay;
       banner.style.position = "absolute";
       banner.style.top = "0";
       overlay.appendChild(banner);
-    console.log("3")
 
       var circle = document.createElement('div');
       circle.id = "circle"
@@ -84,7 +81,6 @@ var overlay;
       circle.style.fontSize = "240%";
       circle.style.fontWeight = "bold";
       banner.appendChild(circle);
-    console.log("4")
 
       startText = document.createElement('div');
       startText.innerText = "Get Ready\n5";
@@ -96,7 +92,6 @@ var overlay;
       startText.style.top = "20%";
       startText.style.textAlign = "center";
       overlay.appendChild(startText);
-    console.log("5")
 
       const exitButton = document.createElement('div');
       exitButton.style.top = "30%"
@@ -111,10 +106,8 @@ var overlay;
           document.querySelector("html").classList.remove("lockRotation");
       });
       banner.appendChild(exitButton);
-    console.log("6")
 
       document.body.appendChild(overlay);
-    console.log("7")
 
       getReady(6);
     }
@@ -399,6 +392,7 @@ function buildGamePreview(title, description) {
 	    optionDiv.style.borderRadius = "999px";
 	    if (defaultTimer == option){
 		    optionDiv.classList.add('selectedTimer');
+            roundTimer = defaultTimer;
 	    }
 	    optionDiv.addEventListener('click', () => {
 	        // Execute function based on the selected option
