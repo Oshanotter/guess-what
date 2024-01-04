@@ -10,6 +10,7 @@ var overlay;
     var cardList = [];
     var currentPosition = "NEUTRAL";
     var gamesDict;
+    defaultTimer = 120;
 
     function shuffleList(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -72,7 +73,7 @@ var overlay;
       circle.style.left = "50%";
       circle.style.position = "absolute";
       circle.style.transform = "translate(-50%, -50%)";
-      circle.innerText = '120';
+      circle.innerText = defaultTimer;
       circle.style.fontSize = "240%";
       circle.style.fontWeight = "bold";
       banner.appendChild(circle);
@@ -138,7 +139,7 @@ var overlay;
 
     function startGame(){
         // start the game timer
-        startTimer(10);
+        startTimer(10); // change 10 to defaultTimer
         listNum = 0;
         startText.innerText = gameList[listNum];
         allowColorChange = true;
@@ -153,7 +154,7 @@ var overlay;
         // get the array from the dictionary
         gameList = gamesDict[gameName];
         shuffleList(gameList);
-        requestPermission();
+        //requestPermission();
         createOverlay();
     }
 
@@ -302,18 +303,152 @@ async function getDictionary(path) {
   try {
     // Fetch the JSON file
     const response = await fetch(path);
-    gamesDict = await response.json();
+    collectionDict = await response.json();
+    gamesDict = collectionDict["games"];
 
-    // Access and use the data from the JSON file
-    console.log(data);
-
-    
-    
+    var title = collectionDict["title"];
+    var description = collectionDict["description"];
+    requestPermission()
+    buildGamePreview(title, description);
+	  
   } catch (error) {
     console.error('Error fetching or parsing JSON:', error);
   }
 }
 
+function buildGamePreview(title, description) {
+	// build the screen to confirm to play the game
+	// Create main container div
+	const mainDiv = document.createElement('div');
+	mainDiv.className = "gamePreview"
+	mainDiv.style.position = 'absolute';
+	mainDiv.style.top = '50%';
+	mainDiv.style.left = '50%';
+	mainDiv.style.transform = 'translate(-50%, -50%)';
+	mainDiv.style.width = '95%';
+	mainDiv.style.border = '1px solid #ccc';
+	mainDiv.style.padding = '10px';
+	mainDiv.style.backgroundColor = 'grey';
+	mainDiv.style.textAlign = 'center';
+	
+	
+	// Create close button in the top left
+	const closeButton = document.createElement('div');
+	closeButton.className = "gamePreview"
+	closeButton.textContent = 'x';
+	closeButton.style.position = 'absolute';
+	closeButton.style.top = '3%';
+	closeButton.style.left = '5%';
+	closeButton.style.cursor = 'pointer';
+	closeButton.addEventListener('click', () => {
+	    mainDiv.remove();
+	});
+	
+	// Create title
+	const titleDiv = document.createElement('div');
+	titleDiv.className = "gamePreview"
+	titleDiv.textContent = title;
+	titleDiv.style.fontWeight = 'bold';
+	titleDiv.style.fontSize = "200%"
+	
+	
+	// Create time options div
+	const timeOptionsDiv = document.createElement('div');
+	timeOptionsDiv.className = "gamePreview"
+	timeOptionsDiv.style.display = 'flex'; // Set display to flex
+	timeOptionsDiv.style.backgroundColor = 'lightblue'; // Set light blue background color
+	timeOptionsDiv.style.flexDirection = 'column';
+	timeOptionsDiv.style.fontSize = "150%";
+	
+	var chooseTimeText = document.createElement('div');
+	chooseTimeText.className = "gamePreview"
+	chooseTimeText.innerText = "Game Timer Options"
+	timeOptionsDiv.appendChild(chooseTimeText);
+	var theOptions = document.createElement('div');
+	theOptions.className = "gamePreview"
+	theOptions.style.display = 'flex';
+	theOptions.style.flexDirection = 'row';
+	theOptions.style.justifyContent = 'center';
+	timeOptionsDiv.appendChild(theOptions);
+	
+	// Create options (60s, 90s, 120s)
+	const timeOptions = [60, 90, 120];
+	timeOptions.className = "gamePreview"
+	timeOptions.forEach((option) => {
+	    optionDiv = document.createElement('div');
+	    optionDiv.className = "gamePreview"
+	    optionDiv.textContent = option + "s";
+	    optionDiv.style.cursor = 'pointer';
+	    optionDiv.style.paddingLeft = '10%'; // Add margin to separate options
+	    optionDiv.style.paddingRight = '10%';
+	    optionDiv.style.paddingTop = '3%';
+	    optionDiv.style.paddingBottom = '3%';
+	    if (defaultTimer == option){
+		    optionDiv.classList.add('selectedTimer');
+	    }
+	    optionDiv.addEventListener('click', () => {
+	        // Execute function based on the selected option
+	        roundTimer = option;
+		// Find all elements with the class name 'selectedTimer'
+		const selectedTimers = document.getElementsByClassName('selectedTimer');
+		
+		// Loop through the collection and remove the 'selectedTimer' class from each element
+		for (let i = 0; i < selectedTimers.length; i++) {
+		    const element = selectedTimers[i];
+		    element.classList.remove('selectedTimer');
+		}
+		optionDiv.classList.add('selectedTimer');
+	    });
+	    theOptions.appendChild(optionDiv);
+	});
+	
+	// Create description div
+	const description = document.createElement('div');
+	description.className = "gamePreview"
+	description.innerText = description
+
+	const gridDiv = document.createElement('div');
+	gridDiv.className = "gamePreview";
+	var theKeys = Object.keys(gamesDict);
+	if (theKeys.length > 1){
+		// add a "Play All" option
+		
+	}
+	for (const key in gamesDict){
+		
+	}
+	
+	// Create grid of div tags with titles and functions
+
+	
+	theKeys.forEach((key) => {
+	    const gridItemDiv = document.createElement('div');
+	    gridItemDiv.textContent = item.title;
+	    gridItemDiv.style.border = '1px solid #ddd';
+	    gridItemDiv.style.padding = '5px';
+	    gridItemDiv.style.margin = '5px';
+	    gridItemDiv.style.cursor = 'pointer';
+	    gridItemDiv.addEventListener('click', function() {
+		  getGameList(key);
+	    });
+	    gridItemDiv.style.borderRadius = "1vmin";
+	    gridItemDiv.id = "gamePreview"
+	    gridDiv.appendChild(gridItemDiv);
+	});
+	
+	mainDiv.style.borderRadius = "2vmin";
+	timeOptionsDiv.style.borderRadius = "999px";
+	
+	// Append created elements to the main container
+	mainDiv.appendChild(closeButton);
+	mainDiv.appendChild(titleDiv);
+	mainDiv.appendChild(description);
+	mainDiv.appendChild(timeOptionsDiv);
+	mainDiv.appendChild(gridDiv);
+	
+	// Append main container to the body
+	document.body.appendChild(mainDiv);
+}
 
 
 
