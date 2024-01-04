@@ -73,7 +73,7 @@ var overlay;
       circle.style.left = "50%";
       circle.style.position = "absolute";
       circle.style.transform = "translate(-50%, -50%)";
-      circle.innerText = defaultTimer;
+      circle.innerText = roundTimer;
       circle.style.fontSize = "240%";
       circle.style.fontWeight = "bold";
       banner.appendChild(circle);
@@ -139,7 +139,7 @@ var overlay;
 
     function startGame(){
         // start the game timer
-        startTimer(10); // change 10 to defaultTimer
+        startTimer(10); // change 10 to roundTimer
         listNum = 0;
         startText.innerText = gameList[listNum];
         allowColorChange = true;
@@ -329,7 +329,7 @@ function buildGamePreview(title, description) {
 	mainDiv.style.top = '50%';
 	mainDiv.style.left = '50%';
 	mainDiv.style.transform = 'translate(-50%, -50%)';
-	mainDiv.style.width = '95%';
+	mainDiv.style.width = '85%';
 	mainDiv.style.border = '1px solid #ccc';
 	mainDiv.style.padding = '10px';
 	mainDiv.style.backgroundColor = 'grey';
@@ -441,7 +441,7 @@ function buildGamePreview(title, description) {
 	});
 	
 	mainDiv.style.borderRadius = "2vmin";
-	timeOptionsDiv.style.borderRadius = "999px";
+	timeOptionsDiv.style.borderRadius = "3vmin";
 	
 	// Append created elements to the main container
 	mainDiv.appendChild(closeButton);
