@@ -312,9 +312,14 @@ function getDictionary(path) {
     .then(collectionDict => {
       var title = collectionDict["title"];
       var description = collectionDict["description"];
+      gamesDict = collectionDict["games"];
+      console.log("the dictionary is below")
       console.log(collectionDict);
-
+      console.log("requesting permission")
       requestPermission();
+      console.log(title)
+      console.log(description)
+      console.log("building game preview")
       buildGamePreview(title, description);
     })
     .catch(error => console.error('Error fetching or parsing JSON:', error));
