@@ -306,24 +306,18 @@ var overlay;
 
 
 
-async function getDictionary(path) {
-  try {
-    // Fetch the JSON file
-    const response = await fetch(path);
-    collectionDict = await response.json();
-    gamesDict = collectionDict["games"];
-    console.log(collectionDict)
+function getDictionary(path) {
+  fetch(path)
+    .then(response => response.json())
+    .then(collectionDict => {
+      var title = collectionDict["title"];
+      var description = collectionDict["description"];
+      console.log(collectionDict);
 
-    var title = collectionDict["title"];
-    var description = collectionDict["description"];
-    console.log("requesting permission")
-    requestPermission()
-    console.log("done requesting permission")
-    buildGamePreview(title, description);
-	  
-  } catch (error) {
-    console.error('Error fetching or parsing JSON:', error);
-  }
+      requestPermission();
+      buildGamePreview(title, description);
+    })
+    .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
 function buildGamePreview(title, description) {
