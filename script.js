@@ -401,8 +401,10 @@ function buildGamePreview(title, description) {
 		for (let i = 0; i < selectedTimers.length; i++) {
 		    const element = selectedTimers[i];
 		    element.classList.remove('selectedTimer');
+            console.log(element)
 		    console.log(i)
 		}
+        console.log(optionDiv)
 		optionDiv.classList.add('selectedTimer');
 	    });
 	    theOptions.appendChild(optionDiv);
