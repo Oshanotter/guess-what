@@ -32,6 +32,10 @@ var overlay;
     function isRunningStandalone() {
       return (window.matchMedia('(display-mode: standalone)').matches);
     }
+    
+    function removeDuplicates(inputList) {
+      return [...new Set(inputList)];
+    }
 
     function createOverlay() {
       // first, make sure that the html tag always stays the same direction
@@ -414,10 +418,11 @@ function buildGamePreview(title, description) {
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
-	var theKeys = Object.keys(gamesDict);
+    theKeys = Object.keys(gamesDict);
 	if (theKeys.length > 1){
 		// add a "Play All" option
-		
+		var playAll = addPlayAllOption();
+        gridDiv.appendChild(playAll);
 	}
 	for (const key in gamesDict){
 		
@@ -437,7 +442,7 @@ function buildGamePreview(title, description) {
 		  getGameList(key);
 	    });
 	    gridItemDiv.style.borderRadius = "1vmin";
-	    gridItemDiv.id = "gamePreview"
+	    gridItemDiv.className = "gamePreview"
 	    gridDiv.appendChild(gridItemDiv);
 	});
 	
@@ -456,6 +461,32 @@ function buildGamePreview(title, description) {
 }
 
 
+function addPlayAllOption() {
+        const gridItemDiv = document.createElement('div');
+	    gridItemDiv.textContent = "Play All Sets";
+	    gridItemDiv.style.border = '1px solid #ddd';
+	    gridItemDiv.style.padding = '5px';
+	    gridItemDiv.style.margin = '5px';
+	    gridItemDiv.style.cursor = 'pointer';
+	    gridItemDiv.addEventListener('click', function() {
+		  getAllGames();
+	    });
+	    gridItemDiv.style.borderRadius = "1vmin";
+	    gridItemDiv.className = "gamePreview"
+	    return gridItemDiv;
+}
+
+function getAllGames() {
+    var theList = []
+    theKeys.forEach((key) => {
+        var set = gamesDict[key];
+        theList = theList.concat(set);
+    });
+    removeDuplicates(theList);
+    shuffleList(theList);
+    gameList = theList;
+    createOverlay();
+}
 
 
 
