@@ -211,12 +211,15 @@ var overlay;
                 .then(permissionState => {
                     if (permissionState === 'granted') {
                         window.addEventListener('deviceorientation', handleOrientation);
+                        console.log("permission granted")
                         return true;
                     } else {
+                        console.log("permission denied")
                         return false;
                     }
                 })
                 .catch(error => {
+                    console.log("there was an error")
                     console.error('Error requesting device orientation permission:', error);
                     return false;
                 });
@@ -313,7 +316,9 @@ async function getDictionary(path) {
 
     var title = collectionDict["title"];
     var description = collectionDict["description"];
+    console.log("requesting permission")
     requestPermission()
+    console.log("done requesting permission")
     buildGamePreview(title, description);
 	  
   } catch (error) {
