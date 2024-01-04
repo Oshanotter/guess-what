@@ -327,6 +327,7 @@ async function getDictionary(path) {
 }
 
 function buildGamePreview(title, description) {
+    requestPermission();
 	// build the screen to confirm to play the game
 	// Create main container div
 	const mainDiv = document.createElement('div');
