@@ -427,7 +427,7 @@ function buildGamePreview(title, description) {
 	
 	theKeys.forEach((key) => {
 	    const gridItemDiv = document.createElement('div');
-	    gridItemDiv.textContent = item.title;
+	    gridItemDiv.textContent = key;
 	    gridItemDiv.style.border = '1px solid #ddd';
 	    gridItemDiv.style.padding = '5px';
 	    gridItemDiv.style.margin = '5px';
