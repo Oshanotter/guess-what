@@ -403,9 +403,9 @@ function buildGamePreview(title, description) {
 	});
 	
 	// Create description div
-	const description = document.createElement('div');
-	description.className = "gamePreview"
-	description.innerText = description
+	const descriptionDiv = document.createElement('div');
+	descriptionDiv.className = "gamePreview"
+	descriptionDiv.innerText = description
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
@@ -442,7 +442,7 @@ function buildGamePreview(title, description) {
 	// Append created elements to the main container
 	mainDiv.appendChild(closeButton);
 	mainDiv.appendChild(titleDiv);
-	mainDiv.appendChild(description);
+	mainDiv.appendChild(descriptionDiv);
 	mainDiv.appendChild(timeOptionsDiv);
 	mainDiv.appendChild(gridDiv);
 	
