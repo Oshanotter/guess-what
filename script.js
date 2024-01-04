@@ -158,7 +158,7 @@ var overlay;
         // get the array from the dictionary
         gameList = gamesDict[gameName];
         shuffleList(gameList);
-        //requestPermission();
+        requestPermission();
         createOverlay();
     }
 
@@ -327,7 +327,6 @@ async function getDictionary(path) {
 }
 
 function buildGamePreview(title, description) {
-    requestPermission();
 	// build the screen to confirm to play the game
 	// Create main container div
 	const mainDiv = document.createElement('div');
