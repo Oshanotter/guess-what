@@ -305,11 +305,15 @@ async function getDictionary(path) {
     const response = await fetch(path);
     collectionDict = await response.json();
     gamesDict = collectionDict["games"];
+    console.log(collectionDict)
 
     var title = collectionDict["title"];
     var description = collectionDict["description"];
+    console.log(title)
+    console.log(description)
     requestPermission()
     buildGamePreview(title, description);
+    console.log("done building game")
 	  
   } catch (error) {
     console.error('Error fetching or parsing JSON:', error);
