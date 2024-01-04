@@ -381,6 +381,7 @@ function buildGamePreview(title, description) {
 	timeOptions.forEach((option) => {
 	    optionDiv = document.createElement('div');
 	    optionDiv.className = "gamePreview";
+        optionDiv.classList.add('timerOption');
 	    optionDiv.textContent = option + "s";
 	    optionDiv.style.cursor = 'pointer';
 	    optionDiv.style.paddingLeft = '10%'; // Add margin to separate options
@@ -395,12 +396,16 @@ function buildGamePreview(title, description) {
 	        // Execute function based on the selected option
 	        roundTimer = option;
 		// Find all elements with the class name 'selectedTimer'
-		const selectedTimers = document.getElementsByClassName('selectedTimer');
+		const selectedTimers = document.getElementsByClassName('timerOption');
 		console.log(selectedTimers)
 		// Loop through the collection and remove the 'selectedTimer' class from each element
 		for (let i = 0; i < selectedTimers.length; i++) {
 		    const element = selectedTimers[i];
-		    element.classList.remove('selectedTimer');
+            if (element.innerText == option+'s'){
+                element.classList.add('selectedTimer');
+            }else{
+    		    element.classList.remove('selectedTimer');
+            }
             console.log(element)
 		    console.log(i)
 		}
