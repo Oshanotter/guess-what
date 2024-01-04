@@ -1,5 +1,9 @@
 {
-  "Gen I": ["Bulbasaur", "Charmander", "Squirtle"],
-  "Gen II": ["Chikorita", "Cyndaquil", "Totodile"],
-  "Gen III": ["Treecko", "Torchic", "Mudkip"]
+  "title": "Pokémon",
+  "description": "A collection of Pokémon from all throughout every generation.",
+  "games": {
+    "Gen I": ["Bulbasaur", "Charmander", "Squirtle"],
+    "Gen II": ["Chikorita", "Cyndaquil", "Totodile"],
+    "Gen III": ["Treecko", "Torchic", "Mudkip"]
+  }
 }
