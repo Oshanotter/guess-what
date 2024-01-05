@@ -114,6 +114,8 @@ var overlay;
     function getReady(countdown){
         // start counting down to get ready
         if (countdown == 1){
+            passCorrectList = [];
+            cardList = [];
             startGame();
         }else{
             var newNum = countdown - 1;
@@ -163,10 +165,6 @@ var overlay;
 
     function handleOrientation(event) {
         if (!allowColorChange){
-            if (typeof passCorrectList == 'undefined' || typeof cardList == 'undefined') {
-                passCorrectList = [];
-                cardList = [];
-            }
             return;
         }
         if (event.gamma > -50 && event.gamma < 0) {
@@ -263,11 +261,14 @@ var overlay;
 
             resultsPage.style.overflowY = "auto";
             overlay.removeChild(startText);
+            
+            var totalPoints = 0;
 
             for (var i = 0; i < passCorrectList.length; i++){
                 var card = cardList[i];
                 if (passCorrectList[i] == "CORRECT"){
                     var color = "green";
+                    var totalPoints += 1;
                 }else{
                     var color = "red";
                 }
@@ -283,13 +284,7 @@ var overlay;
                     rightCol.appendChild(text)
                 }
             }
-            /*
-            if (cardList.length % 2 == 1){
-                // add another card to the right column to make them even
-                var text = document.createElement('span');
-                text.innerText = "hi there, this is some very, extra long text";
-                rightCol.appendChild(text);
-            }*/
+            circle.innerText = totalPoints;
         }, 3000);
     }
 
