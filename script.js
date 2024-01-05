@@ -327,6 +327,16 @@ function getDictionary(path) {
 
 function buildGamePreview(title, description) {
 	// build the screen to confirm to play the game
+    // first create a blank div tag to prevent background items from being clicked
+    preventInput = document.createElement('div');
+    preventInput.style.height = "100%";
+    preventInput.style.width = "100%";
+    preventInput.style.overflow = "hidden";
+    preventInput.style.top = "0";
+    preventInput.style.position = "fixed";
+    preventInput.style.backgroundColor = "rgba(255, 0, 0, 0)";
+    document.body.appendChild(preventInput);
+    
 	// Create main container div
 	const mainDiv = document.createElement('div');
 	mainDiv.className = "gamePreview"
@@ -351,6 +361,7 @@ function buildGamePreview(title, description) {
 	closeButton.style.cursor = 'pointer';
 	closeButton.addEventListener('click', () => {
 	    mainDiv.remove();
+        preventInput.remove();
 	});
 	
 	// Create title
