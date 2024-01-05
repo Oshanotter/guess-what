@@ -8,7 +8,8 @@ const PRECACHE_URLS = [
   'script.js', 
   'manifest.json',
   'icon.png',
-  'pokemon.json'
+  'pokemon.json',
+  'test.json'
 ];
 
 // The install handler takes care of precaching the resources we always need.
