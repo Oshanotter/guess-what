@@ -101,17 +101,23 @@ var overlay;
       exitButton.innerText = '< Back';
       exitButton.addEventListener('click', function () {
           document.body.removeChild(overlay);
-	  // make sure that the html tag is set back to normal
+	      // make sure that the html tag is set back to normal
           document.querySelector("html").classList.remove("lockRotation");
+          // set the gameCancled variable to true to stop the countdown timers
+          gameCancled = true;
       });
       banner.appendChild(exitButton);
 
       document.body.appendChild(overlay);
 
+      gameCancled = false;
       getReady(6);
     }
 
     function getReady(countdown){
+        if (gameCancled){
+            return;
+        }
         // start counting down to get ready
         if (countdown == 1){
             passCorrectList = [];
@@ -127,6 +133,9 @@ var overlay;
     }
 
     function startTimer(countdown){
+        if (gameCancled){
+            return;
+        }
         // start the game timer
         if (countdown == 1){
             circle.innerText = "0";
