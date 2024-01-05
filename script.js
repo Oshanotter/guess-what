@@ -206,7 +206,6 @@ var overlay;
                 window.addEventListener('deviceorientation', handleOrientation);
                 return true;
             }
-            alert("this is an apple device")
             DeviceOrientationEvent.requestPermission()
                 .then(permissionState => {
                     if (permissionState === 'granted') {
