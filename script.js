@@ -222,6 +222,7 @@ var overlay;
                 })
                 .catch(error => {
                     alert("there was an error")
+                    alert(error)
                     console.error('Error requesting device orientation permission:', error);
                     return false;
                 });
