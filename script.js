@@ -268,7 +268,7 @@ var overlay;
                 var card = cardList[i];
                 if (passCorrectList[i] == "CORRECT"){
                     var color = "green";
-                    var totalPoints += 1;
+                    totalPoints++;
                 }else{
                     var color = "red";
                 }
