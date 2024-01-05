@@ -310,6 +310,7 @@ var overlay;
 
 
 function getDictionary(path) {
+  requestPermission();
   fetch(path)
     .then(response => response.json())
     .then(collectionDict => {
@@ -319,7 +320,7 @@ function getDictionary(path) {
       console.log("the dictionary is below")
       console.log(collectionDict);
       console.log("requesting permission")
-      requestPermission();
+      //requestPermission();
       console.log(title)
       console.log(description)
       console.log("building game preview")
