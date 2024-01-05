@@ -1,0 +1,7 @@
+{
+  "title": "Test",
+  "description": "This is a set that is just a test./nHere is another line if text.",
+  "games": {
+    "Play": ["Test Phrase 1", "Test Phrase 2", "Test Phrase 3"]
+  }
+}
