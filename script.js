@@ -213,15 +213,15 @@ var overlay;
                 .then(permissionState => {
                     if (permissionState === 'granted') {
                         window.addEventListener('deviceorientation', handleOrientation);
-                        console.log("permission granted")
+                        alert("permission granted")
                         return true;
                     } else {
-                        console.log("permission denied")
+                        alert("permission denied")
                         return false;
                     }
                 })
                 .catch(error => {
-                    console.log("there was an error")
+                    alert("there was an error")
                     console.error('Error requesting device orientation permission:', error);
                     return false;
                 });
