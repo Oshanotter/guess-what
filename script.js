@@ -1,5 +1,4 @@
-//screen.orientation.lock("landscape");
-
+// initalize some variables
 var overlay;
     var resultsPage;
     var startText;
@@ -10,7 +9,7 @@ var overlay;
     var cardList = [];
     var currentPosition = "NEUTRAL";
     var gamesDict;
-    defaultTimer = 120;
+    defaultTimer = 60;
 
     function shuffleList(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -204,7 +203,6 @@ var overlay;
     function requestPermission() {
         if (window.DeviceOrientationEvent) {
             if (!isiOS()){
-                alert("not an apple device")
                 window.addEventListener('deviceorientation', handleOrientation);
                 return true;
             }
@@ -213,16 +211,14 @@ var overlay;
                 .then(permissionState => {
                     if (permissionState === 'granted') {
                         window.addEventListener('deviceorientation', handleOrientation);
-                        alert("permission granted")
+                        console.log("permission granted")
                         return true;
                     } else {
-                        alert("permission denied")
+                        console.log("permission denied")
                         return false;
                     }
                 })
                 .catch(error => {
-                    alert("there was an error")
-                    alert(error)
                     console.error('Error requesting device orientation permission:', error);
                     return false;
                 });
@@ -310,7 +306,9 @@ var overlay;
 
 
 function getDictionary(path) {
+  //first, request permission to use the device's orientation
   requestPermission();
+  // get the JSON file from the path
   fetch(path)
     .then(response => response.json())
     .then(collectionDict => {
@@ -320,7 +318,6 @@ function getDictionary(path) {
       console.log("the dictionary is below")
       console.log(collectionDict);
       console.log("requesting permission")
-      //requestPermission();
       console.log(title)
       console.log(description)
       console.log("building game preview")
