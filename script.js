@@ -105,6 +105,7 @@ var overlay;
           document.querySelector("html").classList.remove("lockRotation");
           // set the gameCancled variable to true to stop the countdown timers
           gameCancled = true;
+          allowColorChange = false;
       });
       banner.appendChild(exitButton);
 
