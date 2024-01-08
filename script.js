@@ -439,6 +439,8 @@ function buildGamePreview(title, description) {
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
+    gridDiv.style.height = "40%";
+    gridDiv.style.overflowY = "auto";
     theKeys = Object.keys(gamesDict);
 	if (theKeys.length > 1){
 		// add a "Play All" option
