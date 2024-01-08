@@ -10,7 +10,7 @@ body, html {
           -moz-user-select: none;
           -ms-user-select: none;
           user-select: none;
-          touch-action: manipulation;
+          touch-action: none; /*manipulation;*/
         }
 
         @media (prefers-color-scheme: dark) {
