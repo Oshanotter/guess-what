@@ -441,7 +441,7 @@ function buildGamePreview(title, description) {
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
-    gridDiv.style.height = "100%";
+    gridDiv.style.height = "50%";
     gridDiv.style.overflowY = "auto";
     theKeys = Object.keys(gamesDict);
 	if (theKeys.length > 1){
