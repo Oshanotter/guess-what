@@ -445,13 +445,11 @@ function buildGamePreview(title, description) {
 		var playAll = addPlayAllOption();
         gridDiv.appendChild(playAll);
 	}
-	for (const key in gamesDict){
-		
-	}
+
+    var gamesGrid = document.createElement('div');
+    gamesGrid.className = "grid";
 	
 	// Create grid of div tags with titles and functions
-
-	
 	theKeys.forEach((key) => {
 	    const gridItemDiv = document.createElement('div');
 	    gridItemDiv.textContent = key;
@@ -464,8 +462,10 @@ function buildGamePreview(title, description) {
 	    });
 	    gridItemDiv.style.borderRadius = "1vmin";
 	    gridItemDiv.className = "gamePreview"
-	    gridDiv.appendChild(gridItemDiv);
+	    gamesGrid.appendChild(gridItemDiv);
 	});
+    
+    gridDiv.appendChild(gamesGrid);
 	
 	mainDiv.style.borderRadius = "2vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
