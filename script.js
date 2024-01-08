@@ -532,7 +532,7 @@ function installPrompt() {
 	// add default text
 	var theText = document.createElement('p');
 	theText.innerText = "Please install the PWA"
-	newDiv.appendChild(theText)
+	newDiv.appendChild(theText);
 
 	// Style the close button
 	var closeBtn = document.createElement('span');
@@ -558,7 +558,14 @@ function installPrompt() {
 		
 	}else if (!isiOS()){
 		// prompt to install on Android
-		theText.innerText = "Please install the PWA for Android"
+		theText.innerText = "Please install the PWA for Android";
+        var installBtn = document.createElement('div');
+        installBtn.innerText = "Install";
+        installBtn.addEventListener('click', function() {
+    	  // install the PWA
+          
+    	});
+        newDiv.appendChild(installBtn);
 	}
 }
 installPrompt()
