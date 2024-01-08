@@ -345,6 +345,7 @@ function buildGamePreview(title, description) {
 	// Create main container div
 	const mainDiv = document.createElement('div');
 	mainDiv.className = "gamePreview"
+    mainDiv.classList.add('mainGamePreview');
 	mainDiv.style.position = 'absolute';
 	mainDiv.style.top = '50%';
 	mainDiv.style.left = '50%';
