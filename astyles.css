@@ -77,4 +77,14 @@ body, html {
                   grid-template-columns: repeat(3, 1fr);
                   gap: 10px;
                 }
+                
+                .mainGamePreview {
+                        height: 80%;
+                }
+        }
+        
+        @media screen and (orientation:portrait) {
+                .mainGamePreview {
+                        height: 50%;
+                }
         }
