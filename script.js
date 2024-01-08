@@ -355,6 +355,7 @@ function buildGamePreview(title, description) {
 	mainDiv.style.padding = '10px';
 	mainDiv.style.backgroundColor = 'grey';
 	mainDiv.style.textAlign = 'center';
+    mainDiv.style.overflowY = "hidden";
 	
 	
 	// Create close button in the top left
