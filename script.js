@@ -448,6 +448,7 @@ function buildGamePreview(title, description) {
 
     var gamesGrid = document.createElement('div');
     gamesGrid.className = "gamePreview";
+    gamesGrod.classList.add('grid');
 	
 	// Create grid of div tags with titles and functions
 	theKeys.forEach((key) => {
