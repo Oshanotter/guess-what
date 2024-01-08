@@ -70,3 +70,11 @@ body, html {
           margin-bottom: 5px;
           width: 100%;
         }
+        
+        @media screen and (orientation:landscape) {
+                .grid {
+                  display: grid;
+                  grid-template-columns: repeat(3, 1fr);
+                  gap: 10px;
+                }
+        }
