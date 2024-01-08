@@ -563,7 +563,7 @@ function installPrompt() {
         installBtn.innerText = "Install";
         installBtn.addEventListener('click', function() {
     	  // install the PWA
-          
+          deferredPrompt.prompt();
     	});
         newDiv.appendChild(installBtn);
 	}
