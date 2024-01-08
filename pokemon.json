@@ -4,6 +4,12 @@
   "games": {
     "Gen I": ["Bulbasaur", "Charmander", "Squirtle"],
     "Gen II": ["Chikorita", "Cyndaquil", "Totodile"],
-    "Gen III": ["Treecko", "Torchic", "Mudkip"]
+    "Gen III": ["Treecko", "Torchic", "Mudkip"],
+    "Gen IV": ["Turtwig", "Chimchar", "Piplup"],
+    "Gen V": ["Snivy", "Tepig", "Oshawott"],
+    "Gen VI": ["Chespin", "Fennekin", "Froakie"],
+    "Gen VII": ["Rowlet", "Litten", "Popplio"],
+    "Gen VIII": ["Grookey", "Scorbunny", "Sobble"],
+    "Gen IX": ["Sprigatito", "Fuecoco", "Quaxly"]
   }
 }
