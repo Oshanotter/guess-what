@@ -441,7 +441,7 @@ function buildGamePreview(title, description) {
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
-    gridDiv.style.height = "50%";
+    gridDiv.style.height = "100%";
     gridDiv.style.overflowY = "auto";
     theKeys = Object.keys(gamesDict);
 	if (theKeys.length > 1){
@@ -471,6 +471,9 @@ function buildGamePreview(title, description) {
 	});
     
     gridDiv.appendChild(gamesGrid);
+    var test = document.createElement('div');
+    test.style.height = "50%";
+    test.appendChild(gridDiv);
 	
 	mainDiv.style.borderRadius = "2vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
@@ -480,7 +483,7 @@ function buildGamePreview(title, description) {
 	mainDiv.appendChild(titleDiv);
 	mainDiv.appendChild(descriptionDiv);
 	mainDiv.appendChild(timeOptionsDiv);
-	mainDiv.appendChild(gridDiv);
+	mainDiv.appendChild(test);
 	
 	// Append main container to the body
 	document.body.appendChild(mainDiv);
