@@ -473,6 +473,7 @@ function buildGamePreview(title, description) {
     gridDiv.appendChild(gamesGrid);
     var test = document.createElement('div');
     test.style.height = "50%";
+    test.className = "gamePreview";
     test.appendChild(gridDiv);
 	
 	mainDiv.style.borderRadius = "2vmin";
