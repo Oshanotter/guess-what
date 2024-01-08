@@ -471,20 +471,26 @@ function buildGamePreview(title, description) {
 	});
     
     gridDiv.appendChild(gamesGrid);
-    var test = document.createElement('div');
-    test.style.height = "50%";
-    test.className = "gamePreview";
-    test.appendChild(gridDiv);
+    
+    var top = document.createElement('div');
+    top.style.height = "50%";
+    top.className = "gamePreview";
+    
+    var bottom = document.createElement('div');
+    bottom.style.height = "50%";
+    bottom.className = "gamePreview";
+    bottom.appendChild(gridDiv);
 	
 	mainDiv.style.borderRadius = "2vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
 	
 	// Append created elements to the main container
-	mainDiv.appendChild(closeButton);
-	mainDiv.appendChild(titleDiv);
-	mainDiv.appendChild(descriptionDiv);
-	mainDiv.appendChild(timeOptionsDiv);
-	mainDiv.appendChild(test);
+	top.appendChild(closeButton);
+	top.appendChild(titleDiv);
+	top.appendChild(descriptionDiv);
+	top.appendChild(timeOptionsDiv);
+    mainDiv.appendChild(top);
+	mainDiv.appendChild(bottom);
 	
 	// Append main container to the body
 	document.body.appendChild(mainDiv);
