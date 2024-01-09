@@ -383,6 +383,7 @@ function buildGamePreview(title, description) {
 	const timeOptionsDiv = document.createElement('div');
 	timeOptionsDiv.className = "gamePreview"
     timeOptionsDiv.classList.add('timeOptions');
+    timeOptionsDiv.style.margin = "auto";
 	timeOptionsDiv.style.display = 'flex'; // Set display to flex
 	timeOptionsDiv.style.backgroundColor = 'lightblue'; // Set light blue background color
 	timeOptionsDiv.style.flexDirection = 'column';
