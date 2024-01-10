@@ -441,6 +441,10 @@ function buildGamePreview(title, description) {
 	descriptionDiv.className = "gamePreview"
 	descriptionDiv.innerText = description
     descriptionDiv.style.flexGrow = "1";
+    descriptionDiv.style.display = "flex";
+    descriptionDiv.style.flexDirection = "column";
+    descriptionDiv.style.justifyContent = "center";
+    descriptionDiv.style.alignItems = "center";
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
