@@ -477,9 +477,6 @@ function buildGamePreview(title, description) {
     var top = document.createElement('div');
     top.style.height = "65%";
     top.className = "gamePreview";
-    top.style.display = "flex";
-    top.style.flexDirection = "column";
-    top.style.justifyContent = "space-between";
     
     var bottom = document.createElement('div');
     bottom.style.height = "35%";
@@ -490,7 +487,7 @@ function buildGamePreview(title, description) {
 	timeOptionsDiv.style.borderRadius = "999px";
 	
 	// Append created elements to the main container
-	mainDiv.appendChild(closeButton);
+	top.appendChild(closeButton);
 	top.appendChild(titleDiv);
 	top.appendChild(descriptionDiv);
 	top.appendChild(timeOptionsDiv);
