@@ -89,6 +89,6 @@ body, html {
         
         @media screen and (orientation:portrait) {
                 .mainGamePreview {
-                        height: 50%;
+                        height: 40%;
                 }
         }
