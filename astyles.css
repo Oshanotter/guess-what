@@ -91,4 +91,8 @@ body, html {
                 .mainGamePreview {
                         height: 45%;
                 }
+                
+                .timeOptions {
+                        width: 100%;
+                }
         }
