@@ -440,6 +440,7 @@ function buildGamePreview(title, description) {
 	const descriptionDiv = document.createElement('div');
 	descriptionDiv.className = "gamePreview"
 	descriptionDiv.innerText = description
+    descriptionDiv.style.flexGrow = "1";
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
@@ -477,7 +478,6 @@ function buildGamePreview(title, description) {
     var top = document.createElement('div');
     top.style.height = "65%";
     top.className = "gamePreview";
-    top.style.flexGrow = "1";
     
     var bottom = document.createElement('div');
     bottom.style.height = "35%";
