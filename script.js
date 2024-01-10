@@ -475,11 +475,11 @@ function buildGamePreview(title, description) {
     gridDiv.appendChild(gamesGrid);
     
     var top = document.createElement('div');
-    top.style.height = "50%";
+    top.style.height = "65%";
     top.className = "gamePreview";
     
     var bottom = document.createElement('div');
-    bottom.style.height = "50%";
+    bottom.style.height = "35%";
     bottom.className = "gamePreview";
     bottom.appendChild(gridDiv);
 	
