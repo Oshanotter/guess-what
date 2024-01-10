@@ -455,7 +455,6 @@ function buildGamePreview(title, description) {
 		// add a "Play All" option
 		var playAll = addPlayAllOption();
         gridDiv.appendChild(playAll);
-	}
 
     var gamesGrid = document.createElement('div');
     gamesGrid.className = "gamePreview";
@@ -479,6 +478,12 @@ function buildGamePreview(title, description) {
     
     gridDiv.appendChild(gamesGrid);
     
+    }else{
+        // add only the single play option
+        var playBtn = addPlayButton();
+        gridDiv.appendChild(playBtn);
+    }
+    
     var top = document.createElement('div');
     top.style.height = "65%";
     top.className = "gamePreview";
@@ -488,7 +493,6 @@ function buildGamePreview(title, description) {
     var bottom = document.createElement('div');
     bottom.style.height = "35%";
     bottom.className = "gamePreview";
-    bottom.appendChild(gridDiv);
 	
 	mainDiv.style.borderRadius = "2vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
@@ -498,6 +502,7 @@ function buildGamePreview(title, description) {
 	top.appendChild(titleDiv);
 	top.appendChild(descriptionDiv);
 	top.appendChild(timeOptionsDiv);
+    bottom.appendChild(gridDiv);
     mainDiv.appendChild(top);
 	mainDiv.appendChild(bottom);
 	
@@ -533,7 +538,20 @@ function getAllGames() {
     createOverlay();
 }
 
-
+function addPlayButton() {
+    const gridItemDiv = document.createElement('div');
+	    gridItemDiv.textContent = "Play";
+	    gridItemDiv.style.border = '1px solid #ddd';
+	    gridItemDiv.style.padding = '5px';
+	    gridItemDiv.style.margin = '5px';
+	    gridItemDiv.style.cursor = 'pointer';
+	    gridItemDiv.addEventListener('click', function() {
+		  getGameList("Play");
+	    });
+	    gridItemDiv.style.borderRadius = "1vmin";
+	    gridItemDiv.className = "gamePreview"
+	    return gridItemDiv;
+}
 
 
 
