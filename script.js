@@ -490,7 +490,7 @@ function buildGamePreview(title, description) {
 	timeOptionsDiv.style.borderRadius = "999px";
 	
 	// Append created elements to the main container
-	top.appendChild(closeButton);
+	mainDiv.appendChild(closeButton);
 	top.appendChild(titleDiv);
 	top.appendChild(descriptionDiv);
 	top.appendChild(timeOptionsDiv);
