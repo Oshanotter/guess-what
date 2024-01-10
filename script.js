@@ -477,7 +477,7 @@ function buildGamePreview(title, description) {
     var top = document.createElement('div');
     top.style.height = "65%";
     top.className = "gamePreview";
-    top.style.display = "flex";
+    //top.style.display = "flex";
     top.style.justifyContent = "space-between";
     
     var bottom = document.createElement('div');
