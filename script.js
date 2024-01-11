@@ -387,7 +387,7 @@ function buildGamePreview(title, description) {
 	timeOptionsDiv.style.display = 'flex'; // Set display to flex
 	timeOptionsDiv.style.backgroundColor = 'lightblue'; // Set light blue background color
 	timeOptionsDiv.style.flexDirection = 'column';
-	timeOptionsDiv.style.fontSize = "150%";
+	timeOptionsDiv.style.fontSize = "125%";
 	
 	var chooseTimeText = document.createElement('div');
 	chooseTimeText.className = "gamePreview"
