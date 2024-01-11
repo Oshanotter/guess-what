@@ -525,7 +525,7 @@ function addPlayAllOption() {
 	    gridItemDiv.className = "gamePreview"
         gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
-        gridItemDiv.style.fontSize = "125%";
+        gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
 }
 
@@ -555,7 +555,7 @@ function addPlayButton() {
 	    gridItemDiv.className = "gamePreview"
         gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
-        gridItemDiv.style.fontSize = "125%";
+        gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
 }
 
