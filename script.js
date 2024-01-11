@@ -524,7 +524,7 @@ function addPlayAllOption() {
 	    gridItemDiv.style.borderRadius = "1vmin";
 	    gridItemDiv.className = "gamePreview"
         gridItemDiv.style.backgroundColor = "yellow";
-        gridItrmDiv.style.color = "black";
+        gridItemDiv.style.color = "black";
 	    return gridItemDiv;
 }
 
@@ -553,7 +553,7 @@ function addPlayButton() {
 	    gridItemDiv.style.borderRadius = "1vmin";
 	    gridItemDiv.className = "gamePreview"
         gridItemDiv.style.backgroundColor = "yellow";
-        gridItrmDiv.style.color = "black";
+        gridItemDiv.style.color = "black";
 	    return gridItemDiv;
 }
 
