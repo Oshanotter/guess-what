@@ -409,8 +409,8 @@ function buildGamePreview(title, description) {
         optionDiv.classList.add('timerOption');
 	    optionDiv.textContent = option + "s";
 	    optionDiv.style.cursor = 'pointer';
-	    optionDiv.style.paddingLeft = '7%'; // Add margin to separate options
-	    optionDiv.style.paddingRight = '7%';
+	    optionDiv.style.paddingLeft = '8%'; // Add margin to separate options
+	    optionDiv.style.paddingRight = '8%';
 	    optionDiv.style.paddingTop = '2%';
 	    optionDiv.style.paddingBottom = '2%';
 	    optionDiv.style.borderRadius = "999px";
