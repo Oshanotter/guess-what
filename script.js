@@ -499,7 +499,7 @@ function buildGamePreview(title, description) {
     var bottom = document.createElement('div');
     bottom.style.height = bottomHeight
     bottom.className = "gamePreview";
-    bottom.style.marginTop = "10%";
+    bottom.style.marginTop = "2%";
 	
 	mainDiv.style.borderRadius = "2vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
