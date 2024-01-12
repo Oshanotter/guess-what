@@ -478,20 +478,26 @@ function buildGamePreview(title, description) {
     
     gridDiv.appendChild(gamesGrid);
     
+    var topHeight = "65%";
+    var bottomHeight = "35%";
+    
     }else{
         // add only the single play option
         var playBtn = addPlayButton();
         gridDiv.appendChild(playBtn);
+        
+        var topHeight = "80%";
+        var bottomHeight = "20%";
     }
     
     var top = document.createElement('div');
-    top.style.height = "65%";
+    top.style.height = topHeight
     top.className = "gamePreview";
     top.style.display = "flex";
     top.style.flexFlow = "column";
     
     var bottom = document.createElement('div');
-    bottom.style.height = "35%";
+    bottom.style.height = bottomHeight
     bottom.className = "gamePreview";
 	
 	mainDiv.style.borderRadius = "2vmin";
