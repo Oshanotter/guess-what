@@ -445,6 +445,8 @@ function buildGamePreview(title, description) {
     descriptionDiv.style.flexDirection = "column";
     descriptionDiv.style.justifyContent = "center";
     descriptionDiv.style.alignItems = "center";
+    descriptionDiv.style.overflow = "hidden";
+    descriptionDiv.style.textOverflow = "ellipsis";
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
