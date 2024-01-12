@@ -499,10 +499,7 @@ function buildGamePreview(title, description) {
     var bottom = document.createElement('div');
     bottom.style.height = bottomHeight
     bottom.className = "gamePreview";
-    bottom.style.display = "flex";
-    bottom.style.flexDirection = "column";
-    bottom.style.justifyContent = "center";
-    bottom.style.alignItems = "center";
+    bottom.style.marginTop = "10%";
 	
 	mainDiv.style.borderRadius = "2vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
