@@ -445,11 +445,12 @@ function buildGamePreview(title, description) {
         descriptionDiv.style.flexDirection = "column";
         descriptionDiv.style.justifyContent = "center";
         descriptionDiv.style.alignItems = "center";
-        //descriptionDiv.style.overflow = "hidden";
-        //descriptionDiv.style.textOverflow = "ellipsis";
+        descriptionDiv.style.overflow = "hidden";
+        descriptionDiv.style.textOverflow = "ellipsis";
 	var descriptionText = document.createElement('p');
 	descriptionText.className = "description";
 	descriptionText.innerText = description;
+	descriptionText.style.margin = "2%";
 	descriptionDiv.appendChild(descriptionText);
 	
 
