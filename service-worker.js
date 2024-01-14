@@ -4,7 +4,7 @@ const PRECACHE = 'precache';
 const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
-  'astyles.css',
+  'styles.css',
   'script.js', 
   'manifest.json',
   'icon.png',
