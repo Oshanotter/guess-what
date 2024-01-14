@@ -72,12 +72,13 @@ body, html {
         }
 
         .description {
-            text-align: left;
+            text-align: center;
             display: -webkit-box;
-            -webkit-line-clamp: 4; /*define how many line you want to show */
+            -webkit-line-clamp: 6; /*define how many line you want to show */
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-size: 125%;
         }
         
         @media screen and (orientation:landscape) {
