@@ -439,14 +439,19 @@ function buildGamePreview(title, description) {
 	// Create description div
 	const descriptionDiv = document.createElement('div');
 	descriptionDiv.className = "gamePreview"
-	descriptionDiv.innerText = description
-    descriptionDiv.style.flexGrow = "1";
-    descriptionDiv.style.display = "flex";
-    descriptionDiv.style.flexDirection = "column";
-    descriptionDiv.style.justifyContent = "center";
-    descriptionDiv.style.alignItems = "center";
-    descriptionDiv.style.overflow = "hidden";
-    descriptionDiv.style.textOverflow = "ellipsis";
+	//descriptionDiv.innerText = description
+        descriptionDiv.style.flexGrow = "1";
+        descriptionDiv.style.display = "flex";
+        descriptionDiv.style.flexDirection = "column";
+        descriptionDiv.style.justifyContent = "center";
+        descriptionDiv.style.alignItems = "center";
+        //descriptionDiv.style.overflow = "hidden";
+        //descriptionDiv.style.textOverflow = "ellipsis";
+	var descriptionText = document.createElement('p');
+	descriptionText.className = "description";
+	descriptionText.innerText = description;
+	descriptionDiv.appendChild(descriptionText);
+	
 
 	const gridDiv = document.createElement('div');
 	gridDiv.className = "gamePreview";
