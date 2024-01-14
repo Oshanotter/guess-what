@@ -446,7 +446,7 @@ function buildGamePreview(title, description) {
         descriptionDiv.style.justifyContent = "center";
         descriptionDiv.style.alignItems = "center";
         descriptionDiv.style.overflow = "hidden";
-        descriptionDiv.style.textOverflow = "ellipsis";
+        //descriptionDiv.style.textOverflow = "ellipsis";
 	var descriptionText = document.createElement('p');
 	descriptionText.className = "description";
 	descriptionText.innerText = description;
