@@ -1,7 +1,7 @@
 {
   "title": "Test",
-  "description": "This is a set that is just a test./nHere is another line if text.",
+  "description": "This is a set that is just a test. Here is another line if text. I want to see if this text will be cut off in bith vertical and horizontal orientation. i think that vertical orientation should be fine, but horizontal orientation might have some lroblems yet.",
   "games": {
-    "Play": ["Test Phrase 1", "Test Phrase 2", "Test Phrase 3"]
+    "Play": ["Test Phrase 1", "Test Phrase 2", "Test Phrase 3", "This is a long piece of text that i want to see what happens to."]
   }
 }
