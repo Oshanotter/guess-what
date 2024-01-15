@@ -74,7 +74,7 @@ body, html {
         .description {
             text-align: center;
             display: -webkit-box;
-            -webkit-line-clamp: 6; /*define how many line you want to show */
+            /*-webkit-line-clamp: 6; specify line limit based on orientation */
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -95,6 +95,10 @@ body, html {
                 .timeOptions {
                         width: 50%;
                 }
+                
+                .description {
+                        -webkit-line-clamp: 5;
+                }
         }
         
         @media screen and (orientation:portrait) {
@@ -104,5 +108,9 @@ body, html {
                 
                 .timeOptions {
                         width: 100%;
+                }
+                
+                .description {
+                        -webkit-line-clamp: 6;
                 }
         }
