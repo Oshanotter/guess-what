@@ -369,6 +369,7 @@ function buildGamePreview(title, description) {
 	closeButton.addEventListener('click', () => {
 	    mainDiv.remove();
         preventInput.remove();
+        preventScroll(false);
 	});
 	
 	// Create title
@@ -523,6 +524,9 @@ function buildGamePreview(title, description) {
 	
 	// Append main container to the body
 	document.body.appendChild(mainDiv);
+    
+    //prevent scrolling when the overlay is displayed
+    preventScroll(true);
 }
 
 
@@ -572,6 +576,14 @@ function addPlayButton() {
         gridItemDiv.style.color = "black";
         gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
+}
+
+function preventScroll(bool){
+    if (bool){
+        document.body.style.overflow = "hidden";
+    }else{
+        document.body.style.overflow = '';
+    }
 }
 
 
