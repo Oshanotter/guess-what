@@ -625,6 +625,8 @@ function installPrompt() {
 		theText.innerText = "Please install the PWA for Android";
         var installBtn = document.createElement('div');
         installBtn.innerText = "Install";
+        installBtn.style.borderRadius = "999px";
+        installBtn.style.backgroundColor = "yellow";
         installBtn.addEventListener('click', function() {
     	  // install the PWA
           deferredPrompt.prompt();
