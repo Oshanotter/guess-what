@@ -25,7 +25,7 @@ var overlay;
     }
     
     // Detects if iOS device is in standalone mode
-    const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
+    //const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
 
     // Detects is Android device is in standalone mode
     function isRunningStandalone() {
