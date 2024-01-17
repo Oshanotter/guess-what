@@ -591,6 +591,7 @@ function installPrompt() {
     	newDiv.style.transform = 'translate(-50%, -50%)';
     	newDiv.style.padding = '10px';
 	newDiv.style.border = '1px solid #0000ff';
+	newDiv.style.flexFlow = "column";
 
 	// add default text
 	var theText = document.createElement('p');
