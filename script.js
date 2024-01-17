@@ -622,7 +622,7 @@ function installPrompt() {
 		
 	}else if (!isiOS()){
 		// prompt to install on Android
-		theText.innerText = "Please install the PWA for Android";
+		theText.innerText = "The experience is better with the App!\nTo install the Web App please click the install button below.";
         var installBtn = document.createElement('div');
         installBtn.innerText = "Install";
         installBtn.style.borderRadius = "999px";
