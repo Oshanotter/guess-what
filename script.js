@@ -313,7 +313,7 @@ function getDictionary(path) {
   //first, request permission to use the device's orientation
   requestPermission();
   // get the JSON file from the path
-  fetch(game-sets/path)
+  fetch("game-sets/" + path)
     .then(response => response.json())
     .then(collectionDict => {
       var title = collectionDict["title"];
