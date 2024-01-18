@@ -7,7 +7,8 @@ const PRECACHE_URLS = [
   'styles.css',
   'script.js', 
   'manifest.json',
-  'icon.png',
+  'icons/full.png',
+  'icons/masked.png',
   'pokemon.json',
   'test.json'
 ];
