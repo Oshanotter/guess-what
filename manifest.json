@@ -1,41 +1,23 @@
 {
-  "name": "Offline WebApp",
-  "short_name": "Offline WebApp",
+  "name": "Guess What?",
+  "short_name": "Guess What?",
+  "description": "A family fun guessing game! Get the party started with some charades as you guess what is on the card before time runs out!",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#0000ff",
-  "description": "A test for an offline web app",
+  "background_color": "light-dark(white, black)",
+  "theme_color": "blue",
   "icons": [
     {
-      "src": "icon.png",
-      "sizes": "48x48",
-      "type": "image/png"
+      "src": "icons/masked.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "icon2.png",
-      "sizes": "720x720",
+      "src": "icons/full.png",
+      "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "maskable"
-    },
-    {
-      "src": "icon.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "icon.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "icon.png",
-      "sizes": "168x168",
-      "type": "image/png"
-    },
-    {
-      "src": "icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
     }
   ]
 }
