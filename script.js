@@ -313,18 +313,18 @@ function getDictionary(path) {
   //first, request permission to use the device's orientation
   requestPermission();
   // get the JSON file from the path
-  fetch(path)
+  fetch(game-sets/path)
     .then(response => response.json())
     .then(collectionDict => {
       var title = collectionDict["title"];
       var description = collectionDict["description"];
       gamesDict = collectionDict["games"];
-      console.log("the dictionary is below")
-      console.log(collectionDict);
-      console.log("requesting permission")
-      console.log(title)
-      console.log(description)
-      console.log("building game preview")
+      //console.log("the dictionary is below")
+      //console.log(collectionDict);
+      //console.log("requesting permission")
+      //console.log(title)
+      //console.log(description)
+      //console.log("building game preview")
       buildGamePreview(title, description);
     })
     .catch(error => console.error('Error fetching or parsing JSON:', error));
@@ -332,20 +332,20 @@ function getDictionary(path) {
 
 function buildGamePreview(title, description) {
 	// build the screen to confirm to play the game
-    // first create a blank div tag to prevent background items from being clicked
-    preventInput = document.createElement('div');
-    preventInput.style.height = "100%";
-    preventInput.style.width = "100%";
-    preventInput.style.overflow = "hidden";
-    preventInput.style.top = "0";
-    preventInput.style.position = "fixed";
-    preventInput.style.backgroundColor = "rgba(255, 0, 0, 0)";
-    document.body.appendChild(preventInput);
+        // first create a blank div tag to prevent background items from being clicked
+        preventInput = document.createElement('div');
+        preventInput.style.height = "100%";
+        preventInput.style.width = "100%";
+        preventInput.style.overflow = "hidden";
+        preventInput.style.top = "0";
+        preventInput.style.position = "fixed";
+        preventInput.style.backgroundColor = "rgba(255, 0, 0, 0)";
+        document.body.appendChild(preventInput);
     
 	// Create main container div
 	const mainDiv = document.createElement('div');
 	mainDiv.className = "gamePreview"
-    mainDiv.classList.add('mainGamePreview');
+        mainDiv.classList.add('mainGamePreview');
 	mainDiv.style.position = 'absolute';
 	mainDiv.style.top = '50%';
 	mainDiv.style.left = '50%';
@@ -355,7 +355,7 @@ function buildGamePreview(title, description) {
 	mainDiv.style.padding = '10px';
 	mainDiv.style.backgroundColor = 'grey';
 	mainDiv.style.textAlign = 'center';
-    mainDiv.style.overflowY = "hidden";
+        mainDiv.style.overflowY = "hidden";
 	
 	
 	// Create close button in the top left
@@ -367,7 +367,7 @@ function buildGamePreview(title, description) {
 	closeButton.style.left = '5%';
 	closeButton.style.cursor = 'pointer';
 	closeButton.addEventListener('click', () => {
-	    mainDiv.remove();
+	mainDiv.remove();
         preventInput.remove();
         preventScroll(false);
 	});
@@ -383,8 +383,8 @@ function buildGamePreview(title, description) {
 	// Create time options div
 	const timeOptionsDiv = document.createElement('div');
 	timeOptionsDiv.className = "gamePreview"
-    timeOptionsDiv.classList.add('timeOptions');
-    timeOptionsDiv.style.margin = "auto";
+        timeOptionsDiv.classList.add('timeOptions');
+        timeOptionsDiv.style.margin = "auto";
 	timeOptionsDiv.style.display = 'flex'; // Set display to flex
 	timeOptionsDiv.style.backgroundColor = 'lightblue'; // Set light blue background color
 	timeOptionsDiv.style.flexDirection = 'column';
