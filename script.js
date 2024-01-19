@@ -640,6 +640,8 @@ function installPrompt() {
             installBtn.innerText = "Install";
             installBtn.style.borderRadius = "999px";
             installBtn.style.backgroundColor = "yellow";
+	    installBtn.style.padding = "2% 8%";
+	    installBtn.style.color = "black";
             installBtn.addEventListener('click', function() {
         	  // install the PWA
               deferredPrompt.prompt();
