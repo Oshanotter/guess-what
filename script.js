@@ -67,7 +67,7 @@ var overlay;
       overlay.appendChild(banner);
 
       var circle = document.createElement('div');
-      circle.id = "circle"
+      circle.className = "circle"
       circle.style.borderRadius = "50%";
       circle.style.border =  "1vw solid blue";
       circle.style.height = "10vw";
