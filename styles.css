@@ -82,13 +82,13 @@ body, html {
             font-size: 125%;
         }
 
-        .grid-container {
+       /* .grid-container {
           display: grid;
-          grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-          gap: 2vw; /* Adjust the gap as needed */
+          grid-template-columns: repeat(2, 1fr); 
+          gap: 2vw; 
           overflow: scroll;
           margin: 1%;
-        }
+        }*/
 
         .gameCard {
       width: 100%;
