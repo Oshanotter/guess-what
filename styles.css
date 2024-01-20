@@ -130,7 +130,7 @@ body, html {
       background-color: teal;
       color: white; /* Text color for better visibility, adjust as needed */
       display: flex;
-      justify-content: space-between;
+      justify-content: space-evenly;
     }
         
         @media screen and (orientation:landscape) {
