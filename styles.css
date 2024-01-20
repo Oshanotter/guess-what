@@ -124,7 +124,7 @@ body, html {
       .pinkGradient {
         background: linear-gradient(to bottom right, #ff8be3, #ff1493); 
       }
-/*
+
 .menu-bar {
       position: fixed;
       left: 0;
@@ -132,7 +132,7 @@ body, html {
       color: white; 
       display: flex;
       justify-content: space-evenly;
-    }*/
+    }
         
         @media screen and (orientation:landscape) {
                 .grid {
@@ -152,7 +152,7 @@ body, html {
                 .description {
                         -webkit-line-clamp: 5;
                 }
-/*
+
                 .menu-bar {
                           top: 0;
                           width: 20vw;
@@ -164,7 +164,7 @@ body, html {
                 .menu-bar-items {
                           width: 100%;
                           height: 30%;
-                }*/
+                }
         }
         
         @media screen and (orientation:portrait) {
@@ -179,7 +179,7 @@ body, html {
                 .description {
                         -webkit-line-clamp: 6;
                 }
-/*
+
                 .menu-bar {
                           bottom: 0;
                           width: 100%;
@@ -189,5 +189,5 @@ body, html {
                 .menu-bar-items {
                           width: 30%;
                           height: 100%;
-                }*/
+                }
         }
