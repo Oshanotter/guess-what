@@ -47,7 +47,7 @@ body, html {
 
         }
 
-        div:not(.gamePreview):not(.gameCard):not(.grid-container) {
+        #overlay, #overlay div {
           display: flex;
           justify-content: center;
           align-items: center;
