@@ -94,6 +94,7 @@ body, html {
       /*height: 200px;*/
       border-radius: 10px;
       margin: 0%;
+      position: relative;
       }
 
       .blueGradient {
