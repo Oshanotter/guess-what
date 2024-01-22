@@ -598,10 +598,10 @@ function preventScroll(bool){
 function toggleHeart(gameID) {
 	var theElement = document.getElementById(gameID);
 	var heartDiv = theElement.querySelector("div")
-	if (heartDiv.innerText == "♥") {
+	if (heartDiv.innerText == "♥︎") {
 		heartDiv.innerText = "♡";
 	} else {
-		heartDiv.innerText = "♥";
+		heartDiv.innerText = "♥︎";
 	}
 }
 
