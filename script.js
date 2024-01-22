@@ -602,7 +602,24 @@ function toggleHeart(gameID) {
 		heartDiv.innerText = "♡";
 	} else {
 		heartDiv.innerText = "♥︎";
+        setCookie(gameID);
 	}
+}
+
+function getCookie() {
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('favorites='))
+        ?.split('=')[1];
+
+    return cookieValue ? cookieValue.split(',') : [];
+}
+
+function setCookie(newValue) {
+    const favoritesList = getCookie();
+    favoritesList.push(newValue);
+
+    document.cookie = `favorites=${favoritesList.join(',')}`;
 }
 
 
