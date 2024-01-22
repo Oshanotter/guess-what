@@ -103,15 +103,17 @@ body, html {
                 }
                 div:first-child {
                           position: absolute;
-                          top: 5%;
+                          top: 3%;
                           right: 5%;
                           font-size: 150%;
                 }
                 img {
                           width: 70%;
+                          margin: 5%;
                 }
                 div:last-child {
                           font-size: 125%;
+                          margin-bottom: 5%;
                 }
       }
 
