@@ -594,7 +594,7 @@ function preventScroll(bool){
 
 
 
-
+/*
 function toggleHeart(gameID) {
 	var theElement = document.getElementById(gameID);
 	var heartDiv = theElement.querySelector("div")
@@ -604,7 +604,7 @@ function toggleHeart(gameID) {
 		heartDiv.innerText = ♥;
 	}
 }
-
+*/
 
 
 
