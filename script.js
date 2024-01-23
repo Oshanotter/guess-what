@@ -602,47 +602,44 @@ function toggleHeart(gameID) {
 	var heartDiv = theElement.querySelector("div")
 	if (heartDiv.innerText == "♥︎") {
 		heartDiv.innerText = "♡";
-        removeCookie(gameID);
+        removeFavorites(gameID);
 	} else {
 		heartDiv.innerText = "♥︎";
-        addToCookie(gameID);
+        addToFavorites(gameID);
 	}
 }
 
-function getCookie() {
-    const cookieValue = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('favorites='))
-        ?.split('=')[1];
-
-    return cookieValue ? cookieValue.split(',') : [];
+function getFavorites() {
+    var faves = localStorage.getItem("favorites");
+    if(favs !== null){
+	    return JSON.parse(favs);
+    }
+    return [];
 }
 
-function addToCookie(newValue) {
-    const favoritesList = getCookie();
-    favoritesList.push(newValue);
-
-    setCookie(favoritesList);
+function addToFavorites(newValue) {
+    var favesList = getFavorites();
+    favesList.push(newValue);
+    setFavorites(favesList);
 }
 
-function setCookie(favoritesList) {
-    document.cookie = `favorites=${favoritesList.join(',')}`;
+function setFavorites(favesList) {
+    var string = JSON.stringify(favesList);
+    localStorage.setItem("favorites", string);
 }
 
-function removeCookie(valueToRemove) {
-    const favoritesList = getCookie();
-    const updatedList = favoritesList.filter(value => value !== valueToRemove);
-    setCookie(updatedList);
+function removeFavorites(valueToRemove) {
+    var favesList = getFavorites();
+    var updatedList = favesList.filter(value => value !== valueToRemove);
+    setFavorites(updatedList);
 }
 
 function markFavorites() {
-    const favoritesList = getCookie();
-
-    favoritesList.forEach(value => {
+    var favesList = getFavorites();
+    favesList.forEach(value => {
         document.getElementById(value).firstChild.innerText = '♥︎';
     });
 }
-markFavorites();
 
 	
     
@@ -708,7 +705,7 @@ function installPrompt() {
     	}
     }
 }
-installPrompt()
+
 
 
 let deferredPrompt;
@@ -721,3 +718,11 @@ window.addEventListener('beforeinstallprompt', function (e) {
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
 });
+
+
+function main() {
+	// call functions that should run immediately upon load
+	markFavorites();
+	installPrompt();
+}
+main();
