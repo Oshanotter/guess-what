@@ -611,8 +611,8 @@ function toggleHeart(gameID) {
 
 function getFavorites() {
     var faves = localStorage.getItem("favorites");
-    if(favs !== null){
-	    return JSON.parse(favs);
+    if(faves !== null){
+	    return JSON.parse(faves);
     }
     return [];
 }
