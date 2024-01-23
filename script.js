@@ -595,14 +595,17 @@ function preventScroll(bool){
 
 
 
+
+
 function toggleHeart(gameID) {
 	var theElement = document.getElementById(gameID);
 	var heartDiv = theElement.querySelector("div")
 	if (heartDiv.innerText == "♥︎") {
 		heartDiv.innerText = "♡";
+        removeCookie(gameID);
 	} else {
 		heartDiv.innerText = "♥︎";
-        setCookie(gameID);
+        addToCookie(gameID);
 	}
 }
 
@@ -642,6 +645,10 @@ function markFavorites() {
 markFavorites();
 
 	
+    
+    
+    
+    
 	
 function installPrompt() {
     if (!isRunningStandalone()){
