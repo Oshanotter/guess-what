@@ -615,15 +615,31 @@ function getCookie() {
     return cookieValue ? cookieValue.split(',') : [];
 }
 
-function setCookie(newValue) {
+function addToCookie(newValue) {
     const favoritesList = getCookie();
     favoritesList.push(newValue);
 
+    setCookie(favoritesList);
+}
+
+function setCookie(favoritesList) {
     document.cookie = `favorites=${favoritesList.join(',')}`;
 }
 
+function removeCookie(valueToRemove) {
+    const favoritesList = getCookie();
+    const updatedList = favoritesList.filter(value => value !== valueToRemove);
+    setCookie(updatedList);
+}
 
+function markFavorites() {
+    const favoritesList = getCookie();
 
+    favoritesList.forEach(value => {
+        document.getElementById(value).firstChild.innerText = '♥︎';
+    });
+}
+markFavorites();
 
 	
 	
