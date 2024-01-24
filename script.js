@@ -642,7 +642,7 @@ function markFavorites() {
 }
 
 function displayFavorites() {
-    var favesPage = document.getElementsByClass('favorites');
+    var favesPage = document.getElementsByClassName('favorites')[0];
     var favesList = getFavorites();
     favesList.forEach(value => {
         var element = document.getElementById(value).outerHTML;
