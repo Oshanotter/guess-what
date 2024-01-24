@@ -641,6 +641,18 @@ function markFavorites() {
     });
 }
 
+function hideOtherElements(unhiddenElementClass) {
+    var list = ['allGames', 'favorites', 'create', 'settings'];
+    list.forEach(value => {
+        var element = document.getElementsByClassName()[0];
+        if (value == unhiddenElementClass){
+            element.classList.remove('hidden');
+        }else{
+            element.classList.add('hidden');
+        }
+    });
+}
+
 function displayFavorites() {
     var favesPage = document.getElementsByClassName('favorites')[0];
     var favesList = getFavorites();
@@ -650,7 +662,7 @@ function displayFavorites() {
         console.log(element)
         favesPage.innerHTML = favesPage.innerHTML + element;
     });
-    favesPage.classList.remove('hidden');
+    hideOtherElements('favorites');
 }
 
 	
