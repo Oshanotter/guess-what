@@ -161,6 +161,13 @@ body, html {
       justify-content: space-evenly;
     }
 
+        .favorites, .create, .settings {
+                height: 100%;
+                width: 100%;
+                top: 0;
+                position: fixed;
+        }
+
         .hidden {
             display: none;
         }
