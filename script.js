@@ -644,9 +644,11 @@ function markFavorites() {
 function displayFavorites() {
     var favesPage = document.getElementsByClassName('favorites')[0];
     var favesList = getFavorites();
+    console.log(favesList)
     favesList.forEach(value => {
         var element = document.getElementById(value).outerHTML;
-        favesPage.innerHTML += element;
+        console.log(element)
+        favesPage.innerHTML = favesPage.innerHTML + element;
     });
     favesPage.classList.remove('hidden');
 }
