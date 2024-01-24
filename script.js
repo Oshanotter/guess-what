@@ -641,6 +641,16 @@ function markFavorites() {
     });
 }
 
+function displayFavorites() {
+    var favesPage = document.getElementsByClass('favorites');
+    var favesList = getFavorites();
+    favesList.forEach(value => {
+        var element = document.getElementById(value).outerHTML;
+        favesPage.innerHTML += element;
+    });
+    favesPage.classList.remove('hidden');
+}
+
 	
     
     
