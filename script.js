@@ -644,7 +644,7 @@ function markFavorites() {
 function hideOtherElements(unhiddenElementClass) {
     var list = ['allGames', 'favorites', 'create', 'settings'];
     list.forEach(value => {
-        var element = document.getElementsByClassName()[0];
+        var element = document.getElementById(value);
         if (value == unhiddenElementClass){
             element.classList.remove('hidden');
         }else{
@@ -654,7 +654,7 @@ function hideOtherElements(unhiddenElementClass) {
 }
 
 function displayFavorites() {
-    var favesPage = document.getElementsByClassName('favorites')[0];
+    var favesPage = document.getElementById('favorites');
     var favesList = getFavorites();
     console.log(favesList)
     favesList.forEach(value => {
