@@ -160,6 +160,10 @@ body, html {
       display: flex;
       justify-content: space-evenly;
     }
+
+        .hidden {
+            display: none;
+        }
         
         @media screen and (orientation:landscape) {
                 .grid {
