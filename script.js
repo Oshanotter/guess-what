@@ -654,12 +654,15 @@ function markFavorites() {
 
 function hideOtherElements(unhiddenElementClass) {
     var list = ['allGames', 'favorites', 'create', 'settings'];
-    list.forEach(value => {
+    for (var i = 0; i < list.length; i++) {
+	var value = list[i];
         var element = document.getElementById(value);
         if (value == unhiddenElementClass){
             element.classList.remove('hidden');
+	    document.querySelector("body > div.menu-bar > div:nth-child(" + i + ")").classList.add("active");
         }else{
             element.classList.add('hidden');
+	    document.querySelector("body > div.menu-bar > div:nth-child(" + (i + 1) + ")").classList.remove("active");
         }
     });
 }
