@@ -669,7 +669,7 @@ function displayFavorites() {
     var favesList = getFavorites();
     console.log(favesList)
     favesList.forEach(value => {
-        var elementHTML = document.getElementById(value);
+        var element = document.getElementById(value);
         console.log(element)
 	var clone = element.cloneNode(true);
 	clone.id = value + "-fave";
