@@ -168,9 +168,10 @@ body, html {
 
           .menu-bar-items {
                     background-color: rgb(225, 0, 0, 0);
-                    .active {
-                              background-color: #174c4d;
-                    }
+          }
+
+          .active {
+                    background-color: #174c4d;
           }
         
         @media screen and (orientation:landscape) {
