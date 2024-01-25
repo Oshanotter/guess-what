@@ -10,7 +10,11 @@ const PRECACHE_URLS = [
   'icons/full.png',
   'icons/masked.png',
   'game-sets/pokemon.json',
-  'game-sets/test.json'
+  'game-sets/test.json',
+  'icons/menu-bar/allGames.png',
+  'icons/menu-bar/favorites.png',
+  'icons/menu-bar/create.png',
+  'icons/menu-bar/settings.png'
 ];
 
 // The install handler takes care of precaching the resources we always need.
