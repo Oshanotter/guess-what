@@ -607,6 +607,17 @@ function toggleHeart(gameID) {
 		heartDiv.innerText = "♥︎";
         addToFavorites(gameID);
 	}
+	// now try to toggle the heart on the duplicate div too
+	var theElement = document.getElementById(gameID + "-fave");
+	if (theElement == null){
+		return;
+	}
+	var heartDiv = theElement.querySelector("div")
+	if (heartDiv.innerText == "♥︎") {
+		heartDiv.innerText = "♡";
+	} else {
+		heartDiv.innerText = "♥︎";
+	}
 }
 
 function getFavorites() {
@@ -658,9 +669,11 @@ function displayFavorites() {
     var favesList = getFavorites();
     console.log(favesList)
     favesList.forEach(value => {
-        var element = document.getElementById(value).outerHTML;
+        var elementHTML = document.getElementById(value);
         console.log(element)
-        favesPage.innerHTML = favesPage.innerHTML + element;
+	var clone = element.cloneNode(true);
+	clone.id = value + "-fave";
+        favesPage.appendChild(clone);
     });
     hideOtherElements('favorites');
 }
