@@ -666,6 +666,7 @@ function hideOtherElements(unhiddenElementClass) {
 
 function displayFavorites() {
     var favesPage = document.getElementById('favorites');
+    favesPage.innerHTML = '';
     var favesList = getFavorites();
     console.log(favesList)
     favesList.forEach(value => {
