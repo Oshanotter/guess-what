@@ -18,6 +18,14 @@ body, html {
         		background-color:black;
         		color:white;
         	}
+
+          .menu-bar-items {
+                img {
+                      filter: invert(100%);
+                      -webkit-filter: invert(100%);
+                }
+          }
+          
         }
 
         @media (prefers-color-scheme: light) {
