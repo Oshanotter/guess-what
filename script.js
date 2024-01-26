@@ -541,8 +541,8 @@ function addPlayAllOption() {
 		  getAllGames();
 	    });
 	    gridItemDiv.style.borderRadius = "1vmin";
-	    gridItemDiv.className = "gamePreview"
-        gridItemDiv.style.backgroundColor = "yellow";
+	    gridItemDiv.className = "yellowGradient"
+        //gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
         gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
