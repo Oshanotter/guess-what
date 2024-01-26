@@ -344,7 +344,7 @@ function buildGamePreview(title, description) {
     
 	// Create main container div
 	const mainDiv = document.createElement('div');
-	mainDiv.className = "gamePreview"
+	mainDiv.className = "orangeGradient"
         mainDiv.classList.add('mainGamePreview');
 	mainDiv.style.position = 'absolute';
 	mainDiv.style.top = '50%';
@@ -353,7 +353,7 @@ function buildGamePreview(title, description) {
 	mainDiv.style.width = '85%';
 	mainDiv.style.border = '1px solid #ccc';
 	mainDiv.style.padding = '10px';
-	mainDiv.style.backgroundColor = 'grey';
+	//mainDiv.style.backgroundColor = 'grey';
 	mainDiv.style.textAlign = 'center';
         mainDiv.style.overflowY = "hidden";
 	
@@ -382,11 +382,11 @@ function buildGamePreview(title, description) {
 	
 	// Create time options div
 	const timeOptionsDiv = document.createElement('div');
-	timeOptionsDiv.className = "gamePreview"
+	timeOptionsDiv.className = "blueGradient"
         timeOptionsDiv.classList.add('timeOptions');
         timeOptionsDiv.style.margin = "auto";
 	timeOptionsDiv.style.display = 'flex'; // Set display to flex
-	timeOptionsDiv.style.backgroundColor = 'lightblue'; // Set light blue background color
+	//timeOptionsDiv.style.backgroundColor = 'lightblue'; // Set light blue background color
 	timeOptionsDiv.style.flexDirection = 'column';
 	timeOptionsDiv.style.fontSize = "125%";
 	
