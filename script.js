@@ -340,7 +340,7 @@ function buildGamePreview(title, description) {
         preventInput.style.overflow = "hidden";
         preventInput.style.top = "0";
         preventInput.style.position = "fixed";
-        preventInput.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        preventInput.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
         document.body.appendChild(preventInput);
     
 	// Create main container div
