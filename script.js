@@ -285,6 +285,7 @@ var overlay;
                 var text = document.createElement('span');
                 text.innerText = card;
                 text.style.color = color;
+                text.style.marginTop = "3%";
                 var evenOdd = i % 2;
                 if (evenOdd == 0){
                     // it is even, add to left list
