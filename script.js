@@ -345,7 +345,7 @@ function buildGamePreview(title, description) {
     
 	// Create main container div
 	const mainDiv = document.createElement('div');
-	mainDiv.className = "orangeGradient"
+	mainDiv.className = "blueGradient"
         mainDiv.classList.add('mainGamePreview');
 	mainDiv.style.position = 'absolute';
 	mainDiv.style.top = '50%';
@@ -383,7 +383,7 @@ function buildGamePreview(title, description) {
 	
 	// Create time options div
 	const timeOptionsDiv = document.createElement('div');
-	timeOptionsDiv.className = "blueGradient"
+	timeOptionsDiv.className = "orangeGradient"
         timeOptionsDiv.classList.add('timeOptions');
         timeOptionsDiv.style.margin = "auto";
 	timeOptionsDiv.style.display = 'flex'; // Set display to flex
