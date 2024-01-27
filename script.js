@@ -9,7 +9,7 @@ var overlay;
     var cardList = [];
     var currentPosition = "NEUTRAL";
     var gamesDict;
-    defaultTimer = 60;
+    //defaultTimer = 60;
 
     function shuffleList(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -683,6 +683,40 @@ function displayFavorites() {
     hideOtherElements('favorites');
 }
 
+
+
+
+
+function getSettings() {
+    var settings = localStorage.getItem("settings");
+    if(settings !== null){
+	    return JSON.parse(settings);
+    }
+    return {};
+}
+
+function setSettings(dict) {
+    var string = JSON.stringify(dict);
+    localStorage.setItem("settings", string);
+}
+
+function setDefaultTimer(seconds) {
+	const selectedTimers = document.getElementsByClassName('timerOption');
+	// Loop through the collection and remove the 'selectedTimer' class from each element
+	for (let i = 0; i < selectedTimers.length; i++) {
+    		const element = selectedTimers[i];
+                if (element.innerText == seconds+'s'){
+                	element.classList.add('selectedTimer');
+			var settings = getSettings();
+		        settings["default-timer"] = seconds;
+			setSettings(settings);
+			defaultTimer = seconds;
+                }else{
+        		element.classList.remove('selectedTimer');
+                }
+	}
+}
+
 	
     
     
@@ -766,5 +800,13 @@ function main() {
 	// call functions that should run immediately upon load
 	markFavorites();
 	installPrompt();
+
+	// get the default timer
+	var time = getSettings()["default-timer"];
+	if (time == undefined){
+		defaultTimer = 60;
+	}else{
+		defaultTimer = time;
+	}
 }
 main();
