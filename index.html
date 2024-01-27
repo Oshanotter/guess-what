@@ -58,13 +58,13 @@
 
 <div class="grid-container hidden" id="favorites"></div>
 <div class="grid-container hidden" id="create"><div class="gameCard yellowGradient" id="createCard" onclick="createSet()"><img src="icons/menu-bar/create.png" alt="icon"><div>Create New Set</div></div></div>
-<div class="hidden" id="settings"></div>
+<div class="settings-page hidden" id="settings"></div>
 
 <div class="menu-bar">
   <div class="menu-bar-items active" onclick="hideOtherElements('allGames')"><div class="menu-bar-text">All Games</div><img src="icons/menu-bar/allGames.png" alt="allGames"></div>
   <div class="menu-bar-items" onclick="displayFavorites()"><div class="menu-bar-text">Favorites</div><img src="icons/menu-bar/favorites.png" alt="favorites"></div>
   <div class="menu-bar-items" onclick="hideOtherElements('create')"><div class="menu-bar-text">Create</div><img src="icons/menu-bar/create.png" alt="create"></div>
-  <div class="menu-bar-items"><div class="menu-bar-text">Settings</div><img src="icons/menu-bar/settings.png" alt="settings"></div>
+  <div class="menu-bar-items" onclick="hideOtherElements('settings')"><div class="menu-bar-text">Settings</div><img src="icons/menu-bar/settings.png" alt="settings"></div>
 </div>
 
 <script>
