@@ -717,7 +717,19 @@ function setDefaultTimer(seconds) {
 	}
 }
 
+function displaySettingsPage(){
+	// display the correct default timer
+	var time = getSettings()["default-timer"];
+	if (time == undefined){
+		var defaultTime = 60;
+	}else{
+		var defaultTime = time;
+	}
+	setDefaultTimer(defaultTime);
 	
+	// make the page visible
+	hideOtherElements("settings");
+}
     
     
     
