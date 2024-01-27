@@ -68,6 +68,7 @@ body, html {
 
         .selectedTimer {
                   background: linear-gradient(to bottom right, #efff65, #ffbc00);
+                  color: black;
         }
 
         span {
