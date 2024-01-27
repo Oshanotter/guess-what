@@ -234,7 +234,7 @@ body, html {
                           display: block;
                 }
 
-                .grid-container {
+                .grid-container, .settings-page {
                           width: 70%;
                           float: right;
                 }
