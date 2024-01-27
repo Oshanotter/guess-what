@@ -4,7 +4,7 @@
   "description": "A family fun guessing game! Get the party started with some charades as you guess what is on the card before time runs out!",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "light-dark(white, black)",
+  "background_color": "teal",
   "theme_color": "blue",
   "icons": [
     {
