@@ -596,7 +596,7 @@ function preventScroll(bool){
 
 
 
-
+// functions for favorites page
 
 function toggleHeart(gameID) {
 	var theElement = document.getElementById(gameID);
@@ -686,6 +686,78 @@ function displayFavorites() {
 
 
 
+// functions for create page
+
+async function fetchUserCreatedGame(id, errorCount=0){
+	if (errorCount > 5){
+		console.log('fetch failed')
+		handleIdError();
+	}
+	try{
+		var url = 'https://tinyurl.com/' + id;
+		const response = await fetch(url);
+	  	const tinyURL = await response.url
+		var data = tinyURL.replace(location.href + '?s=', '');
+		console.log(data);
+		getJsonFromData(data);
+	}catch{
+		setTimeout(function () {
+			fetchUserCreatedGame(id, errorCount + 1)
+		}, 1000)
+	}
+}
+
+async function uploadUserCreatedGame(data, errorCount=0){
+	if (errorCount > 5){
+		console.log('upload failed')
+		handleUploadError();
+	}
+	try{
+		var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data;
+		const response = await fetch(url);
+	  	const tinyURL = await response.text()
+		var id = tinyURL.replace('http://tinyurl.com/', '');
+		returnGameID(id);
+	}catch{
+		setTimeout(function () {
+			uploadUserCreatedGame(data, errorCount + 1)
+		}, 1000)
+	}
+}
+
+function shareGame(id){
+	// get the game's json who has the given id
+	// convert the json to string
+	// url encode the string
+	// call uploadUserCreatedGame(urlEncoded)
+}
+
+function getJsonFromData(data){
+	// decode the url encoded data
+	// add the new game to local storage: storeUserCreatedGame(jsonString)
+	// create json object by de-stringifing it
+	// call generateUserCreatedGame(jsonObject)
+}
+
+function generateUserCreatedGame(jsonObject){
+	// create the game card for a user created game	
+}
+
+function handleUploadError(){
+	// display an error message
+	// the game couldn't be shared at this time
+}
+
+function handleIdError(){
+	// display an error message
+	// invalid game id or network error
+}
+
+
+
+
+
+// functions for settings page
 
 function getSettings() {
     var settings = localStorage.getItem("settings");
