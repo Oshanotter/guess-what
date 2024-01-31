@@ -279,8 +279,7 @@ label {
                     display: flex;
                 }
                 
-                #create-page div:first-child,
-                #create-page div:last-child {
+                .half {
                     width: 48%;
                 }
         }
