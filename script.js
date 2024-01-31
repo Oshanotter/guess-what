@@ -704,6 +704,7 @@ function selectColor(color) {
     circles.forEach(element => {
         if (element.classList.contains(color)){
             element.classList.add('selectedColor');
+            selectedColor = color;
         }else{
             element.classList.remove('selectedColor');
         }
