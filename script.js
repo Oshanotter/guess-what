@@ -688,6 +688,17 @@ function displayFavorites() {
 
 // functions for create page
 
+function createSet() {
+    // reveal the create-page
+    var page = document.getElementById('create-page');
+    page.classList.remove('hidden');
+}
+
+function discardSet() {
+    var page = document.getElementById('create-page');
+    page.classList.add('hidden');
+}
+
 async function fetchUserCreatedGame(id, errorCount=0){
 	if (errorCount > 5){
 		console.log('fetch failed')
