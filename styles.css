@@ -276,11 +276,12 @@ label {
                 }
                 
                 #create-page {
-                        display: flex;
+                    display: flex;
+                }
                 
-                        div:first-child, div:last-child {
-                                width: 48%;
-                        }
+                #create-page div:first-child,
+                #create-page div:last-child {
+                    width: 48%;
                 }
         }
         
