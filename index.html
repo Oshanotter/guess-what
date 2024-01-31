@@ -84,38 +84,42 @@
 
 <div id="create-page" class="hidden" style="font-size: 150%; width: 100%; height: 100%; top: 0; position: fixed;">
     <div style="width: 98%; display: flex; flex-direction: column; margin: auto;">
-      <br>
-      <div style="display: flex; flex-direction: column;">
-        <label for="gameTitle">Title of Game Card:</label>
-        <input type="text" id="gameTitle" name="gameTitle" style="font-size: 100%;">
-      </div>
-      <br>
-      <div style="display: flex; flex-direction: column;">
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" style="font-size: 100%;">
-      </div>
-      <br>
-      <div>
-        <label>Choose Color of Card:</label>
-        <div style="display: flex; justify-content: space-between; width: 90%; margin: auto; align-items: center;">
-          <div class="blueGradient color-circle selectedColor" onclick="selectColor('blueGradient')"></div>
-          <div class="greenGradient color-circle" onclick="selectColor('greenGradient')"></div>
-          <div class="redGradient color-circle" onclick="selectColor('redGradient')"></div>
-          <div class="purpleGradient color-circle" onclick="selectColor('purpleGradient')"></div>
-          <div class="orangeGradient color-circle" onclick="selectColor('orangeGradient')"></div>
-          <div class="yellowGradient color-circle" onclick="selectColor('yellowGradient')"></div>
-          <div class="pinkGradient color-circle" onclick="selectColor('pinkGradient')"></div>
+        <div>
+              <br>
+              <div style="display: flex; flex-direction: column;">
+                <label for="gameTitle">Title of Game Card:</label>
+                <input type="text" id="gameTitle" name="gameTitle" style="font-size: 100%;">
+              </div>
+              <br>
+              <div style="display: flex; flex-direction: column;">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" style="font-size: 100%;">
+              </div>
+              <br>
+              <div>
+                <label>Choose Color of Card:</label>
+                <div style="display: flex; justify-content: space-between; width: 90%; margin: auto; align-items: center;">
+                  <div class="blueGradient color-circle selectedColor" onclick="selectColor('blueGradient')"></div>
+                  <div class="greenGradient color-circle" onclick="selectColor('greenGradient')"></div>
+                  <div class="redGradient color-circle" onclick="selectColor('redGradient')"></div>
+                  <div class="purpleGradient color-circle" onclick="selectColor('purpleGradient')"></div>
+                  <div class="orangeGradient color-circle" onclick="selectColor('orangeGradient')"></div>
+                  <div class="yellowGradient color-circle" onclick="selectColor('yellowGradient')"></div>
+                  <div class="pinkGradient color-circle" onclick="selectColor('pinkGradient')"></div>
+                </div>
+              </div>
         </div>
-      </div>
-      <br>
-      <div style="display: flex; flex-direction: column;">
-        <label for="enterCards">Enter Cards Here:</label>
-        <textarea id="enterCards" name="enterCards" rows="6" style="font-size: 100%;"></textarea>
-      </div>
-      <div style="display: flex; justify-content: space-between;">
-        <div class="redGradient" style="padding: 3% 5% 3% 5%; border-radius: 999px; margin-top: 5%;" onclick="discardSet()">Cancel</div>
-        <div class="blueGradient" style="padding: 3% 8% 3% 8%; border-radius: 999px; margin-top: 5%;" onclick="createGame()">Create Game</div>
-      </div>
+        <div>
+              <br>
+              <div style="display: flex; flex-direction: column;">
+                <label for="enterCards">Enter Cards Here:</label>
+                <textarea id="enterCards" name="enterCards" rows="6" style="font-size: 100%;"></textarea>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <div class="redGradient" style="padding: 3% 5% 3% 5%; border-radius: 999px; margin-top: 5%;" onclick="discardSet()">Cancel</div>
+                <div class="blueGradient" style="padding: 3% 8% 3% 8%; border-radius: 999px; margin-top: 5%;" onclick="createGame()">Create Game</div>
+              </div>
+        </div>
     </div>
 </div>
 
