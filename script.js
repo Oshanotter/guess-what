@@ -699,6 +699,17 @@ function discardSet() {
     page.classList.add('hidden');
 }
 
+function selectColor(color) {
+    var circles = document.querySelectorAll('color-circle');
+    circles.forEach(element => {
+        if (element.classList.contains(color)){
+            element.classList.add('selectedColor');
+        }else{
+            element.classList.remove('selectedColor');
+        }
+    });
+}
+
 async function fetchUserCreatedGame(id, errorCount=0){
 	if (errorCount > 5){
 		console.log('fetch failed')
