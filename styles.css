@@ -224,6 +224,7 @@ label {
      margin-bottom: 1%;
 }
 
+
         
         
         
@@ -272,6 +273,14 @@ label {
                 .grid-container, .settings-page {
                           width: 70%;
                           float: right;
+                }
+                
+                #create-page {
+                        display: flex;
+                
+                        div:first-child, div:last-child {
+                                width: 48%;
+                        }
                 }
         }
         
