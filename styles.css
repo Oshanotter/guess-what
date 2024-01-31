@@ -275,12 +275,15 @@ label {
                           float: right;
                 }
                 
+                /*
                 #create-page {
                     display: flex;
                 }
+                */
                 
                 .half {
                     width: 48%;
+                    float: left;
                 }
         }
         
