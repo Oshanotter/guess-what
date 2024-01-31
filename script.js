@@ -697,6 +697,11 @@ function createSet() {
 function discardSet() {
     var page = document.getElementById('create-page');
     page.classList.add('hidden');
+    var inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(element => {
+        element.value = '';
+    });
+    selectColor('blueGradient');
 }
 
 function selectColor(color) {
