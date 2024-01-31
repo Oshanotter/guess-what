@@ -700,7 +700,7 @@ function discardSet() {
 }
 
 function selectColor(color) {
-    var circles = document.querySelectorAll('color-circle');
+    var circles = document.querySelectorAll('.color-circle');
     circles.forEach(element => {
         if (element.classList.contains(color)){
             element.classList.add('selectedColor');
