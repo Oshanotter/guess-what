@@ -274,9 +274,13 @@ label {
                 }
 
                 .grid-container, .settings-page {
+                          margin-left: 29%;
+                          padding-left: env(safe-area-inset-left, 0px);
+                          /*
                           width: 70%;
                           margin-left: env(safe-area-inset-left, 0px);
                           float: right;
+                          */
                 }
                 
                 /*
