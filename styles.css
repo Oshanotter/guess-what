@@ -249,7 +249,7 @@ label {
 
                 .menu-bar {
                           top: 0;
-                          width: 28vw;
+                          width: 25vw;
                           padding-left: env(safe-area-inset-left, 0px);
                           height: 100vh; 
                           display: flex;
@@ -264,17 +264,18 @@ label {
                           img {
                                     height: 70%;
                                     display: block;
-                                    margin-right: 10%;
-                                    margin-left: 10%;
+                                    margin-right: 5%;
+                                    margin-left: 0%;
                           }
                 }
 
                 .menu-bar-text {
                           display: block;
+                          margin: auto;
                 }
 
                 .grid-container, .settings-page {
-                          margin-left: 29%;
+                          margin-left: 26%;
                           padding-left: env(safe-area-inset-left, 0px);
                           /*
                           width: 70%;
