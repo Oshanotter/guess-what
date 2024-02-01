@@ -254,7 +254,6 @@ label {
                           height: 100vh; 
                           display: flex;
                           flex-flow: column;
-                          box-sizing: border-box;
                 }
 
                 .menu-bar-items {
