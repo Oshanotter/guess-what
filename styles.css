@@ -250,7 +250,7 @@ label {
                 .menu-bar {
                           top: 0;
                           /*width: 28vw;*/
-                          width: calc(28vw - env(safe-area-inset-left), 0px);
+                          width: calc(28vw - env(safe-area-inset-left), 28vw);
                           height: 100vh; 
                           display: flex;
                           flex-flow: column;
