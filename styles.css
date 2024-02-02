@@ -292,7 +292,7 @@ label {
                 
                 .half {
                     width: 48%;
-                    height: 98%;
+                    height: 100%;
                     float: left;
                 }
         }
@@ -335,11 +335,5 @@ label {
                           display: flex;
                           flex-flow: column;
                 }
-/*
-                #create-page > :last-child {
-                          display: flex; 
-                          flex-flow: column;
-                          flex-grow: 1;
-                }
-                  */
+
         }
