@@ -336,9 +336,9 @@ label {
                           display: flex;
                           flex-flow: column;
                 }
-
+/*
                 .grid-container, .settings-page {
                           height: 98vh;
                 }
-
+*/
         }
