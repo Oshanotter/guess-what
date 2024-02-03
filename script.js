@@ -841,6 +841,9 @@ function generateUserCreatedGame(dict){
 	// append mainDiv to create page
 	var createPage = document.getElementById('create');
 	createPage.appendChild(mainDiv);
+
+	// exit the create screen
+	discardSet();
 }
 
 function handleUploadError(){
