@@ -692,6 +692,7 @@ function createSet() {
     // reveal the create-page
     var page = document.getElementById('create-page');
     page.classList.remove('hidden');
+    selectedColor = "blueGradient";
 }
 
 function discardSet() {
@@ -753,6 +754,46 @@ async function uploadUserCreatedGame(data, errorCount=0){
 	}
 }
 
+function createGame() {
+	var title = document.getElementById('gameTitle').value;
+	var description = document.getElementById('description').value;
+	var cards = document.getElementById('enterCards').value;
+	
+	// split the cards into a list and remove the whitespace
+	var cardsList = cards.split("\n");
+	for (var i = 0; i < cardsList.length; i++) {
+	    cardsList[i] = cardsList[i].trim();
+	}
+
+	// get current date
+	var currentDate = new Date();
+	var year = currentDate.getFullYear().toString().substr(-2); // Last two digits of the year
+	var month = (currentDate.getMonth() + 1).toString().padStart(2, '0'); // Adding 1 because months are zero-based
+	var day = currentDate.getDate().toString().padStart(2, '0');
+	var hours = currentDate.getHours().toString().padStart(2, '0');
+	var minutes = currentDate.getMinutes().toString().padStart(2, '0');
+	var seconds = currentDate.getSeconds().toString().padStart(2, '0');
+	var milliseconds = currentDate.getMilliseconds().toString().padStart(3, '0');
+	var dateString = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + '.' + seconds + milliseconds;
+	
+	// create the id for the game from the title and current date
+	var gameID = title.replace(/ /g, '-') + dateString;
+
+	var dict = {
+	    "title": title.trim(),
+	    "description": description.trim(),
+	    "games": {
+	      "Play": cardsList
+	    },
+	    "color": selectedColor, 
+	    "id": gameID
+	}
+
+	var dictString = JSON.stringify(dict);
+	//storeUserCreatedGame(dictString, gameID);
+	generateUserCreatedGame(dict);
+}
+
 function shareGame(id){
 	// get the game's json who has the given id
 	// convert the json to string
@@ -762,13 +803,43 @@ function shareGame(id){
 
 function getJsonFromData(data){
 	// decode the url encoded data
-	// add the new game to local storage: storeUserCreatedGame(jsonString)
 	// create json object by de-stringifing it
+	// add the new game to local storage: storeUserCreatedGame(jsonString, gameID)
 	// call generateUserCreatedGame(jsonObject)
 }
 
-function generateUserCreatedGame(jsonObject){
+function generateUserCreatedGame(dict){
 	// create the game card for a user created game	
+	var mainDiv = document.createElement('div');
+	mainDiv.classList = "gameCard " + dict['color'];
+	mainDiv.id = dict['id'];
+	mainDiv.onclick = function() {
+    		gamesDict = dict['games'];
+		buildGamePreview(dict['title'], dict['description']);
+	};
+	// create heart div
+	var heartDiv = document.createElement('div');
+	heartDiv.innerText = "♡";
+	heartDiv.onclick = function() {
+    		toggleHeart(dict['id']);
+		event.stopPropagation();
+	};
+	// create image 
+	var image = document.createElement('img');
+	image.src = "icons/full.png";
+	image.alt = "icon";
+	// create title div
+	var titleDiv = document.createElement('div');
+	titleDiv.innerText = dict['title'];
+
+	// append the elements to the main div
+	mainDiv.appendChild(heartDiv);
+	mainDiv.appendChild(image);
+	mainDiv.appendChild(titleDiv);
+
+	// append mainDiv to create page
+	var createPage = document.getElementById('create');
+	createPage.appendChild(mainDiv);
 }
 
 function handleUploadError(){
