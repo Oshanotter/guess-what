@@ -106,6 +106,7 @@ body, html {
           gap: 2vw; 
           overflow: scroll;
           margin: 1%;
+          align-items: start;
         }
 
         .gameCard {
@@ -336,9 +337,9 @@ label {
                           display: flex;
                           flex-flow: column;
                 }
-/*
+
                 .grid-container, .settings-page {
                           height: 98vh;
                 }
-*/
+
         }
