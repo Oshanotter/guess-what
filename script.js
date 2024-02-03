@@ -580,6 +580,7 @@ function addPlayButton() {
 }
 
 function preventScroll(bool){
+	return;
     if (bool){
         document.body.style.overflow = "hidden";
 	/*document.body.style.height = "100%";*/
@@ -792,7 +793,6 @@ function createGame() {
 	var dictString = JSON.stringify(dict);
 	//storeUserCreatedGame(dictString, gameID);
 	generateUserCreatedGame(dict);
-	preventScroll(true);
 }
 
 function shareGame(id){
