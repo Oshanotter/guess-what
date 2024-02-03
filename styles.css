@@ -107,6 +107,11 @@ body, html {
           overflow: scroll;
           margin: 1%;
           align-items: start;
+          position: fixed;
+        }
+
+        .settings-page {
+                  position: fixed;
         }
 
         .gameCard {
