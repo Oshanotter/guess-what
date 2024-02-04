@@ -766,6 +766,7 @@ function hideOtherElements(unhiddenElementClass) {
         if (value == unhiddenElementClass){
             element.classList.remove('hidden');
 		controlStretch(element);
+		allowScroll(element);
 	    document.querySelector("body > div.menu-bar > div:nth-child(" + (i + 1) + ")").classList.add("active");
         }else{
             element.classList.add('hidden');
