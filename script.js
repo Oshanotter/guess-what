@@ -635,7 +635,7 @@ function allowScroll(element) {
 	setTimeout( function(){
 	// set topscroll to 1 immediately so that scrolling up doesn't casue the whole screen to move
 	element.scrollTop = 1;
-	}, 100);
+	}, 1);
 	
 }
 
