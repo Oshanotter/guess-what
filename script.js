@@ -529,7 +529,7 @@ function buildGamePreview(title, description) {
     //prevent scrolling when the overlay is displayed
     preventScroll(true);
 
-theTarget = gridDiv;
+
 
 var preventDefault = function (e) {
     e.preventDefault();
@@ -547,8 +547,8 @@ document.addEventListener('touchmove', preventDefault, { passive: false });
 document.addEventListener('touchforcechange', preventDefault, { passive: false });
 
 var theBody = document.querySelector("body");
-theBody.removeEventListener('touchmove', allowDefault, { passive: false });
-theBody.removeEventListener('touchforcechange', allowDefault, { passive: false });
+gridDiv.addEventListener('touchmove', allowDefault, { passive: false });
+gridDiv.addEventListener('touchforcechange', allowDefault, { passive: false });
 
 	
 }
