@@ -704,8 +704,6 @@ function discardSet() {
         element.value = '';
     });
     selectColor('blueGradient');
-	noScroll();
-	stopBodyScrolling(true);
 }
 
 function selectColor(color) {
@@ -999,30 +997,3 @@ function main() {
 	}
 }
 main();
-
-
-
-
-
-
-
-
-function noScroll() {
-	var vpH = window.innerHeight;
-document.documentElement.style.height = vpH.toString() + "px";
-body.style.height = vpH.toString() + "px";
-}
-
-
-function stopBodyScrolling (bool) {
-    if (bool === true) {
-        document.body.addEventListener("touchmove", freezeVp, false);
-    } else {
-        document.body.removeEventListener("touchmove", freezeVp, false);
-    }
-}
-
-var freezeVp = function(e) {
-    e.preventDefault();
-};
-
