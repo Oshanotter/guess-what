@@ -530,16 +530,21 @@ function buildGamePreview(title, description) {
     preventScroll(true);
 
 theTarget = gridDiv;
+
+var preventDefault = function (e) {
+    e.preventDefault();
+    e.stopPropagation(); // Stop the event from propagating to parent or child elements
+};
 	
-	var allowDefault = function (e) {
-        e.preventDefault();
+var allowDefault = function (e) {
+        // do nothing
 	e.stopPropagation();
 };
 
 var specificElement = document.getElementById('yourElementId');
 
-document.addEventListener('touchmove', allowDefault, { passive: false });
-document.addEventListener('touchforcechange', allowDefault, { passive: false });
+document.addEventListener('touchmove', preventDefault, { passive: false });
+document.addEventListener('touchforcechange', preventDefault, { passive: false });
 
 var theBody = document.querySelector("body");
 theBody.removeEventListener('touchmove', allowDefault, { passive: false });
