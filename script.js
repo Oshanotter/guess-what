@@ -529,10 +529,12 @@ function buildGamePreview(title, description) {
     //prevent scrolling when the overlay is displayed
     preventScroll(true);
 
-	var preventDefault = function(e) {
-        e.preventDefault();
-	e.stopPropagation();
-    };
+	var preventDefault = function (e) {
+	    if (e.target === mainDiv) {
+	        e.preventDefault();
+	    }
+	    
+	};
 
     //var theBody = document.querySelector("body");
 	
