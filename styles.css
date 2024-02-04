@@ -107,7 +107,7 @@ body, html {
           overflow: scroll;
           margin: 1%;
           align-items: start;
-          position: absolute;
+          position: fixed;
           background-color: red;
         }
 
