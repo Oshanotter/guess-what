@@ -269,7 +269,7 @@ var overlay;
             rightCol.style.height = "auto";
             resultsPage.appendChild(rightCol)
 
-            resultsPage.style.overflow = "auto";
+            resultsPage.style.overflowY = "auto";
 	    // allow certain elements to scroll again if the user started creating a new set
     	    allowScroll(resultsPage);
 		
@@ -633,7 +633,7 @@ function allowScroll(element) {
         });
 
 	// set topscroll to 1 immediately so that scrolling up doesn't casue the whole screen to move
-	element.scrollTop = 1;
+	element.scrollTop = 10;
 	
 }
 
