@@ -14,7 +14,8 @@ const PRECACHE_URLS = [
   'icons/menu-bar/allGames.png',
   'icons/menu-bar/favorites.png',
   'icons/menu-bar/create.png',
-  'icons/menu-bar/settings.png'
+  'icons/menu-bar/settings.png',
+  'create.html'
 ];
 
 // The install handler takes care of precaching the resources we always need.
