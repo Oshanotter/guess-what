@@ -106,7 +106,7 @@ body, html {
           gap: 2vw; 
           overflow: scroll;
           margin: 1%;
-          align-items: start;
+          grid-auto-rows: min-content;
         }
 
         .gameCard {
@@ -339,7 +339,7 @@ label {
                 }
 
                 .grid-container, .settings-page {
-                          height: 89vh;
+                          min-height: 89vh;
                 }
 
         }
