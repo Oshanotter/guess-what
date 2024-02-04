@@ -691,6 +691,24 @@ function controlStretch(element){
 
 }
 
+function addEmptyClickEvent(){
+	// this function is needed in order to prevent random scrolling when double tapping on elements after clicking on an input tag on iOS
+	// Get all elements on the page
+	var allElements = document.getElementsByTagName("*");
+	
+	// Iterate through each element
+	for (var i = 0; i < allElements.length; i++) {
+	    var currentElement = allElements[i];
+	    // Check if the element does not already have an onclick attribute
+	    if (!currentElement.hasAttribute("onclick")) {
+	        currentElement.addEventListener("click", function() {
+	            // simply return to prevent scrolling
+	            return;
+	        });
+	    }
+	}
+
+}
 
 
 
@@ -813,6 +831,9 @@ function discardSet() {
 
     // make sure that the scrolling bug in iOS doesn't mess with the user experience
     preventScroll();
+
+    // make sure random scrolling doesn't happen on iOS
+    addEmptyClickEvent();
 }
 
 function selectColor(color) {
