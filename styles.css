@@ -107,7 +107,8 @@ body, html {
           overflow: scroll;
           margin: 1%;
           align-items: start;
-          position: fixed;
+          position: absolute;
+          background-color: red;
         }
 
         .settings-page {
