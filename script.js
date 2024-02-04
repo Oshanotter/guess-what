@@ -631,9 +631,9 @@ function allowScroll(element) {
 		element.scrollTop = element.scrollHeight - element.clientHeight - 1;
             }
         });
-
+	alert('almost done')
 	// set topscroll to 1 immediately so that scrolling up doesn't casue the whole screen to move
-	element.scrollTop = 10;
+	element.scrollTop = 1;
 	
 }
 
