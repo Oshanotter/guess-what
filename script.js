@@ -347,7 +347,7 @@ function buildGamePreview(title, description) {
 	const mainDiv = document.createElement('div');
 	mainDiv.className = "blueGradient"
         mainDiv.classList.add('mainGamePreview');
-	mainDiv.style.position = 'fixed';
+	mainDiv.style.position = 'absolute';
 	mainDiv.style.top = '50%';
 	mainDiv.style.left = '50%';
 	mainDiv.style.transform = 'translate(-50%, -50%)';
