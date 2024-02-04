@@ -269,7 +269,7 @@ var overlay;
             rightCol.style.height = "auto";
             resultsPage.appendChild(rightCol)
 
-            resultsPage.style.overflowY = "auto";
+            resultsPage.style.overflow = "auto";
 	    // allow certain elements to scroll again if the user started creating a new set
     	    allowScroll(resultsPage);
 		
