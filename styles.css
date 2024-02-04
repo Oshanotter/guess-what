@@ -339,7 +339,7 @@ label {
                 }
 
                 .grid-container, .settings-page {
-                          min-height: 89vh;
+                          height: 89vh;
                 }
 
         }
