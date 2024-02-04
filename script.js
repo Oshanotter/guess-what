@@ -728,6 +728,7 @@ function hideOtherElements(unhiddenElementClass) {
         var element = document.getElementById(value);
         if (value == unhiddenElementClass){
             element.classList.remove('hidden');
+		enableScrollHelper(element);
 	    document.querySelector("body > div.menu-bar > div:nth-child(" + (i + 1) + ")").classList.add("active");
         }else{
             element.classList.add('hidden');
