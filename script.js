@@ -270,6 +270,9 @@ var overlay;
             resultsPage.appendChild(rightCol)
 
             resultsPage.style.overflowY = "auto";
+	    // allow certain elements to scroll again if the user started creating a new set
+    	    allowScroll(resultsPage);
+		
             overlay.removeChild(startText);
             
             var totalPoints = 0;
@@ -863,6 +866,8 @@ function generateUserCreatedGame(dict){
 	mainDiv.classList = "gameCard " + dict['color'];
 	mainDiv.id = dict['id'];
 	mainDiv.onclick = function() {
+		//first, request permission to use the device's orientation
+  		requestPermission();
     		gamesDict = dict['games'];
 		buildGamePreview(dict['title'], dict['description']);
 	};
