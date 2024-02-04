@@ -620,7 +620,7 @@ function allowScroll(element) {
 
 	element.addEventListener('touchmove', allowDefault, { passive: false });
 	element.addEventListener('touchforcechange', allowDefault, { passive: false });
-return;
+
 	element.addEventListener('scroll', function() {
             // Check if the scroll position is at the top
             if (element.scrollTop === 0) {
