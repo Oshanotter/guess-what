@@ -637,6 +637,25 @@ function allowScroll(element) {
 	
 }
 
+function enableScrollHelper(element){
+
+	var stretch = element.querySelector('.stretch');
+	var position = element.scrollHeight - (2 * stretch.clientHeight);
+	
+	element.addEventListener('scroll', function() {
+            // Check if the scroll position is at the top
+            if (element.scrollTop >= position) {
+                // If at the top of the stretch element, don’t scroll any farther down
+                console.log('reached position')
+                element.scrollTop = position - 1; 
+            }
+        });
+
+}
+
+
+
+
 
 
 
