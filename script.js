@@ -704,7 +704,7 @@ function discardSet() {
         element.value = '';
     });
     selectColor('blueGradient');
-	//noScroll();
+	noScroll();
 	stopBodyScrolling(true);
 }
 
