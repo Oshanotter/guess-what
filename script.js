@@ -644,7 +644,7 @@ function enableScrollHelper(element){
 	
 	element.addEventListener('scroll', function() {
             // Check if the scroll position is at the top
-            if (element.scrollTop === position) { // >=
+            if (element.scrollTop >= position) { // >=
                 // If at the top of the stretch element, don’t scroll any farther down
                 console.log('reached position')
                 element.scrollTop = position - 1; 
