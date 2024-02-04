@@ -704,6 +704,13 @@ function discardSet() {
         element.value = '';
     });
     selectColor('blueGradient');
+
+    var preventDefault = function(e) {
+        e.preventDefault();
+    };
+
+    document.addEventListener('touchmove', preventDefault, { passive: false });
+    document.addEventListener('touchforcechange', preventDefault, { passive: false });
 }
 
 function selectColor(color) {
