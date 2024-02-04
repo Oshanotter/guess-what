@@ -370,7 +370,7 @@ function buildGamePreview(title, description) {
 	closeButton.addEventListener('click', () => {
 	mainDiv.remove();
         preventInput.remove();
-        preventScroll(false);
+        //preventScroll(false);
 	});
 	
 	// Create title
@@ -527,12 +527,9 @@ function buildGamePreview(title, description) {
 	document.body.appendChild(mainDiv);
     
     //prevent scrolling when the overlay is displayed
-    preventScroll(true);
+    //preventScroll(true);
 
-    // stop other elements from scrolling
-    stopScroll();
-
-    // allow certain elements to scroll
+    // allow certain elements to scroll again if the user started creating a new set
     allowScroll(gridDiv);
 }
 
@@ -585,22 +582,23 @@ function addPlayButton() {
 	    return gridItemDiv;
 }
 
-function preventScroll(bool){
+/*function preventScroll(bool){
 	return;
     if (bool){
         document.body.style.overflow = "hidden";
-	/*document.body.style.height = "100%";*/
+	//document.body.style.height = "100%";
 	document.documentElement.style.overflow = "hidden";
-	/*document.documentElement.style.height = "100%";*/
+	//document.documentElement.style.height = "100%";
     }else{
         document.body.style.overflow = '';
-	/*document.body.style.height = '';*/
+	//document.body.style.height = '';
 	document.documentElement.style.overflow = '';
-	/*document.documentElement.style.height = '';*/
+	//document.documentElement.style.height = '';
     }
-}
+}*/
 
-function stopScroll() {
+function preventScroll() {
+	// prevent any element from scrolling after the user has clicked on an input
 	var preventDefault = function (e) {
 	    e.preventDefault();
 	    e.stopPropagation(); // Stop the event from propagating to parent or child elements
@@ -752,7 +750,8 @@ function discardSet() {
     });
     selectColor('blueGradient');
 
-    
+    // make sure that the scrolling bug in iOS doesn't mess with the user experience
+    preventScroll();
 }
 
 function selectColor(color) {
