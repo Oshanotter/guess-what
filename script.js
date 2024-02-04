@@ -637,6 +637,7 @@ function allowScroll(element) {
 	
 }
 
+/*
 function enableScrollHelper(element){
 
 	var stretch = element.querySelector('.stretch');
@@ -657,7 +658,38 @@ function enableScrollHelper(element){
         });
 
 }
+*/
 
+
+function controlStretch(element){
+
+	var stretch = element.querySelector('.stretch');
+	console.log(stretch);
+	    
+	if (element.clientHeight >= element.scrollHeight){
+		var allCards = element.querySelectorAll('.gameCard:not(.stretch)');
+		var num = allCards.length;
+		console.log(num);
+		if (num == 1 || num == 0){
+			stretch.style.height = element.clientHeight + 1 + 'px';
+			return;
+		}
+		
+		if (num % 2 == 0){
+			// if the number is even
+			var lastCard = allCards[num - 1];
+			console.log('number is even');
+			console.log(lastCard);
+		}else{
+			var lastCard = allCards[num - 2];
+		}
+		var lastElementPosition = lastCard.offsetTop + lastCard.offsetHeight;
+		console.log(lastElementPosition);
+		var newHeight = (element.clientHeight - lastElementPosition) + 1;
+		stretch.style.height = newHeight + 'px';
+	}
+
+}
 
 
 
@@ -733,7 +765,7 @@ function hideOtherElements(unhiddenElementClass) {
         var element = document.getElementById(value);
         if (value == unhiddenElementClass){
             element.classList.remove('hidden');
-		enableScrollHelper(element);
+		controlStretch(element);
 	    document.querySelector("body > div.menu-bar > div:nth-child(" + (i + 1) + ")").classList.add("active");
         }else{
             element.classList.add('hidden');
