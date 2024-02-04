@@ -529,18 +529,21 @@ function buildGamePreview(title, description) {
     //prevent scrolling when the overlay is displayed
     preventScroll(true);
 
-theTarget = document.querySelector("body");
+theTarget = gridDiv;
 	
 	var allowDefault = function (e) {
-    if (e.target == theTarget) {
         e.preventDefault();
-    }
+	e.stopPropagation();
 };
 
 var specificElement = document.getElementById('yourElementId');
 
 document.addEventListener('touchmove', allowDefault, { passive: false });
 document.addEventListener('touchforcechange', allowDefault, { passive: false });
+
+var theBody = document.querySelector("body");
+theBody.removeEventListener('touchmove', allowDefault, { passive: false });
+theBody.removeEventListener('touchforcechange', allowDefault, { passive: false });
 
 	
 }
