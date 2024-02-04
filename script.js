@@ -622,10 +622,10 @@ function allowScroll(element) {
 
 	element.addEventListener('scroll', function() {
             // Check if the scroll position is at the top
-            if (element.scrollTop <= 0) {
+            if (element.scrollTop === 0) {
                 // If at the top, prevent further scrolling up 
                 element.scrollTop = 1; // Set it to 1 to prevent further scrolling
-            }else if (element.scrollHeight - element.scrollTop <= element.clientHeight) {
+            }else if (element.scrollHeight - element.scrollTop === element.clientHeight) {
         	// If at the bottom, prevent further scrolling down
 		element.scrollTop = element.scrollHeight - element.clientHeight - 1;
             }
