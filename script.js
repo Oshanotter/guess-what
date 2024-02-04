@@ -528,6 +528,16 @@ function buildGamePreview(title, description) {
     
     //prevent scrolling when the overlay is displayed
     preventScroll(true);
+
+	var preventDefault = function(e) {
+        e.preventDefault();
+	e.stopPropagation();
+    };
+
+    //var theBody = document.querySelector("body");
+	
+    mainDiv.addEventListener('touchmove', preventDefault, { passive: false });
+    mainDiv.addEventListener('touchforcechange', preventDefault, { passive: false });
 	
 }
 
@@ -706,15 +716,7 @@ function discardSet() {
     });
     selectColor('blueGradient');
 
-    var preventDefault = function(e) {
-        e.preventDefault();
-	e.stopPropagation();
-    };
-
-    var theBody = document.querySelector("body");
-	
-    theBody.addEventListener('touchmove', preventDefault, { passive: false });
-    theBody.addEventListener('touchforcechange', preventDefault, { passive: false });
+    
 }
 
 function selectColor(color) {
