@@ -529,37 +529,11 @@ function buildGamePreview(title, description) {
     //prevent scrolling when the overlay is displayed
     preventScroll(true);
 
+    // stop other elements from scrolling
+    stopScroll();
 
-
-var preventDefault = function (e) {
-    e.preventDefault();
-    e.stopPropagation(); // Stop the event from propagating to parent or child elements
-};
-	
-var allowDefault = function (e) {
-        // do nothing
-	e.stopPropagation();
-};
-
-var specificElement = document.getElementById('yourElementId');
-
-document.addEventListener('touchmove', preventDefault, { passive: false });
-document.addEventListener('touchforcechange', preventDefault, { passive: false });
-
-var theBody = document.querySelector("body");
-gridDiv.addEventListener('touchmove', allowDefault, { passive: false });
-gridDiv.addEventListener('touchforcechange', allowDefault, { passive: false });
-
-gridDiv.addEventListener('scroll', function() {
-            // Check if the scroll position is at the top
-            if (gridDiv.scrollTop == 0) {
-                // If at the top, prevent further scrolling up 
-                console.log('hi')
-                gridDiv.scrollTop = 1; // Set it to 1 to prevent further scrolling
-            }
-        });
-
-	
+    // allow certain elements to scroll
+    allowScroll(gridDiv);
 }
 
 
@@ -625,6 +599,44 @@ function preventScroll(bool){
 	/*document.documentElement.style.height = '';*/
     }
 }
+
+function stopScroll() {
+	var preventDefault = function (e) {
+	    e.preventDefault();
+	    e.stopPropagation(); // Stop the event from propagating to parent or child elements
+	};
+
+	document.addEventListener('touchmove', preventDefault, { passive: false });
+	document.addEventListener('touchforcechange', preventDefault, { passive: false });
+
+}
+
+function allowScroll(element) {
+	var allowDefault = function (e) {
+	        // do nothing
+		e.stopPropagation();
+	};
+
+	element.addEventListener('touchmove', allowDefault, { passive: false });
+	element.addEventListener('touchforcechange', allowDefault, { passive: false });
+
+	element.addEventListener('scroll', function() {
+            // Check if the scroll position is at the top
+            if (element.scrollTop <= 0) {
+                // If at the top, prevent further scrolling up 
+                element.scrollTop = 1; // Set it to 1 to prevent further scrolling
+            }else if (element.scrollHeight - element.scrollTop <= element.clientHeight) {
+        	// If at the bottom, prevent further scrolling down
+		element.scrollTop = element.scrollHeight - element.clientHeight - 1;
+            }
+        });
+	
+}
+
+
+
+
+
 
 
 
