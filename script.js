@@ -647,7 +647,12 @@ function enableScrollHelper(element){
             if (element.scrollTop >= position) { // >=
                 // If at the top of the stretch element, don’t scroll any farther down
                 console.log('reached position')
-                element.scrollTop = position - 1; 
+                //element.scrollTop = position - 1; 
+		element.scrollTo({
+	                top: position - 1,
+	                behavior: 'smooth'
+                });
+		    
             }
         });
 
