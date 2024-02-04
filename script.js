@@ -550,6 +550,15 @@ var theBody = document.querySelector("body");
 gridDiv.addEventListener('touchmove', allowDefault, { passive: false });
 gridDiv.addEventListener('touchforcechange', allowDefault, { passive: false });
 
+gridDiv.addEventListener('scroll', function() {
+            // Check if the scroll position is at the top
+            if (gridDiv.scrollTop == 0) {
+                // If at the top, prevent further scrolling up 
+                console.log('hi')
+                gridDiv.scrollTop = 1; // Set it to 1 to prevent further scrolling
+            }
+        });
+
 	
 }
 
