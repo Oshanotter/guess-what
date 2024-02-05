@@ -672,7 +672,7 @@ function controlStretch(element){
 	stretch.style.height = "0px";
 	    
 	if (element.clientHeight >= element.scrollHeight){
-		var allCards = element.document.querySelectorAll('.gameCard:not(.stretch):not(.buffer)');
+		var allCards = element.querySelectorAll('.gameCard:not(.stretch):not(.buffer)');
 		var num = allCards.length;
 		console.log(num);
 		if (num == 0){
