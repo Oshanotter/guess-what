@@ -904,7 +904,7 @@ function createGame() {
 	var minutes = currentDate.getMinutes().toString().padStart(2, '0');
 	var seconds = currentDate.getSeconds().toString().padStart(2, '0');
 	var milliseconds = currentDate.getMilliseconds().toString().padStart(3, '0');
-	var dateString = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + '.' + seconds + milliseconds;
+	var dateString = year + month + day + hours + minutes + seconds + milliseconds;
 	
 	// create the id for the game from the title and current date
 	var gameID = title.replace(/ /g, '-') + dateString;
@@ -919,8 +919,8 @@ function createGame() {
 	    "id": gameID
 	}
 
-	var dictString = JSON.stringify(dict);
-	//storeUserCreatedGame(dictString, gameID);
+	//var dictString = JSON.stringify(dict);
+	//storeUserCreatedGame(dict);
 	generateUserCreatedGame(dict);
 }
 
@@ -976,6 +976,32 @@ function generateUserCreatedGame(dict){
 
 	// exit the create screen
 	discardSet();
+}
+
+function storeUserCreatedGame(dict){
+    var gamesDict = getAllUserCreatedGames();
+    var gameID = dict['id'];
+    gamesDict[gameID] = dict;
+    setUserCreatedGames(gamesDict); 
+}
+
+function getAllUserCreatedGames(){
+    var faves = localStorage.getItem("favorites");
+    if(faves !== null){
+	    return JSON.parse(faves);
+    }
+    return [];
+}
+
+function setUserCreatedGames(gamesDict) {
+    var string = JSON.stringify(favesList);
+    localStorage.setItem("favorites", string);
+}
+
+function removeUserCreatedGame(idToRemove) {
+    var favesList = getFavorites();
+    var updatedList = favesList.filter(value => value !== valueToRemove);
+    setFavorites(updatedList);
 }
 
 function handleUploadError(){
