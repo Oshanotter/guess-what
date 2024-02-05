@@ -971,7 +971,8 @@ function generateUserCreatedGame(dict){
 
 	// append mainDiv to create page
 	var createPage = document.getElementById('create');
-	createPage.appendChild(mainDiv);
+    var buffer = createPage.querySelector('.buffer');
+	createPage.insertBefore(mainDiv, buffer);
 
 	// exit the create screen
 	discardSet();
