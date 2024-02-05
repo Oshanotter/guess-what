@@ -339,7 +339,9 @@ label {
                 }
 
                 .grid-container, .settings-page {
-                          height: 89vh;
+                          /*height: 89vh;*/
+                          /*min-height: calc(-webkit-fill-available - 11vh);*/
+                          height: 89%;
                 }
 
         }
