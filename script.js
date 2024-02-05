@@ -800,7 +800,8 @@ function hideOtherElements(unhiddenElementClass) {
 
 function displayFavorites() {
     var favesPage = document.getElementById('favorites');
-    favesPage.innerHTML = '';
+    favesPage.innerHTML = '<div class="gameCard pinkGradient stretch" style="height: 0px;"></div>';
+    var lastChild = favesPage.lastChild;
     var favesList = getFavorites();
     console.log(favesList)
     favesList.forEach(value => {
@@ -808,7 +809,7 @@ function displayFavorites() {
         console.log(element)
 	var clone = element.cloneNode(true);
 	clone.id = value + "-fave";
-        favesPage.appendChild(clone);
+        favesPage.insertBefore(clone, lastChild);
     });
     hideOtherElements('favorites');
 }
