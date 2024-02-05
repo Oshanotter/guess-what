@@ -1125,6 +1125,12 @@ function main() {
 	markFavorites();
 	installPrompt();
 
+	// Add event listener for changes in orientation to adjust the stretch element
+	window.addEventListener('orientationchange', function(){
+		var currentElement = document.querySelector('.grid-container:not(.hidden)');
+		controlStretch(currentElement);
+	});
+
 	// get the default timer
 	var time = getSettings()["default-timer"];
 	if (time == undefined){
