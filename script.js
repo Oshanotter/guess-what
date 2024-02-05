@@ -672,22 +672,15 @@ function controlStretch(element){
 	stretch.style.height = "0px";
 	    
 	if (element.clientHeight >= element.scrollHeight){
-		var allCards = element.querySelectorAll('.gameCard:not(.stretch)');
+		var allCards = element.document.querySelectorAll('.gameCard:not(.stretch):not(.buffer)');
 		var num = allCards.length;
 		console.log(num);
-		if (num == 1 || num == 0){
+		if (num == 0){
 			stretch.style.height = element.clientHeight + 1 + 'px';
 			return;
 		}
 		
-		if (num % 2 == 0){
-			// if the number is even
-			var lastCard = allCards[num - 1];
-			console.log('number is even');
-			console.log(lastCard);
-		}else{
-			var lastCard = allCards[num - 2];
-		}
+		var lastCard = allCards[num - 1];
 		var lastElementPosition = lastCard.offsetTop + lastCard.offsetHeight;
 		console.log(lastElementPosition);
 		var newHeight = (element.clientHeight - lastElementPosition) + 1;
@@ -800,8 +793,8 @@ function hideOtherElements(unhiddenElementClass) {
 
 function displayFavorites() {
     var favesPage = document.getElementById('favorites');
-    favesPage.innerHTML = '<div class="gameCard pinkGradient stretch" style="height: 0px;"></div>';
-    var lastChild = favesPage.lastChild;
+    favesPage.innerHTML = '<div class="gameCard orangeGradient buffer"></div><div class="gameCard pinkGradient stretch" style="height: 0px;"></div>';
+    var buffer = favesPage.querySelector(".buffer");
     var favesList = getFavorites();
     console.log(favesList)
     favesList.forEach(value => {
@@ -809,7 +802,7 @@ function displayFavorites() {
         console.log(element)
 	var clone = element.cloneNode(true);
 	clone.id = value + "-fave";
-        favesPage.insertBefore(clone, lastChild);
+        favesPage.insertBefore(clone, buffer);
     });
     hideOtherElements('favorites');
 }
