@@ -986,22 +986,28 @@ function storeUserCreatedGame(dict){
 }
 
 function getAllUserCreatedGames(){
-    var faves = localStorage.getItem("favorites");
-    if(faves !== null){
-	    return JSON.parse(faves);
+    var games = localStorage.getItem("userCreatedGames");
+    if(games !== null){
+	    return JSON.parse(games);
     }
-    return [];
+    return {};
 }
 
 function setUserCreatedGames(gamesDict) {
-    var string = JSON.stringify(favesList);
-    localStorage.setItem("favorites", string);
+    var string = JSON.stringify(gamesDict);
+    localStorage.setItem("userCreatedGames", string);
 }
 
 function removeUserCreatedGame(idToRemove) {
-    var favesList = getFavorites();
-    var updatedList = favesList.filter(value => value !== valueToRemove);
-    setFavorites(updatedList);
+    var gamesDict = getAllUserCreatedGames();
+    delete gamesDict.idToRemove;
+    setUserCreatedGames(gamesDict);
+}
+
+function getUserCreatedGame(id) {
+    var gamesDict = getAllUserCreatedGames();
+    var game = gamesDict[id];
+    return game;
 }
 
 function handleUploadError(){
