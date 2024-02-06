@@ -971,7 +971,7 @@ function generateUserCreatedGame(dict){
 	};
 	// create image 
 	var image = document.createElement('img');
-	image.src = "icons/full.png";
+	image.src = "icons/masked.png";
 	image.alt = "icon";
 	// create title div
 	var titleDiv = document.createElement('div');
