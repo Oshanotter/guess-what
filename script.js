@@ -847,7 +847,7 @@ function selectColor(color) {
     });
 }
 
-async function fetchUserCreatedGame(id, errorCount=0){
+async function importUserCreatedGame(id, errorCount=0){
 	if (errorCount > 5){
 		console.log('fetch failed')
 		handleIdError();
@@ -920,7 +920,7 @@ function createGame() {
 	}
 
 	//var dictString = JSON.stringify(dict);
-	//storeUserCreatedGame(dict);
+	storeUserCreatedGame(dict);
 	generateUserCreatedGame(dict);
 }
 
@@ -939,15 +939,20 @@ function getJsonFromData(data){
 }
 
 function generateUserCreatedGame(dict){
+    var gameID = dict['id'];
+    var title = dict['title'];
+    var des = dict['description'];
+    
 	// create the game card for a user created game	
 	var mainDiv = document.createElement('div');
 	mainDiv.classList = "gameCard " + dict['color'];
-	mainDiv.id = dict['id'];
+	mainDiv.id = gameID;
 	mainDiv.onclick = function() {
 		//first, request permission to use the device's orientation
   		requestPermission();
-    		gamesDict = dict['games'];
-		buildGamePreview(dict['title'], dict['description']);
+        var cardDict = getUserCreatedGame(gameID);
+    	gamesDict = cardDict['games'];
+		buildGamePreview(title, des);
 	};
 	// create heart div
 	var heartDiv = document.createElement('div');
@@ -962,7 +967,7 @@ function generateUserCreatedGame(dict){
 	image.alt = "icon";
 	// create title div
 	var titleDiv = document.createElement('div');
-	titleDiv.innerText = dict['title'];
+	titleDiv.innerText = title;
 
 	// append the elements to the main div
 	mainDiv.appendChild(heartDiv);
@@ -1008,6 +1013,12 @@ function getUserCreatedGame(id) {
     var gamesDict = getAllUserCreatedGames();
     var game = gamesDict[id];
     return game;
+}
+
+function buildAllUserCreatedGames() {
+    // this function should be run when the app starts, it gets all user created games from localstorage and builds them
+    // getAllUserCreatedGames()
+    // for each value -> generateUserCreatedGame(value);
 }
 
 function handleUploadError(){
