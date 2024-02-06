@@ -1039,11 +1039,14 @@ function buildAllUserCreatedGames() {
 function toggleDropDown(gameID){
 	var gameCard = document.getElementById(gameID);
 	var menu = gameCard.querySelector('.dropDownMenu');
-	if (menu.classList.includes('hidden')){
+	menu.classList.toggle('hidden');
+	/*
+	if (menu.classList.contains('hidden')){
 		menu.classList.remove('hidden');
 	}else{
 		menu.classList.add('hidden');
 	}
+ 	*/
 }
 
 function handleUploadError(){
