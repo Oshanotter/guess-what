@@ -1017,8 +1017,11 @@ function getUserCreatedGame(id) {
 
 function buildAllUserCreatedGames() {
     // this function should be run when the app starts, it gets all user created games from localstorage and builds them
-    // getAllUserCreatedGames()
-    // for each value -> generateUserCreatedGame(value);
+    var dict = getAllUserCreatedGames();
+    for (var key in dict) {
+        var value = dict[key];
+        generateUserCreatedGame(value);
+    }
 }
 
 function handleUploadError(){
@@ -1160,6 +1163,7 @@ window.addEventListener('beforeinstallprompt', function (e) {
 
 function main() {
 	// call functions that should run immediately upon load
+    buildAllUserCreatedGames();
 	markFavorites();
 	installPrompt();
 
