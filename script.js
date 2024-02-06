@@ -979,6 +979,9 @@ function generateUserCreatedGame(dict){
     var buffer = createPage.querySelector('.buffer');
 	createPage.insertBefore(mainDiv, buffer);
 
+	// adjust the stretch element after adding a new game card
+	controlStretch(createPage);
+
 	// exit the create screen
 	discardSet();
 }
