@@ -958,7 +958,15 @@ function generateUserCreatedGame(dict){
 	var heartDiv = document.createElement('div');
 	heartDiv.innerText = "♡";
 	heartDiv.onclick = function() {
-    		toggleHeart(dict['id']);
+    		toggleHeart(gameID);
+		event.stopPropagation();
+	};
+	// create the dropdown menu
+	var dropDown = document.createElement('div');
+	dropDown.classList = "dropDownButton";
+	dropDown.innerHTML = '☰<table class="dropDownMenu hidden"><tbody><tr><th>Share ➦</th></tr><tr><th>Edit ✎</th></tr><tr><th>Delete ⌫</th></tr></tbody></table>';
+	dropDown.onclick = function() {
+    		toggleDropDown(gameID);
 		event.stopPropagation();
 	};
 	// create image 
@@ -971,6 +979,7 @@ function generateUserCreatedGame(dict){
 
 	// append the elements to the main div
 	mainDiv.appendChild(heartDiv);
+	mainDiv.appendChild(dropDown);
 	mainDiv.appendChild(image);
 	mainDiv.appendChild(titleDiv);
 
@@ -1025,6 +1034,16 @@ function buildAllUserCreatedGames() {
         var value = dict[key];
         generateUserCreatedGame(value);
     }
+}
+
+function toggleDropDown(gameID){
+	var gameCard = document.getElementById(gameID);
+	var menu = gameCard.querySelector('.dropDownMenu');
+	if (menu.classList.includes('hidden')){
+		menu.classList.remove('hidden');
+	}else{
+		menu.classList.add('hidden');
+	}
 }
 
 function handleUploadError(){
