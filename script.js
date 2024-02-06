@@ -925,6 +925,7 @@ function createGame() {
 }
 
 function shareGame(id){
+	alert("share game: " + id);
 	// get the game's json who has the given id
 	// convert the json to string
 	// url encode the string
@@ -962,13 +963,7 @@ function generateUserCreatedGame(dict){
 		event.stopPropagation();
 	};
 	// create the dropdown menu
-	var dropDown = document.createElement('div');
-	dropDown.classList = "dropDownButton";
-	dropDown.innerHTML = '☰<table class="dropDownMenu hidden"><tbody><tr><th>Share ➦</th></tr><tr><th>Edit ✎</th></tr><tr><th>Delete ⌫</th></tr></tbody></table>';
-	dropDown.onclick = function() {
-    		toggleDropDown(gameID);
-		event.stopPropagation();
-	};
+	var dropDown = makeDropdownMenu(gameID);
 	// create image 
 	var image = document.createElement('img');
 	image.src = "icons/masked.png";
@@ -1036,6 +1031,41 @@ function buildAllUserCreatedGames() {
     }
 }
 
+function makeDropDownMenu(gameID){
+	// create a sub-function to create the table rows and cells
+	function makeRowCells(title, clickFunction){
+		var row = document.createElement('tr');
+		var cell = document.createElement('th');
+		cell.innerText = title;
+		cell.onclick = function() {
+	    		clickFunction(gameID);
+			event.stopPropagation();
+		};
+		row.appendChild(cell);
+		return row;
+	}
+	
+	var dropDown = document.createElement('div');
+	dropDown.classList = "dropDownButton";
+	dropDown.innerText = '☰<table class="dropDownMenu hidden"><tbody><tr><th>Share ➦</th></tr><tr><th>Edit ✎</th></tr><tr><th>Delete ⌫</th></tr></tbody></table>';
+	dropDown.onclick = function() {
+    		toggleDropDown(gameID);
+		event.stopPropagation();
+	};
+	// make table
+	var table = document.createElement('table');
+	table.classList = "dropDownMenu hidden";
+	var tbody = document.createElement('tbody');
+	table.appendChild(tbody);
+	var shareBtn = makeRowCells('Share ➦', shareGame);
+	var editBtn = makeRowCells('Edit ✎', editGame);
+	var deleteBtn = makeRowCells('Delete ⌫', deleteGame);
+	tbody.appendChild(shareBtn);
+	tbody.appendChild(editBtn);
+	tbody.appendChild(deleteBtn);
+	return dropDown;
+}
+
 function toggleDropDown(gameID){
 	var gameCard = document.getElementById(gameID);
 	var menu = gameCard.querySelector('.dropDownMenu');
@@ -1047,6 +1077,14 @@ function toggleDropDown(gameID){
 		menu.classList.add('hidden');
 	}
  	*/
+}
+
+function editGame(id){
+	alert("edit game: " + id);
+}
+
+function deleteGame(id){
+	alert("delete game: " + id);
 }
 
 function handleUploadError(){
