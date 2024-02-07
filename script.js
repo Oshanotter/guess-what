@@ -963,7 +963,7 @@ function generateUserCreatedGame(dict){
 		event.stopPropagation();
 	};
 	// create the dropdown menu
-	var dropDown = makeDropdownMenu(gameID);
+	var dropDown = makeDropDownMenu(gameID);
 	// create image 
 	var image = document.createElement('img');
 	image.src = "icons/masked.png";
