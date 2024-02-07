@@ -1047,7 +1047,7 @@ function makeDropDownMenu(gameID){
 	
 	var dropDown = document.createElement('div');
 	dropDown.classList = "dropDownButton";
-	dropDown.innerText = '☰<table class="dropDownMenu hidden"><tbody><tr><th>Share ➦</th></tr><tr><th>Edit ✎</th></tr><tr><th>Delete ⌫</th></tr></tbody></table>';
+	dropDown.innerText = '☰';
 	dropDown.onclick = function() {
     		toggleDropDown(gameID);
 		event.stopPropagation();
