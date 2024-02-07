@@ -1063,6 +1063,7 @@ function makeDropDownMenu(gameID){
 	tbody.appendChild(shareBtn);
 	tbody.appendChild(editBtn);
 	tbody.appendChild(deleteBtn);
+	dropDown.appendChild(table);
 	return dropDown;
 }
 
