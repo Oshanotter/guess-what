@@ -708,6 +708,11 @@ function addEmptyClickEvent(){
 
 }
 
+function displayPopup(message, closeText, continueText=null, continueFunction=null){
+	// create an element over the top of everything and display a message with options
+	alert(message)
+}
+
 
 
 
@@ -885,14 +890,26 @@ async function uploadUserCreatedGame(data, errorCount=0){
 }
 
 function createGame() {
-	var title = document.getElementById('gameTitle').value;
-	var description = document.getElementById('description').value;
+	var title = document.getElementById('gameTitle').value.trim();
+	var description = document.getElementById('description').value.trim();
 	var cards = document.getElementById('enterCards').value;
+
+	if (title == "" || description == "" || cards.trim() == ""){
+		var message = "All Fields Are Required.\nPlease make sure nothing is left blank.";
+		displayPopup(message, 'Okay');
+		return;
+	}
 	
 	// split the cards into a list and remove the whitespace
 	var cardsList = cards.split("\n");
 	for (var i = 0; i < cardsList.length; i++) {
 	    cardsList[i] = cardsList[i].trim();
+	    if (cardsList[i] == ""){
+		    // remove the item by splicing it
+		    cardsList.splice(i, 1);
+		    // adjust the index because the size of the list changed
+		    i--;
+	    }
 	}
 
 	// get current date
@@ -910,8 +927,8 @@ function createGame() {
 	var gameID = title.replace(/ /g, '-') + dateString;
 
 	var dict = {
-	    "title": title.trim(),
-	    "description": description.trim(),
+	    "title": title,
+	    "description": description,
 	    "games": {
 	      "Play": cardsList
 	    },
