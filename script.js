@@ -1050,6 +1050,24 @@ function makeDropDownMenu(gameID){
 	dropDown.innerText = '☰';
 	dropDown.onclick = function() {
     		toggleDropDown(gameID);
+
+		// Add event listener to detect if user clicked outside of menu
+		document.addEventListener("click", function handleClickOutsideMenu(evt) {
+		    // Check if the target element or any of its ancestors have the 'dropDownMenu' class
+		    if (evt.target.closest(".dropDownMenu")) {
+		        // This is a click inside the dropdown menu, do nothing
+		        console.log("Clicked inside menu!");
+		        return;
+		    }
+		    // This is a click outside the dropdown menu
+		    console.log("Clicked outside menu!");
+		    // toggle the DropDown menu again
+		    toggleDropDown(gameID);
+		    // Remove the event listener after the first click outside the menu
+		    document.removeEventListener("click", handleClickOutsideMenu, true);
+		}, true);
+
+		// stop other events in parent elements from executing
 		event.stopPropagation();
 	};
 	// make table
