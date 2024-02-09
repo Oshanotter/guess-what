@@ -725,6 +725,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         mainDiv.style.width = "70%";
         mainDiv.style.position = "fixed";
         mainDiv.style.top = "50%";
+        mainDiv.style.left = "50%";
         mainDiv.style.transform = 'translate(-50%, -50%)';
         mainDiv.style.margin = "auto";
         mainDiv.style.overflow = "hidden";
@@ -747,6 +748,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         
         var cancelBtn = document.createElement('div');
         cancelBtn.style.padding = "3% 5% 3% 5%";
+        cancelBtn.style.margin = "auto";
         cancelBtn.style.borderRadius = "999px";
         cancelBtn.classList = "redGradient";
         cancelBtn.innerText = closeText;
