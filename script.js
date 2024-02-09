@@ -725,6 +725,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         mainDiv.style.width = "70%";
         mainDiv.style.position = "fixed";
         mainDiv.style.top = "50%";
+        mainDiv.style.transform = 'translate(-50%, -50%)';
         mainDiv.style.margin = "auto";
         mainDiv.style.overflow = "hidden";
         mainDiv.style.borderRadius = "20px";
@@ -739,6 +740,9 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         mainDiv.appendChild(messageDiv);
         
         var buttonContainer = document.createElement('div');
+        buttonContainer.style.display = "flex";
+        buttonContainer.style.justifyContent = "space-between";
+        buttonContainer.style.marginBottom = "5%";
         mainDiv.appendChild(buttonContainer);
         
         var cancelBtn = document.createElement('div');
