@@ -712,7 +712,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
 	// create an element over the top of everything and display a message with options
 	alert(message)
     // first create a blank div tag to prevent background items from being clicked
-        var preventInput = document.createElement('div');
+        preventInput = document.createElement('div');
         preventInput.style.height = "100%";
         preventInput.style.width = "100%";
         preventInput.style.overflow = "hidden";
@@ -726,6 +726,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         mainDiv.style.position = "fixed";
         mainDiv.style.top = "50%";
         mainDiv.style.margin = "auto";
+        mainDiv.style.overflow = "hidden";
         mainDiv.style.borderRadius = "20px";
         mainDiv.style.border = "solid";
         mainDiv.style.display = "flex";
@@ -745,6 +746,22 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         cancelBtn.style.borderRadius = "999px";
         cancelBtn.classList = "redGradient";
         cancelBtn.innerText = closeText;
+        cancelBtn.addEventListener('click', () => {
+            preventInput.remove();
+    	});
+        buttonContainer.appendChild(cancelBtn);
+        
+        if (continueText != null && continueFunction != null){
+            var continueBtn = document.createElement('div');
+            continueBtn.style.padding = "3% 5% 3% 5%";
+            continueBtn.style.borderRadius = "999px";
+            continueBtn.classList = "blueGradient";
+            continueBtn.innerText = continueText;
+            continueBtn.addEventListener('click', () => {
+                continueFunction(...continueArgs);
+        	});
+            buttonContainer.appendChild(continueBtn);
+        }
 }
 
 
