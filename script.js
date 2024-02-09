@@ -708,9 +708,43 @@ function addEmptyClickEvent(){
 
 }
 
-function displayPopup(message, closeText, continueText=null, continueFunction=null){
+function displayPopup(message, closeText, continueText=null, continueFunction=null, ...continueArgs){
 	// create an element over the top of everything and display a message with options
 	alert(message)
+    // first create a blank div tag to prevent background items from being clicked
+        var preventInput = document.createElement('div');
+        preventInput.style.height = "100%";
+        preventInput.style.width = "100%";
+        preventInput.style.overflow = "hidden";
+        preventInput.style.top = "0";
+        preventInput.style.position = "fixed";
+        preventInput.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
+        document.body.appendChild(preventInput);
+        
+        var mainDiv = document.createElement('div');
+        mainDiv.style.width = "70%";
+        mainDiv.style.position = "fixed";
+        mainDiv.style.top = "50%";
+        mainDiv.style.margin = "auto";
+        mainDiv.style.borderRadius = "20px";
+        mainDiv.style.border = "solid";
+        mainDiv.style.display = "flex";
+        mainDiv.style.flexDirection = "column";
+        preventInput.appendChild(mainDiv);
+        
+        var messageDiv = document.createElement('div');
+        messageDiv.style.margin = "5%";
+        messageDiv.innerText = message;
+        mainDiv.appendChild(messageDiv);
+        
+        var buttonContainer = document.createElement('div');
+        mainDiv.appendChild(buttonContainer);
+        
+        var cancelBtn = document.createElement('div');
+        cancelBtn.style.padding = "3% 5% 3% 5%";
+        cancelBtn.style.borderRadius = "999px";
+        cancelBtn.classList = "redGradient";
+        cancelBtn.innerText = closeText;
 }
 
 
