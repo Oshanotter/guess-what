@@ -938,6 +938,7 @@ async function uploadUserCreatedGame(data, errorCount=0){
 	if (errorCount > 5){
 		console.log('upload failed')
 		handleUploadError();
+		return;
 	}
 	try{
 		var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data;
@@ -1021,30 +1022,29 @@ function createGame() {
 }
 
 function shareGame(id){
-	alert("share game: " + id);
-	displayPopup("Generating Shareable Code\n\n. ....");
+	displayPopup("Generating Shareable Code\n\n◦•••••");
 	function changeEllipsis() {
 		var topText = "Generating Shareable Code\n\n";
 		var ellipsisElement = preventInput.querySelector('div > div > div');
 		var ellipsisText = ellipsisElement.innerText;
-		if (ellipsisText == topText + " ....."){
-			ellipsisElement.innerText = topText + ". ....";
-			setTimeout(changeEllipsis, 500);
-		}else if (ellipsisText == topText + ". ...."){
-			ellipsisElement.innerText = topText + ".. ...";
-			setTimeout(changeEllipsis, 500);
-		}else if (ellipsisText == topText + ".. ..."){
-			ellipsisElement.innerText = topText + "... ..";
-			setTimeout(changeEllipsis, 500);
-		}else if (ellipsisText == topText + "... .."){
-			ellipsisElement.innerText = topText + ".... .";
-			setTimeout(changeEllipsis, 500);
-		}else if (ellipsisText == topText + ".... ."){
-			ellipsisElement.innerText = topText + "..... ";
-			setTimeout(changeEllipsis, 500);
-		}else if (ellipsisText == topText + "..... "){
-			ellipsisElement.innerText = topText + " .....";
-			setTimeout(changeEllipsis, 500);
+		if (ellipsisText == topText + "◦•••••"){
+			ellipsisElement.innerText = topText + "•◦••••";
+			setTimeout(changeEllipsis, 250);
+		}else if (ellipsisText == topText + "•◦••••"){
+			ellipsisElement.innerText = topText + "••◦•••";
+			setTimeout(changeEllipsis, 250);
+		}else if (ellipsisText == topText + "••◦•••"){
+			ellipsisElement.innerText = topText + "•••◦••";
+			setTimeout(changeEllipsis, 250);
+		}else if (ellipsisText == topText + "•••◦••"){
+			ellipsisElement.innerText = topText + "••••◦•";
+			setTimeout(changeEllipsis, 250);
+		}else if (ellipsisText == topText + "••••◦•"){
+			ellipsisElement.innerText = topText + "•••••◦";
+			setTimeout(changeEllipsis, 250);
+		}else if (ellipsisText == topText + "•••••◦"){
+			ellipsisElement.innerText = topText + "◦•••••";
+			setTimeout(changeEllipsis, 250);
 		}
 	}
 	
