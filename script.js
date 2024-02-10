@@ -944,6 +944,7 @@ async function uploadUserCreatedGame(data, errorCount=0){
 		const response = await fetch(url);
 	  	const tinyURL = await response.text()
 		var id = tinyURL.replace('http://tinyurl.com/', '');
+		preventInput.remove();
 		displayPopup("Your Shareable Code:\n\n" + id, "Close", "Copy Code", function (){
 			// Create a temporary input element to copy the code to the clipboard
 		      	var tempInput = document.createElement('input');
@@ -956,7 +957,7 @@ async function uploadUserCreatedGame(data, errorCount=0){
 		      	tempInput.remove();
 			// change the continue text
 			var continueBtn = preventInput.querySelector("div.blueGradient");
-			continueBtn.innerText = "Copied";
+			continueBtn.innerText = "Copied!";
 			// generate an error to prevent the window from closing after copying
 			throw new Error('This is expected behavior. Please Ignore. Window prevented from closing');
 		});
