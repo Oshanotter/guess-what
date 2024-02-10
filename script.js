@@ -872,6 +872,10 @@ function displayFavorites() {
 
 
 
+
+
+
+
 // functions for create page
 
 function createSet() {
@@ -1176,8 +1180,18 @@ function editGame(id){
 	alert("edit game: " + id);
 }
 
-function deleteGame(id){
+function deleteGame(id, confirm=false){
 	alert("delete game: " + id);
+	if (confirm == flase){
+		var message = "Are you sure you want to delete this game?\n\nThis action cannot be undone.";
+		displayPopUp(message, "Cancel", "Delete Game", deleteGame, id, true);
+		return;
+	}
+	removeUserCreatedGame(id);
+	var element = document.getElementById(id);
+	element.remove();
+	var createPage = document.getElementById('create');
+	controlStretch(createPage);
 }
 
 function handleUploadError(){
