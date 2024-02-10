@@ -710,8 +710,7 @@ function addEmptyClickEvent(){
 
 function displayPopup(message, closeText, continueText=null, continueFunction=null, ...continueArgs){
 	// create an element over the top of everything and display a message with options
-	alert(message)
-    // first create a blank div tag to prevent background items from being clicked
+    	// first create a blank div tag to prevent background items from being clicked
         preventInput = document.createElement('div');
         preventInput.style.height = "100%";
         preventInput.style.width = "100%";
@@ -733,6 +732,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         mainDiv.style.border = "solid";
         mainDiv.style.display = "flex";
         mainDiv.style.flexDirection = "column";
+	mainDiv.style.textAlign = "center";
         preventInput.appendChild(mainDiv);
         
         var messageDiv = document.createElement('div');
@@ -742,13 +742,12 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         
         var buttonContainer = document.createElement('div');
         buttonContainer.style.display = "flex";
-        buttonContainer.style.justifyContent = "space-between";
+        buttonContainer.style.justifyContent = "space-evenly";
         buttonContainer.style.marginBottom = "5%";
         mainDiv.appendChild(buttonContainer);
         
         var cancelBtn = document.createElement('div');
         cancelBtn.style.padding = "3% 5% 3% 5%";
-        cancelBtn.style.margin = "auto";
         cancelBtn.style.borderRadius = "999px";
         cancelBtn.classList = "redGradient";
         cancelBtn.innerText = closeText;
@@ -765,6 +764,7 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
             continueBtn.innerText = continueText;
             continueBtn.addEventListener('click', () => {
                 continueFunction(...continueArgs);
+		preventInput.remove();
         	});
             buttonContainer.appendChild(continueBtn);
         }
@@ -952,7 +952,7 @@ function createGame() {
 	var cards = document.getElementById('enterCards').value;
 
 	if (title == "" || description == "" || cards.trim() == ""){
-		var message = "All Fields Are Required.\nPlease make sure nothing is left blank.";
+		var message = "All fields are required.\n\nPlease make sure nothing is left blank.";
 		displayPopup(message, 'Okay');
 		return;
 	}
