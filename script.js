@@ -1188,13 +1188,9 @@ function deleteGame(id, confirm=false){
 	}
 	// delete game from user created games list
 	removeUserCreatedGame(id);
-	// delete the element from the page as well as the favorites page if it exists
+	// delete the element from the page
 	var element = document.getElementById(id);
 	element.remove();
-	var fave = document.getElementById(id + "-fave");
-	if (fave != null){
-		fave.remove();
-	}
 	// remove it from the favorites list
 	removeFavorites(id);
 	// adjust the stretch element
