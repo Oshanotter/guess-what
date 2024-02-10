@@ -708,7 +708,7 @@ function addEmptyClickEvent(){
 
 }
 
-function displayPopup(message, closeText, continueText=null, continueFunction=null, ...continueArgs){
+function displayPopup(message, closeText=null, continueText=null, continueFunction=null, ...continueArgs){
 	// create an element over the top of everything and display a message with options
     	// first create a blank div tag to prevent background items from being clicked
         preventInput = document.createElement('div');
@@ -745,16 +745,18 @@ function displayPopup(message, closeText, continueText=null, continueFunction=nu
         buttonContainer.style.justifyContent = "space-evenly";
         buttonContainer.style.marginBottom = "5%";
         mainDiv.appendChild(buttonContainer);
-        
-        var cancelBtn = document.createElement('div');
-        cancelBtn.style.padding = "3% 5% 3% 5%";
-        cancelBtn.style.borderRadius = "999px";
-        cancelBtn.classList = "redGradient";
-        cancelBtn.innerText = closeText;
-        cancelBtn.addEventListener('click', () => {
-            preventInput.remove();
-    	});
-        buttonContainer.appendChild(cancelBtn);
+
+	if (closeText != null){
+	        var cancelBtn = document.createElement('div');
+	        cancelBtn.style.padding = "3% 5% 3% 5%";
+	        cancelBtn.style.borderRadius = "999px";
+	        cancelBtn.classList = "redGradient";
+	        cancelBtn.innerText = closeText;
+	        cancelBtn.addEventListener('click', () => {
+	            preventInput.remove();
+	    	});
+	        buttonContainer.appendChild(cancelBtn);
+	}
         
         if (continueText != null && continueFunction != null){
             var continueBtn = document.createElement('div');
@@ -942,7 +944,22 @@ async function uploadUserCreatedGame(data, errorCount=0){
 		const response = await fetch(url);
 	  	const tinyURL = await response.text()
 		var id = tinyURL.replace('http://tinyurl.com/', '');
-		returnGameID(id);
+		displayPopup("Your Shareable Code:\n\n" + id, "Close", "Copy Code", function (){
+			// Create a temporary input element to copy the code to the clipboard
+		      	var tempInput = document.createElement('input');
+		      	tempInput.value = id;
+			tempInput.classList = "hidden";
+		      	document.body.appendChild(tempInput);
+		      	tempInput.select();
+			tempInput.setSelectionRange(0, 99999); // For mobile devices
+		      	navigator.clipboard.writeText(tempInput.value);
+		      	tempInput.remove();
+			// change the continue text
+			var continueBtn = preventInput.querySelector("div.blueGradient");
+			continueBtn.innerText = "Copied";
+			// generate an error to prevent the window from closing after copying
+			throw new Error('This is expected behavior. Please Ignore. Window prevented from closing');
+		});
 	}catch{
 		setTimeout(function () {
 			uploadUserCreatedGame(data, errorCount + 1)
@@ -1004,10 +1021,36 @@ function createGame() {
 
 function shareGame(id){
 	alert("share game: " + id);
-	// get the game's json who has the given id
-	// convert the json to string
-	// url encode the string
-	// call uploadUserCreatedGame(urlEncoded)
+	displayPopup("Generating Shareable Code\n\n. ....");
+	function changeEllipsis() {
+		var topText = "Generating Shareable Code\n\n";
+		var ellipsisElement = preventInput.querySelector('div > div > div');
+		var ellipsisText = ellipsisElement.innerText;
+		if (ellipsisText == topText + " ....."){
+			ellipsisElement.innerText = topText + ". ....";
+			setTimeout(changeEllipsis, 500);
+		}else if (ellipsisText == topText + ". ...."){
+			ellipsisElement.innerText = topText + ".. ...";
+			setTimeout(changeEllipsis, 500);
+		}else if (ellipsisText == topText + ".. ..."){
+			ellipsisElement.innerText = topText + "... ..";
+			setTimeout(changeEllipsis, 500);
+		}else if (ellipsisText == topText + "... .."){
+			ellipsisElement.innerText = topText + ".... .";
+			setTimeout(changeEllipsis, 500);
+		}else if (ellipsisText == topText + ".... ."){
+			ellipsisElement.innerText = topText + "..... ";
+			setTimeout(changeEllipsis, 500);
+		}else if (ellipsisText == topText + "..... "){
+			ellipsisElement.innerText = topText + " .....";
+			setTimeout(changeEllipsis, 500);
+		}
+	}
+	
+	var gameDict = getUserCreatedGame(id);
+	var string = JSON.stringify(gameDict);
+	var urlEncoded = encodeURIComponent(string);
+	uploadUserCreatedGame(urlEncoded);
 }
 
 function getJsonFromData(data){
