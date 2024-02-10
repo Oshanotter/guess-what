@@ -1183,12 +1183,21 @@ function editGame(id){
 function deleteGame(id, confirm=false){
 	if (confirm == false){
 		var message = "Are you sure you want to delete this game?\n\nThis action cannot be undone.";
-		displayPopUp(message, "Cancel", "Delete Game", deleteGame, id, true);
+		displayPopup(message, "Cancel", "Delete Game", deleteGame, id, true);
 		return;
 	}
+	// delete game from user created games list
 	removeUserCreatedGame(id);
+	// delete the element from the page as well as the favorites page if it exists
 	var element = document.getElementById(id);
 	element.remove();
+	var fave = document.getElementById(id + "-fave");
+	if (fave != null){
+		fave.remove();
+	}
+	// remove it from the favorites list
+	removeFavorites(id);
+	// adjust the stretch element
 	var createPage = document.getElementById('create');
 	controlStretch(createPage);
 }
