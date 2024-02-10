@@ -1047,6 +1047,7 @@ function shareGame(id){
 			setTimeout(changeEllipsis, 250);
 		}
 	}
+	changeEllipsis();
 	
 	var gameDict = getUserCreatedGame(id);
 	var string = JSON.stringify(gameDict);
