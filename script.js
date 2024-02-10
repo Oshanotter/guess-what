@@ -1181,8 +1181,7 @@ function editGame(id){
 }
 
 function deleteGame(id, confirm=false){
-	alert("delete game: " + id);
-	if (confirm == flase){
+	if (confirm == false){
 		var message = "Are you sure you want to delete this game?\n\nThis action cannot be undone.";
 		displayPopUp(message, "Cancel", "Delete Game", deleteGame, id, true);
 		return;
