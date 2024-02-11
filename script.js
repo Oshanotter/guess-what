@@ -947,7 +947,7 @@ function selectColor(color) {
 
 function importSet() {
 	// show a popup with an input box
-	var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name='shareableCode' style='font-size: 100%;'>";
+	var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name='shareableCode' style='font-size: 150%; text-align: center;'>";
 	displayPopup(message, "Cancel", "Import Set", function(){
 		var code = document.getElementById('shareableCode').value.trim();
 		displayLoadingPopup("Importing Game");
