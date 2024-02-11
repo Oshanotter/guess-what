@@ -903,9 +903,12 @@ function displayFavorites() {
 	}
         favesPage.insertBefore(clone, buffer);
     });
+    hideOtherElements('favorites');
+    // sometimes the stretch function doesn't work because not all elements have been appended, so delay it
     setTimeout(function(){
-	    hideOtherElements('favorites');
-    }, 1);
+	    var element = document.getElementById('favorites');
+	    controlStretch(element);
+    }, 10);
 }
 
 
