@@ -960,7 +960,7 @@ function importSet() {
 async function importUserCreatedGame(id, errorCount=0){
 	if (errorCount > 5){
 		console.log('fetch failed')
-		handleIdError();
+		displayPopup("Import Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
 		return;
 	}
 	try{
@@ -984,7 +984,7 @@ async function importUserCreatedGame(id, errorCount=0){
 async function uploadUserCreatedGame(data, errorCount=0){
 	if (errorCount > 5){
 		console.log('upload failed')
-		handleUploadError();
+		displayPopup("Code Fetch Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
 		return;
 	}
 	try{
@@ -1081,7 +1081,7 @@ function buildImportedGame(data){
 	var name = gameDict['title'];
 	var storedGame = getUserCreatedGame(id);
 	if (storedGame != undefined){
-		displayPopup("This game already exists in your library.<br><br><b>" + name + "</b>It will not be added again.", "Okay");
+		displayPopup("This game already exists in your library.<br><br><b>" + name + "</b><br><br>It will not be added again.", "Okay");
 		return;
 	}
 	storeUserCreatedGame(gameDict);
@@ -1270,15 +1270,9 @@ function deleteGame(id, confirm=false){
 	controlStretch(createPage);
 }
 
-function handleUploadError(){
-	// display an error message
-	// the game couldn't be shared at this time
-}
 
-function handleIdError(){
-	// display an error message
-	// invalid game id or network error
-}
+
+
 
 
 
