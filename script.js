@@ -709,8 +709,12 @@ function addEmptyClickEvent(){
 }
 
 function displayPopup(message, closeText=null, continueText=null, continueFunction=null, ...continueArgs){
+	// first remove the prevent input element if it already exists
+	if (typeof preventInput != "undefined"){
+    		preventInput.remove();
+	}
 	// create an element over the top of everything and display a message with options
-    	// first create a blank div tag to prevent background items from being clicked
+    	// create a blank div tag to prevent background items from being clicked
         preventInput = document.createElement('div');
         preventInput.style.height = "100%";
         preventInput.style.width = "100%";
@@ -737,7 +741,7 @@ function displayPopup(message, closeText=null, continueText=null, continueFuncti
         
         var messageDiv = document.createElement('div');
         messageDiv.style.margin = "5%";
-        messageDiv.innerText = message;
+        messageDiv.innerHTML = message;
         mainDiv.appendChild(messageDiv);
         
         var buttonContainer = document.createElement('div');
@@ -770,6 +774,32 @@ function displayPopup(message, closeText=null, continueText=null, continueFuncti
         	});
             buttonContainer.appendChild(continueBtn);
         }
+}
+
+function displayLoadingPopup(message) {
+	var topText = message + "<br><br>";
+	displayPopup(topText + "◦•••••");
+	function changeEllipsis() {
+		var ellipsisElement = preventInput.querySelector('div > div > div');
+		var ellipsisText = ellipsisElement.innerHTML;
+		if (ellipsisText == topText + "◦•••••"){
+			ellipsisElement.innerHTML = topText + "•◦••••";
+		}else if (ellipsisText == topText + "•◦••••"){
+			ellipsisElement.innerHTML = topText + "••◦•••";
+		}else if (ellipsisText == topText + "••◦•••"){
+			ellipsisElement.innerHTML = topText + "•••◦••";
+		}else if (ellipsisText == topText + "•••◦••"){
+			ellipsisElement.innerHTML = topText + "••••◦•";
+		}else if (ellipsisText == topText + "••••◦•"){
+			ellipsisElement.innerHTML = topText + "•••••◦";
+		}else if (ellipsisText == topText + "•••••◦"){
+			ellipsisElement.innerHTML = topText + "◦•••••";
+		}else{
+			return;
+		}
+		setTimeout(changeEllipsis, 250);
+	}
+	changeEllipsis();
 }
 
 
@@ -915,18 +945,33 @@ function selectColor(color) {
     });
 }
 
+function importFromCode() {
+	// show a popup with an input box
+	var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name="shareableCode" style="font-size: 100%;">";
+	displayPopup(message, "Cancel", "Import Set", function(){
+		var code = decument.getElementById('shareableCode').value.trim();
+		displayLoadingPopup("Importing Game");
+		importUserCreatedGame(code);
+	});
+}
+
 async function importUserCreatedGame(id, errorCount=0){
 	if (errorCount > 5){
 		console.log('fetch failed')
 		handleIdError();
+		return;
 	}
 	try{
 		var url = 'https://tinyurl.com/' + id;
 		const response = await fetch(url);
 	  	const tinyURL = await response.url
+		if (!tinyURL.containe(location.href)){
+			displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
+			return;
+		}
 		var data = tinyURL.replace(location.href + '?s=', '');
 		console.log(data);
-		getJsonFromData(data);
+		buildImportedGame(data);
 	}catch{
 		setTimeout(function () {
 			fetchUserCreatedGame(id, errorCount + 1)
@@ -945,8 +990,7 @@ async function uploadUserCreatedGame(data, errorCount=0){
 		const response = await fetch(url);
 	  	const tinyURL = await response.text()
 		var id = tinyURL.replace('http://tinyurl.com/', '');
-		preventInput.remove();
-		displayPopup("Your Shareable Code:\n\n" + id, "Close", "Copy Code", function (){
+		displayPopup("Your Shareable Code:<br><br><b style='font-size: 150%;'>" + id + "</b>", "Close", "Copy Code", function (){
 			// Create a temporary input element to copy the code to the clipboard
 		      	var tempInput = document.createElement('input');
 		      	tempInput.value = id;
@@ -975,7 +1019,7 @@ function createGame() {
 	var cards = document.getElementById('enterCards').value;
 
 	if (title == "" || description == "" || cards.trim() == ""){
-		var message = "All fields are required.\n\nPlease make sure nothing is left blank.";
+		var message = "All fields are required.<br><br>Please make sure nothing is left blank.";
 		displayPopup(message, 'Okay');
 		return;
 	}
@@ -1022,44 +1066,25 @@ function createGame() {
 }
 
 function shareGame(id){
-	displayPopup("Generating Shareable Code\n\n◦•••••");
-	function changeEllipsis() {
-		var topText = "Generating Shareable Code\n\n";
-		var ellipsisElement = preventInput.querySelector('div > div > div');
-		var ellipsisText = ellipsisElement.innerText;
-		if (ellipsisText == topText + "◦•••••"){
-			ellipsisElement.innerText = topText + "•◦••••";
-			setTimeout(changeEllipsis, 250);
-		}else if (ellipsisText == topText + "•◦••••"){
-			ellipsisElement.innerText = topText + "••◦•••";
-			setTimeout(changeEllipsis, 250);
-		}else if (ellipsisText == topText + "••◦•••"){
-			ellipsisElement.innerText = topText + "•••◦••";
-			setTimeout(changeEllipsis, 250);
-		}else if (ellipsisText == topText + "•••◦••"){
-			ellipsisElement.innerText = topText + "••••◦•";
-			setTimeout(changeEllipsis, 250);
-		}else if (ellipsisText == topText + "••••◦•"){
-			ellipsisElement.innerText = topText + "•••••◦";
-			setTimeout(changeEllipsis, 250);
-		}else if (ellipsisText == topText + "•••••◦"){
-			ellipsisElement.innerText = topText + "◦•••••";
-			setTimeout(changeEllipsis, 250);
-		}
-	}
-	changeEllipsis();
-	
+	displayLoadingPopup("Generating Shareable Code");
 	var gameDict = getUserCreatedGame(id);
 	var string = JSON.stringify(gameDict);
 	var urlEncoded = encodeURIComponent(string);
 	uploadUserCreatedGame(urlEncoded);
 }
 
-function getJsonFromData(data){
-	// decode the url encoded data
-	// create json object by de-stringifing it
-	// add the new game to local storage: storeUserCreatedGame(jsonString, gameID)
-	// call generateUserCreatedGame(jsonObject)
+function buildImportedGame(data){
+	var gameDict = JSON.parse(decodeURI(data));
+	var id = gameDict['id'];
+	var name = gameDict['title'];
+	var storedGame = getUserCreatedGame(id);
+	if (storedGame != undefined){
+		displayPopup("This game already exists in your library.<br><br><b>" + name + "</b>It will not be added again.", "Okay");
+		return;
+	}
+	storeUserCreatedGame(gameDict);
+	generateUserCreatedGame(gameDict);
+	displayPopup("Success!<br><br>" + name + " was imported successfully!", "Great!");
 }
 
 function generateUserCreatedGame(dict){
@@ -1227,7 +1252,7 @@ function editGame(id){
 
 function deleteGame(id, confirm=false){
 	if (confirm == false){
-		var message = "Are you sure you want to delete this game?\n\nThis action cannot be undone.";
+		var message = "Are you sure you want to delete this game?<br><br>This action cannot be undone.";
 		displayPopup(message, "Cancel", "Delete Game", deleteGame, id, true);
 		return;
 	}
