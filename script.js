@@ -908,7 +908,7 @@ function displayFavorites() {
     setTimeout(function(){
 	    var element = document.getElementById('favorites');
 	    controlStretch(element);
-    }, 10);
+    }, 100);
 }
 
 
