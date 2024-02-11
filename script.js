@@ -1023,7 +1023,7 @@ function createGame(addToFaves=false) {
 	if (title == "" || description == "" || cards.trim() == ""){
 		var message = "All fields are required.<br><br>Please make sure nothing is left blank.";
 		displayPopup(message, 'Okay');
-		return;
+		throw new Error("All fields are required to create or update a set.");
 	}
 	
 	// split the cards into a list and remove the whitespace
