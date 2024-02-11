@@ -1280,8 +1280,8 @@ function editGame(id) {
 	titleLabel.innerText = "Title of Current Set:";
 	createButton.innerText = "Update Game";
 	createButton.onclick = function(){
-		deleteGame(id, false);
 		createGame(addToFavesImmediately);
+		deleteGame(id, false);
 		// change the title text, the button text, and the button function back to normal
 		titleLabel.innerText = originalTitleLabelText;
 		createButton.innerText = originalCreateButtonText;
