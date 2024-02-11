@@ -710,12 +710,14 @@ function addEmptyClickEvent(){
 
 function displayPopup(message, closeText=null, continueText=null, continueFunction=null, ...continueArgs){
 	// first remove the prevent input element if it already exists
-	if (typeof preventInput != "undefined"){
-    		preventInput.remove();
+	var oldElem = document.getElementById('preventInput');
+	if (oldElem != null){
+    		oldElem.remove();
 	}
 	// create an element over the top of everything and display a message with options
     	// create a blank div tag to prevent background items from being clicked
         var preventInput = document.createElement('div');
+	preventInput.id = "preventInput";
         preventInput.style.height = "100%";
         preventInput.style.width = "100%";
         preventInput.style.overflow = "hidden";
@@ -780,7 +782,7 @@ function displayLoadingPopup(message) {
 	var topText = message + "<br><br>";
 	displayPopup(topText + "◦•••••");
 	function changeEllipsis() {
-		var ellipsisElement = preventInput.querySelector('div > div > div');
+		var ellipsisElement = document.getElementById('preventInput').querySelector('div > div > div');
 		var ellipsisText = ellipsisElement.innerHTML;
 		if (ellipsisText == topText + "◦•••••"){
 			ellipsisElement.innerHTML = topText + "•◦••••";
