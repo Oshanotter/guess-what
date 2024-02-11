@@ -898,6 +898,7 @@ function displayFavorites() {
         console.log(element)
 	var clone = element.cloneNode(true);
 	clone.id = value + "-fave";
+	clone.querySelector('.dropDownButton').remove();
         favesPage.insertBefore(clone, buffer);
     });
     hideOtherElements('favorites');
