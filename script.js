@@ -686,7 +686,7 @@ function controlStretch(element){
 		var newHeight = (element.clientHeight - lastElementPosition) + 1;
 		stretch.style.height = newHeight + 'px';
 	}
-
+alert('done stretching');
 }
 
 function addEmptyClickEvent(){
