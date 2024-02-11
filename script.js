@@ -484,7 +484,7 @@ function buildGamePreview(title, description) {
 	    gridItemDiv.addEventListener('click', function() {
 		  getGameList(key);
 	    });
-	    gridItemDiv.style.borderRadius = "1vmin";
+	    gridItemDiv.style.borderRadius = "3vmin";
 	    gridItemDiv.className = "transparent"
 	    gamesGrid.appendChild(gridItemDiv);
 	});
@@ -514,7 +514,7 @@ function buildGamePreview(title, description) {
     bottom.className = "transparent";
     bottom.style.marginTop = "2%";
 	
-	mainDiv.style.borderRadius = "2vmin";
+	mainDiv.style.borderRadius = "4vmin";
 	timeOptionsDiv.style.borderRadius = "999px";
 	
 	// Append created elements to the main container
@@ -547,7 +547,7 @@ function addPlayAllOption() {
 	    gridItemDiv.addEventListener('click', function() {
 		  getAllGames();
 	    });
-	    gridItemDiv.style.borderRadius = "1vmin";
+	    gridItemDiv.style.borderRadius = "3vmin";
 	    gridItemDiv.className = "yellowGradient"
         //gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
@@ -1108,7 +1108,11 @@ function generateUserCreatedGame(dict){
     var des = dict['description'];
     
 	// create the game card for a user created game	
-	var mainDiv = document.createElement('div');
+	// make a container for it first so that we can set the onclick event as part of the html
+	var container = document.createElement('div');
+	container.innerHTML = '<div onclick="requestPermission(); gamesDict=getUserCreatedGame(\'' + gameID + '\')[\'games\']; buildGamePreview(\'' + title + '\', \'' + des + '\');"></div>';
+	var mainDiv = container.firstChild;
+	//var mainDiv = document.createElement('div');
 	mainDiv.classList = "gameCard " + dict['color'];
 	mainDiv.id = gameID;
 	mainDiv.onclick = function() {
