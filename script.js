@@ -889,7 +889,7 @@ function hideOtherElements(unhiddenElementClass) {
 
 function displayFavorites() {
     var favesPage = document.getElementById('favorites');
-    favesPage.innerHTML = '<div class="gameCard orangeGradient buffer"></div><div class="gameCard pinkGradient stretch" style="height: 0px;"></div>';
+    favesPage.innerHTML = '<div class="gameCard transparent buffer"></div><div class="gameCard transparent stretch" style="height: 0px;"></div>';
     var buffer = favesPage.querySelector(".buffer");
     var favesList = getFavorites();
     console.log(favesList)
