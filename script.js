@@ -1287,6 +1287,17 @@ function editGame(id) {
 		createButton.innerText = originalCreateButtonText;
 		createButton.onclick = createGame;
 	};
+
+	// change the cancel button's onclick event too
+	var cancelButton = document.querySelector("#create-page > div:nth-child(2) > div:nth-child(4) > div.redGradient");
+	cancelButton.onclick = function(){
+		// change the title text, the button text, and the button function back to normal
+		titleLabel.innerText = originalTitleLabelText;
+		createButton.innerText = originalCreateButtonText;
+		createButton.onclick = createGame;
+		cancelButton.onclick = discardSet;
+		discardSet();
+	};
 	
     	// reveal the create-page
    	 var page = document.getElementById('create-page');
