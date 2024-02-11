@@ -715,7 +715,7 @@ function displayPopup(message, closeText=null, continueText=null, continueFuncti
 	}
 	// create an element over the top of everything and display a message with options
     	// create a blank div tag to prevent background items from being clicked
-        preventInput = document.createElement('div');
+        var preventInput = document.createElement('div');
         preventInput.style.height = "100%";
         preventInput.style.width = "100%";
         preventInput.style.overflow = "hidden";
