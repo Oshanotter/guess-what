@@ -666,7 +666,9 @@ function enableScrollHelper(element){
 function controlStretch(element){
 	// adjusts the height of the stretch element to make sure that the grid containers can always scroll
 	var stretch = element.querySelector('.stretch');
-	console.log(stretch);
+	if (stretch == null){
+		return;
+	}
 
 	// first set the height to zero in order to reset it
 	stretch.style.height = "0px";
