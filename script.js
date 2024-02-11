@@ -1015,7 +1015,7 @@ async function uploadUserCreatedGame(data, errorCount=0){
 	}
 }
 
-function createGame() {
+function createGame(addToFaves=false) {
 	var title = document.getElementById('gameTitle').value.trim();
 	var description = document.getElementById('description').value.trim();
 	var cards = document.getElementById('enterCards').value;
@@ -1065,6 +1065,9 @@ function createGame() {
 	//var dictString = JSON.stringify(dict);
 	storeUserCreatedGame(dict);
 	generateUserCreatedGame(dict);
+	if (addToFaves == true){
+		toggleHeart(gameID);
+	}
 }
 
 function shareGame(id){
@@ -1248,14 +1251,52 @@ function toggleDropDown(gameID){
  	*/
 }
 
-function editGame(id){
-	alert("edit game: " + id);
+function editGame(id) {
+	// get details about the old game and add its attributes to the create page
+	var dict = getUserCreatedGame(id);
+	var titleInput = document.getElementById('gameTitle');
+	var descriptionInput = document.getElementById('description');
+	var cardsInput = document.getElementById('enterCards');
+	titleInput.value = dict['title'];
+	descriptionInput.value = dict['description'];
+	cardsInput.value = dict['games']['Play'].join("\n");
+
+	// set the color to the current game's color
+	selectColor(dict['color']);
+
+	// check to see if the current game is on the favorites list
+	var favesList = getFavorites();
+	if (favesList.includes(id)) {
+		var addToFavesImmediately = true;
+	}else{
+		var addToFavesImmediately = false;
+	}
+
+	// change the details of the create page
+	var titleLabel = document.querySelector('label[for="gameTitle"]');
+	var createButton = document.querySelector("#create-page > div:nth-child(2) > div:nth-child(4) > div.blueGradient");
+	var originalTitleLabelText = titleLabel.innerText;
+	var originalCreateButtonText = createButton.innerText;
+	titleLabel.innerText = "Title of Current Set:";
+	createButton.innerText = "Update Game";
+	createButton.onclick = function(){
+		deleteGame(id, false);
+		createGame(addToFavesImmediately);
+		// change the title text, the button text, and the button function back to normal
+		titleLabel.innerText = originalTitleLabelText;
+		createButton.innerText = originalCreateButtonText;
+		createButton.onclick = createGame;
+	};
+	
+    	// reveal the create-page
+   	 var page = document.getElementById('create-page');
+    	page.classList.remove('hidden');
 }
 
-function deleteGame(id, confirm=false){
-	if (confirm == false){
+function deleteGame(id, confirm=true){
+	if (confirm == true){
 		var message = "Are you sure you want to delete this game?<br><br>This action cannot be undone.";
-		displayPopup(message, "Cancel", "Delete Game", deleteGame, id, true);
+		displayPopup(message, "Cancel", "Delete Game", deleteGame, id, false);
 		return;
 	}
 	// delete game from user created games list
@@ -1269,6 +1310,9 @@ function deleteGame(id, confirm=false){
 	var createPage = document.getElementById('create');
 	controlStretch(createPage);
 }
+
+
+
 
 
 
