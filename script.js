@@ -965,7 +965,7 @@ async function importUserCreatedGame(id, errorCount=0){
 		var url = 'https://tinyurl.com/' + id;
 		const response = await fetch(url);
 	  	const tinyURL = await response.url
-		if (!tinyURL.containe(location.href)){
+		if (!tinyURL.includes(location.href)){
 			displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
 			return;
 		}
@@ -1074,7 +1074,7 @@ function shareGame(id){
 }
 
 function buildImportedGame(data){
-	var gameDict = JSON.parse(decodeURI(data));
+	var gameDict = JSON.parse(decodeURIComponent(data));
 	var id = gameDict['id'];
 	var name = gameDict['title'];
 	var storedGame = getUserCreatedGame(id);
