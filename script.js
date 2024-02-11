@@ -686,7 +686,6 @@ function controlStretch(element){
 		var newHeight = (element.clientHeight - lastElementPosition) + 1;
 		stretch.style.height = newHeight + 'px';
 	}
-alert('done stretching');
 }
 
 function addEmptyClickEvent(){
@@ -904,7 +903,9 @@ function displayFavorites() {
 	}
         favesPage.insertBefore(clone, buffer);
     });
-    hideOtherElements('favorites');
+    setTimeout(function(){
+	    hideOtherElements('favorites');
+    }, 1000);
 }
 
 
