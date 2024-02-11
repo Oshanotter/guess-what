@@ -974,7 +974,7 @@ async function importUserCreatedGame(id, errorCount=0){
 		buildImportedGame(data);
 	}catch{
 		setTimeout(function () {
-			fetchUserCreatedGame(id, errorCount + 1)
+			importUserCreatedGame(id, errorCount + 1)
 		}, 1000)
 	}
 }
