@@ -905,7 +905,7 @@ function displayFavorites() {
     });
     setTimeout(function(){
 	    hideOtherElements('favorites');
-    }, 1000);
+    }, 100);
 }
 
 
