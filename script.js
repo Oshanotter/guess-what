@@ -364,7 +364,7 @@ function buildGamePreview(title, description) {
 	
 	// Create close button in the top left
 	const closeButton = document.createElement('div');
-	closeButton.className = "gamePreview"
+	closeButton.className = "transparent"
 	closeButton.textContent = 'x';
 	closeButton.style.position = 'absolute';
 	closeButton.style.top = '3%';
@@ -378,7 +378,7 @@ function buildGamePreview(title, description) {
 	
 	// Create title
 	const titleDiv = document.createElement('div');
-	titleDiv.className = "gamePreview"
+	titleDiv.className = "transparent"
 	titleDiv.textContent = title;
 	titleDiv.style.fontWeight = 'bold';
 	titleDiv.style.fontSize = "200%"
@@ -395,11 +395,11 @@ function buildGamePreview(title, description) {
 	timeOptionsDiv.style.fontSize = "125%";
 	
 	var chooseTimeText = document.createElement('div');
-	chooseTimeText.className = "gamePreview"
+	chooseTimeText.className = "transparent"
 	chooseTimeText.innerText = "Game Timer Options"
 	timeOptionsDiv.appendChild(chooseTimeText);
 	var theOptions = document.createElement('div');
-	theOptions.className = "gamePreview";
+	theOptions.className = "transparent";
 	theOptions.style.display = 'flex';
 	theOptions.style.flexDirection = 'row';
 	theOptions.style.justifyContent = 'center';
@@ -407,10 +407,10 @@ function buildGamePreview(title, description) {
 	
 	// Create options (60s, 90s, 120s)
 	const timeOptions = [60, 90, 120];
-	timeOptions.className = "gamePreview";
+	timeOptions.className = "transparent";
 	timeOptions.forEach((option) => {
 	    optionDiv = document.createElement('div');
-	    optionDiv.className = "gamePreview";
+	    optionDiv.className = "transparent";
         optionDiv.classList.add('timerOption');
 	    optionDiv.textContent = option + "s";
 	    optionDiv.style.cursor = 'pointer';
@@ -443,7 +443,7 @@ function buildGamePreview(title, description) {
 	
 	// Create description div
 	const descriptionDiv = document.createElement('div');
-	descriptionDiv.className = "gamePreview"
+	descriptionDiv.className = "transparent"
 	//descriptionDiv.innerText = description
         descriptionDiv.style.flexGrow = "1";
         descriptionDiv.style.display = "flex";
@@ -460,7 +460,7 @@ function buildGamePreview(title, description) {
 	
 
 	const gridDiv = document.createElement('div');
-	gridDiv.className = "gamePreview";
+	gridDiv.className = "transparent";
     gridDiv.style.height = "100%";
     gridDiv.style.overflowY = "auto";
     theKeys = Object.keys(gamesDict);
@@ -470,7 +470,7 @@ function buildGamePreview(title, description) {
         gridDiv.appendChild(playAll);
 
     var gamesGrid = document.createElement('div');
-    gamesGrid.className = "gamePreview";
+    gamesGrid.className = "transparent";
     gamesGrid.classList.add('grid');
 	
 	// Create grid of div tags with titles and functions
@@ -485,7 +485,7 @@ function buildGamePreview(title, description) {
 		  getGameList(key);
 	    });
 	    gridItemDiv.style.borderRadius = "1vmin";
-	    gridItemDiv.className = "gamePreview"
+	    gridItemDiv.className = "transparent"
 	    gamesGrid.appendChild(gridItemDiv);
 	});
     
@@ -505,13 +505,13 @@ function buildGamePreview(title, description) {
     
     var top = document.createElement('div');
     top.style.height = topHeight
-    top.className = "gamePreview";
+    top.className = "transparent";
     top.style.display = "flex";
     top.style.flexFlow = "column";
     
     var bottom = document.createElement('div');
     bottom.style.height = bottomHeight
-    bottom.className = "gamePreview";
+    bottom.className = "transparent";
     bottom.style.marginTop = "2%";
 	
 	mainDiv.style.borderRadius = "2vmin";
@@ -578,7 +578,7 @@ function addPlayButton() {
 		  getGameList("Play");
 	    });
 	    gridItemDiv.style.borderRadius = "1vmin";
-	    gridItemDiv.className = "gamePreview"
+	    gridItemDiv.className = "transparent"
         gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
         gridItemDiv.style.fontSize = "150%";
