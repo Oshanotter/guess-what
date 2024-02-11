@@ -949,7 +949,7 @@ function importSet() {
 	// show a popup with an input box
 	var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name='shareableCode' style='font-size: 100%;'>";
 	displayPopup(message, "Cancel", "Import Set", function(){
-		var code = decument.getElementById('shareableCode').value.trim();
+		var code = document.getElementById('shareableCode').value.trim();
 		displayLoadingPopup("Importing Game");
 		importUserCreatedGame(code);
 	});
