@@ -1113,12 +1113,9 @@ function generateUserCreatedGame(dict){
 		buildGamePreview(title, des);
 	};
 	// create heart div
-	var heartDiv = document.createElement('div');
-	heartDiv.innerText = "♡";
-	heartDiv.onclick = function() {
-    		toggleHeart(gameID);
-		event.stopPropagation();
-	};
+	var tempHeartContainer = document.createElement('div');
+	tempHeartContainer.innerHTML = '<div onclick="toggleHeart(\'' + gameID + '\'); event.stopPropagation();">♡</div>';
+	var heartDiv = tempHeartContainer.firstChild;
 	// create the dropdown menu
 	var dropDown = makeDropDownMenu(gameID);
 	// create image 
