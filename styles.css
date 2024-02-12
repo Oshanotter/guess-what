@@ -372,4 +372,9 @@ label {
                           height: 89%;
                 }
 
+                  #overlay {
+                            padding-left: env(safe-area-inset-top, 0px);
+                            box-sizing: border-box;
+                  }
+
         }
