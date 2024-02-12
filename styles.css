@@ -380,7 +380,7 @@ label {
                               left: 50%;
                               top: 50%!important;
 
-                              margin-top: env(safe-area-inset-bottom);
+                              /*margin-top: env(safe-area-inset-bottom);*/
                                 border: 1px solid red;
                                 box-sizing: border-box;
                   }
