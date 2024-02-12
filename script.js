@@ -162,7 +162,9 @@ var overlay;
 
     function getGameList(gameName){
 	    // set a global variable to know what the key for the game is
-	    gameKey = gameName;
+	    replay = function(){
+		    getGameList(gameName);
+	    }
         // remove me later v
         //var list = ["Belsprout", "Weepenbel", "Victreebel"]
         //var gamesDict = {}
@@ -312,7 +314,7 @@ var overlay;
 	      replayButton.innerText = 'Replay ⟳';
 	      replayButton.addEventListener('click', function () {
 	          overlay.remove();
-		getGameList(gameKey);
+		  replay();
 	      });
 		var banner = document.querySelector("#overlay > div:nth-child(2)");
 	      banner.appendChild(replayButton);
@@ -564,6 +566,7 @@ function addPlayAllOption() {
 	    gridItemDiv.style.cursor = 'pointer';
 	    gridItemDiv.addEventListener('click', function() {
 		  getAllGames();
+		    replay = getAllGames;
 	    });
 	    gridItemDiv.style.borderRadius = "3vmin";
 	    gridItemDiv.className = "yellowGradient"
