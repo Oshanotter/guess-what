@@ -380,7 +380,7 @@ label {
                               left: 50%;
                               top: 50%!important;
 
-                              margin-top: calc(2 * env(safe-area-inset-top));
+                              margin-top: env(safe-area-inset-top);
                   }
 
         }
