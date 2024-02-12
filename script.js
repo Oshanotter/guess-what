@@ -50,6 +50,7 @@ var overlay;
       overlay.style.position = "fixed";
 
       resultsPage = document.createElement('div');
+      resultsPage.classList = "transparent";
       resultsPage.style.height = "85%";
       resultsPage.style.width = "90%";
       resultsPage.style.top = "15%"
@@ -601,7 +602,7 @@ function addPlayButton() {
 		  getGameList("Play");
 	    });
 	    gridItemDiv.style.borderRadius = "3vmin";
-	    gridItemDiv.className = "transparent"
+	    //gridItemDiv.className = "transparent"
         //gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
         gridItemDiv.style.fontSize = "150%";
