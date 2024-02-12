@@ -374,7 +374,7 @@ label {
                   #overlay {
                               transform: translate(-50%, -50%) rotate(90deg);
                               transform-origin: center center;
-                              min-width: 100vh;
+                              min-width: 98vh;
                               max-height: 100vw;
                               position: absolute;
                               left: 50%;
