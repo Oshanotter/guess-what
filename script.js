@@ -121,7 +121,7 @@ var overlay;
           document.body.removeChild(overlay);
 	getGameList(gameName);
       });
-      banner.appendChild(exitButton);
+      banner.appendChild(replayButton);
 
       document.body.appendChild(overlay);
 
