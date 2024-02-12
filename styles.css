@@ -381,6 +381,8 @@ label {
                               top: 50%!important;
 
                               /*margin-top: env(safe-area-inset-top);*/
+                                border: 1px solid red;
+                                box-sizing: border-box;
                   }
 
         }
