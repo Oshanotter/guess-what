@@ -1512,7 +1512,7 @@ function main() {
 	}
 }
 main();
-setTimeout(function(){
+/*setTimeout(function(){
 // delete me later
 
 var insetTop = getComputedStyle(document.documentElement).getPropertyValue("--sat");
@@ -1524,4 +1524,4 @@ alert('inset top: ' + insetTop);
 alert('inset left: ' + insetLeft);
 alert('inset right: ' + insetRight);
 alert('inset bottom: ' + insetBottom);
-}, 5000);
+}, 5000);*/
