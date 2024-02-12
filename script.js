@@ -1512,3 +1512,15 @@ function main() {
 	}
 }
 main();
+
+// delete me later
+
+var insetTop = getComputedStyle(document.documentElement).getPropertyValue("--sat");
+var insetLeft = getComputedStyle(document.documentElement).getPropertyValue("--sal");
+var insetRight = getComputedStyle(document.documentElement).getPropertyValue("--sar");
+var insetBottom = getComputedStyle(document.documentElement).getPropertyValue("--sab");
+
+console.log('inset top: ' + insetTop);
+console.log('inset left: ' + insetLeft);
+console.log('inset right: ' + insetRight);
+console.log('inset bottom: ' + insetBottom);
