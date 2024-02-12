@@ -373,7 +373,7 @@ label {
                 }
 
                   #overlay {
-                            padding-top: env(safe-area-inset-top, 0px);
+                            padding: env(safe-area-inset-top, 0px);
                             box-sizing: border-box;
                   }
 
