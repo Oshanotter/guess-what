@@ -44,9 +44,9 @@ body, html {
                      background-color: #D8D8D8;
                 }
         }
-/*
+
         @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-          .lockRotation {
+          /*.lockRotation {
             transform: rotate(90deg);
             transform-origin: right top;
             width: 100vh;
@@ -55,8 +55,8 @@ body, html {
             position: absolute;
             top: 103%;
             right: 0;
-          }
-*/
+          }*/
+
           .circle{
             height: 10vh!important;
             width: 10vh!important;
