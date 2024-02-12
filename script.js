@@ -87,7 +87,7 @@ var overlay;
       startText.style.height = "80%";
       startText.style.width = "80%";
       startText.style.fontSize = "300%";
-      //startText.style.backgroundColor = "rgba(255, 0, 0, 0)";
+      startText.style.backgroundColor = "rgba(0, 0, 0, 0)";
       startText.style.top = "20%";
       startText.style.textAlign = "center";
       overlay.appendChild(startText);
