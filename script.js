@@ -55,7 +55,7 @@ var overlay;
       resultsPage.style.top = "15%"
       resultsPage.style.position = "fixed";
       resultsPage.style.alignItems = "flex-start"
-      resultsPage.style.backgroundColor = "yellow";
+      //resultsPage.style.backgroundColor = "yellow";
       overlay.appendChild(resultsPage);
 
       var banner = document.createElement('div');
@@ -87,16 +87,17 @@ var overlay;
       startText.style.height = "80%";
       startText.style.width = "80%";
       startText.style.fontSize = "300%";
-      startText.style.backgroundColor = "rgba(255, 0, 0, 0)";
+      //startText.style.backgroundColor = "rgba(255, 0, 0, 0)";
       startText.style.top = "20%";
       startText.style.textAlign = "center";
       overlay.appendChild(startText);
 
       const exitButton = document.createElement('div');
+      exitButton.classList = "transparent";
       exitButton.style.top = "30%"
       exitButton.style.left = "4%";
       exitButton.style.position = "absolute";
-      exitButton.style.backgroundColor = "blue";
+      //exitButton.style.backgroundColor = "blue";
       exitButton.style.fontSize = "150%";
       exitButton.innerText = '< Back';
       exitButton.addEventListener('click', function () {
@@ -253,13 +254,13 @@ var overlay;
             leftCol.style.flexDirection = "column";
             leftCol.style.display = "flex";
             leftCol.style.fontSize = "150%";
-            leftCol.style.backgroundColor = "orange";
+            //leftCol.style.backgroundColor = "orange";
             leftCol.style.height = "auto";
             resultsPage.appendChild(leftCol)
 
             var middleCol = document.createElement('div');
             middleCol.style.width = "10%";
-            middleCol.style.backgroundColor = "purple";
+            //middleCol.style.backgroundColor = "purple";
             resultsPage.appendChild(middleCol);
 
             var rightCol = document.createElement('div');
@@ -269,7 +270,7 @@ var overlay;
             rightCol.style.flexDirection = "column";
             rightCol.style.display = "flex";
             rightCol.style.fontSize = "150%";
-            rightCol.style.backgroundColor = "pink";
+            //rightCol.style.backgroundColor = "pink";
             rightCol.style.height = "auto";
             resultsPage.appendChild(rightCol)
 
