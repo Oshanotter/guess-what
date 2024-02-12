@@ -374,13 +374,13 @@ label {
                   #overlay {
                               transform: translate(-50%, -50%) rotate(90deg);
                               transform-origin: center center;
-                              min-width: 94vh;
+                              min-width: 100vh; /*94vg*/
                               max-height: 100vw;
                               position: absolute;
                               left: 50%;
                               top: 50%!important;
 
-                              /*margin-top: env(safe-area-inset-top);*/
+                              margin-top: env(safe-area-inset-bottom);
                                 border: 1px solid red;
                                 box-sizing: border-box;
                   }
