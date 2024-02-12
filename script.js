@@ -36,7 +36,7 @@ var overlay;
       return [...new Set(inputList)];
     }
 
-    function createOverlay() {
+    function createOverlay(gameName) {
       // first, make sure that the html tag always stays the same direction
       document.querySelector("html").classList.add("lockRotation");
 
@@ -109,6 +109,20 @@ var overlay;
       });
       banner.appendChild(exitButton);
 
+	// create the replay button
+	    const replayButton = document.createElement('div');
+      replayButton.style.top = "30%"
+      replayButton.style.right = "4%";
+      replayButton.style.position = "absolute";
+      replayButton.classList = "transparent";
+      replayButton.style.fontSize = "150%";
+      replayButton.innerText = 'Replay ⟳';
+      replayButton.addEventListener('click', function () {
+          document.body.removeChild(overlay);
+	getGameList(gameName);
+      });
+      banner.appendChild(exitButton);
+
       document.body.appendChild(overlay);
 
       gameCancled = false;
@@ -169,8 +183,8 @@ var overlay;
         // get the array from the dictionary
         gameList = gamesDict[gameName];
         shuffleList(gameList);
-        requestPermission();
-        createOverlay();
+        //requestPermission();
+        createOverlay(gameName);
     }
 
     function handleOrientation(event) {
@@ -568,7 +582,8 @@ function getAllGames() {
 }
 
 function addPlayButton() {
-    const gridItemDiv = document.createElement('div');
+    var gridItemDiv = document.createElement('div');
+	    gridItemDiv.classList = "yellowGradient";
 	    gridItemDiv.textContent = "Play";
 	    gridItemDiv.style.border = '1px solid #ddd';
 	    gridItemDiv.style.padding = '5px';
@@ -577,9 +592,9 @@ function addPlayButton() {
 	    gridItemDiv.addEventListener('click', function() {
 		  getGameList("Play");
 	    });
-	    gridItemDiv.style.borderRadius = "1vmin";
+	    gridItemDiv.style.borderRadius = "3vmin";
 	    gridItemDiv.className = "transparent"
-        gridItemDiv.style.backgroundColor = "yellow";
+        //gridItemDiv.style.backgroundColor = "yellow";
         gridItemDiv.style.color = "black";
         gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
