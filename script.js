@@ -249,6 +249,7 @@ var overlay;
             // display the results
             startText.innerText = '';
             var leftCol = document.createElement('div');
+            leftCol.classList = "transparent";
             leftCol.style.width = "45%";
             leftCol.style.height = "100%";
             leftCol.style.justifyContent = "start";
@@ -265,6 +266,7 @@ var overlay;
             resultsPage.appendChild(middleCol);
 
             var rightCol = document.createElement('div');
+            rightCol.classList = "transparent";
             rightCol.style.width = "45%";
             rightCol.style.height = "100%";
             rightCol.style.justifyContent = "start";
