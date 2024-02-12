@@ -44,7 +44,7 @@ body, html {
                      background-color: #D8D8D8;
                 }
         }
-
+/*
         @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
           .lockRotation {
             transform: rotate(90deg);
@@ -53,11 +53,10 @@ body, html {
             height: 100vw;
             overflow-x: hidden;
             position: absolute;
-            /*top: 103%;*/
-            top: 100%;
+            top: 103%;
             right: 0;
           }
-
+*/
           .circle{
             height: 10vh!important;
             width: 10vh!important;
@@ -373,9 +372,13 @@ label {
                 }
 
                   #overlay {
-                            /*padding: env(safe-area-inset-top, 10%);*/
-                            min-width: calc(100% - env(safe-area-inset-top));
-                            box-sizing: border-box;
+                              transform: translate(-50%, -50%) rotate(90deg);
+                              transform-origin: center center;
+                              min-width: 100vh;
+                              max-height: 100vw;
+                              position: absolute;
+                              left: 50%;
+                              top: 50%!important;
                   }
 
         }
