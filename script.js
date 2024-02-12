@@ -314,6 +314,7 @@ var overlay;
 	          overlay.remove();
 		getGameList(gameKey);
 	      });
+		var banner = document.querySelector("#overlay > div:nth-child(2)");
 	      banner.appendChild(replayButton);
 		
         }, 3000);
