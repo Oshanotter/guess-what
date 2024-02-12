@@ -36,7 +36,7 @@ var overlay;
       return [...new Set(inputList)];
     }
 
-    function createOverlay(gameName) {
+    function createOverlay() {
       // first, make sure that the html tag always stays the same direction
       document.querySelector("html").classList.add("lockRotation");
 
@@ -109,20 +109,6 @@ var overlay;
       });
       banner.appendChild(exitButton);
 
-	// create the replay button
-	    const replayButton = document.createElement('div');
-      replayButton.style.top = "30%"
-      replayButton.style.right = "4%";
-      replayButton.style.position = "absolute";
-      replayButton.classList = "transparent";
-      replayButton.style.fontSize = "150%";
-      replayButton.innerText = 'Replay ⟳';
-      replayButton.addEventListener('click', function () {
-          document.body.removeChild(overlay);
-	getGameList(gameName);
-      });
-      banner.appendChild(replayButton);
-
       document.body.appendChild(overlay);
 
       gameCancled = false;
@@ -175,6 +161,8 @@ var overlay;
     }
 
     function getGameList(gameName){
+	    // set a global variable to know what the key for the game is
+	    gameKey = gameName;
         // remove me later v
         //var list = ["Belsprout", "Weepenbel", "Victreebel"]
         //var gamesDict = {}
@@ -184,7 +172,7 @@ var overlay;
         gameList = gamesDict[gameName];
         shuffleList(gameList);
         //requestPermission();
-        createOverlay(gameName);
+        createOverlay();
     }
 
     function handleOrientation(event) {
@@ -313,6 +301,21 @@ var overlay;
                 }
             }
             circle.innerText = totalPoints;
+
+		// create the replay button
+	      const replayButton = document.createElement('div');
+	      replayButton.style.top = "30%"
+	      replayButton.style.right = "4%";
+	      replayButton.style.position = "absolute";
+	      replayButton.classList = "transparent";
+	      replayButton.style.fontSize = "150%";
+	      replayButton.innerText = 'Replay ⟳';
+	      replayButton.addEventListener('click', function () {
+	          overlay.remove();
+		getGameList(gameKey);
+	      });
+	      banner.appendChild(replayButton);
+		
         }, 3000);
     }
 
