@@ -350,7 +350,7 @@ var overlay;
                 var text = document.createElement('span');
                 text.innerText = card;
                 //text.style.color = color;
-		text.style.backgroundImage = "linear-gradient(to bottom right, #47b7ee, #7e1fe0)";
+		text.style.backgroundImage = color;
 		text.style.backgroundClip = "text";
 		text.style.webkitBackgroundClip = "text";
 		text.style.color = "transparent";
