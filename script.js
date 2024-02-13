@@ -416,6 +416,7 @@ function buildGamePreview(title, description) {
     titleDiv.style.webkitBoxOrient = "vertical";
     titleDiv.style.overflow = "hidden";
     titleDiv.style.textOverflow = "ellipsis";
+    titleDiv.style.margin = "0% 10%";
 	
 	
 	// Create time options div
