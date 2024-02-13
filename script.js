@@ -388,17 +388,17 @@ function buildGamePreview(title, description) {
 	
 	// Create close button in the top left
 	const closeButton = document.createElement('div');
-	closeButton.className = "redGradient"
+	closeButton.classList = "closeBtn redGradient"
     closeButton.style.borderRadius = "999px";
     closeButton.style.aspectRatio = "1/1";
     closeButton.style.display = "flex"; // Set display to flex
     closeButton.style.alignItems = "center"; // Center items vertically
     closeButton.style.justifyContent = "center";
-    closeButton.style.height = "8%";
+    //closeButton.style.height = "8%";
 	closeButton.textContent = 'x';
 	closeButton.style.position = 'absolute';
-	closeButton.style.top = '2vh';
-	closeButton.style.left = '2vh';
+	//closeButton.style.top = '2vh';
+	//closeButton.style.left = '2vh';
 	closeButton.style.cursor = 'pointer';
 	closeButton.addEventListener('click', () => {
 	mainDiv.remove();
