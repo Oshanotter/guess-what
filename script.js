@@ -187,31 +187,37 @@ var overlay;
 	    if (lockAnswer){
 		    return;
 	    }
+        if (currentPosition == "NEUTRAL"){
             //overlay.style.backgroundColor = 'red';
 	    overlay.classList.add('redGradient');
             startText.innerText = "PASS"
-            if (currentPosition == "NEUTRAL"){
+            
                 // add current item to passed list
                 passCorrectList.push("PASS")
                 cardList.push(gameList[listNum])
                 currentPosition = "PASS";
 		lockAnswer = true;
 		listNum += 1;
+            }else{
+                skippedNeutral();
             }
         } else if (event.gamma < 60 && event.gamma > 0) {
 	    if (lockAnswer){
 		    return;
 	    }
+        if (currentPosition == "NEUTRAL"){
             //overlay.style.backgroundColor = 'green';
 	    overlay.classList.add('greenGradient');
             startText.innerText = "CORRECT"
-            if (currentPosition == "NEUTRAL"){
+            
                 // add current item to correct list
                 passCorrectList.push("CORRECT")
                 cardList.push(gameList[listNum])
                 currentPosition = "CORRECT";
 		lockAnswer = true;
 		listNum += 1;
+            }else{
+                skippedNeutral();
             }
         } else {
 	    if (lockAnswer){
@@ -237,6 +243,25 @@ var overlay;
                 currentPosition = "NEUTRAL";
             }
         }
+    }
+    
+    function skippedNeutral(){
+        lockAnswer = true;
+        waitingForLockAnswer = true;
+        overlay.classList.remove('greenGradient');
+	    overlay.classList.remove('redGradient');
+            if (currentPosition != "NEUTRAL"){
+                //listNum += 1;
+                if (listNum > gameList.length - 1){
+                    listNum = 0;
+                }
+                startText.innerText = gameList[listNum];
+                currentPosition = "NEUTRAL";
+            }
+        setTimeout(function(){
+            lockAnswer = false;
+            waitingForLockAnswer = false;
+        }, 100);
     }
 
     function requestPermission() {
