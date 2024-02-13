@@ -392,6 +392,7 @@ function buildGamePreview(title, description) {
     closeButton.style.borderRadius = "999px";
     closeButton.style.aspectRatio = "1/1";
     closeButton.style.width = "auto";
+    closeButton.style.height = "1vh";
 	closeButton.textContent = 'x';
 	closeButton.style.position = 'absolute';
 	closeButton.style.top = '1vh';
