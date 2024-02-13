@@ -388,11 +388,12 @@ function buildGamePreview(title, description) {
 	
 	// Create close button in the top left
 	const closeButton = document.createElement('div');
-	closeButton.className = "transparent"
+	closeButton.className = "redGradient"
+    closeButton.style.borderRadius = "999px";
 	closeButton.textContent = 'x';
 	closeButton.style.position = 'absolute';
-	closeButton.style.top = '3%';
-	closeButton.style.left = '5%';
+	closeButton.style.top = '1vh';
+	closeButton.style.left = '1vh';
 	closeButton.style.cursor = 'pointer';
 	closeButton.addEventListener('click', () => {
 	mainDiv.remove();
