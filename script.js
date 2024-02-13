@@ -390,6 +390,7 @@ function buildGamePreview(title, description) {
 	const closeButton = document.createElement('div');
 	closeButton.className = "redGradient"
     closeButton.style.borderRadius = "999px";
+    closeButton.style.aspectRatio = "1/1";
 	closeButton.textContent = 'x';
 	closeButton.style.position = 'absolute';
 	closeButton.style.top = '1vh';
