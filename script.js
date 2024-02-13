@@ -87,10 +87,15 @@ var overlay;
       startText.style.position = "absolute";
       startText.style.height = "80%";
       startText.style.width = "80%";
-      startText.style.fontSize = "300%";
+      startText.style.fontSize = "400%";
       startText.style.backgroundColor = "rgba(0, 0, 0, 0)";
       startText.style.top = "20%";
       startText.style.textAlign = "center";
+    startText.style.display = "-webkit-box";
+    startText.style.webkitLineClamp = "4";
+    startText.style.webkitBoxOrient = "vertical";
+    startText.style.overflow = "hidden";
+    startText.style.textOverflow = "ellipsis";
       overlay.appendChild(startText);
 
       const exitButton = document.createElement('div');
@@ -100,7 +105,7 @@ var overlay;
       exitButton.style.position = "absolute";
       //exitButton.style.backgroundColor = "blue";
       exitButton.style.fontSize = "150%";
-      exitButton.innerText = '< Back';
+      exitButton.innerText = '← Back';
       exitButton.addEventListener('click', function () {
           document.body.removeChild(overlay);
 	      // make sure that the html tag is set back to normal
@@ -373,7 +378,7 @@ var overlay;
 	      replayButton.style.position = "absolute";
 	      replayButton.classList = "transparent";
 	      replayButton.style.fontSize = "150%";
-	      replayButton.innerText = 'Replay ⟳';
+	      replayButton.innerText = 'Replay ↻';
 	      replayButton.addEventListener('click', function () {
 	          overlay.remove();
 		  replay();
@@ -575,6 +580,9 @@ function buildGamePreview(title, description) {
 	    gridItemDiv.style.padding = '5px';
 	    gridItemDiv.style.margin = '5px';
 	    gridItemDiv.style.cursor = 'pointer';
+	    gridItemDiv.style.display = 'flex';
+	    gridItemDiv.style.justifyContent = 'center';
+	    gridItemDiv.style.alignItems = 'center';
 	    gridItemDiv.addEventListener('click', function() {
 		  getGameList(key);
 	    });
