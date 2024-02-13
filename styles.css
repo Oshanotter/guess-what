@@ -325,6 +325,12 @@ label {
                     height: 100%;
                     float: left;
                 }
+                
+                .closeBtn {
+                        height: 8%;
+                        top: 2vh;
+                        left: 2vh;
+                }
         }
         
         @media screen and (orientation:portrait) {
@@ -386,6 +392,12 @@ label {
                     width: 10vh!important;
                     border: 1vh solid blue!important;
                   }
+                
+                .closeBtn {
+                        height: 6%;
+                        top: 1vh;
+                        left: 1vh;
+                }
 
         }
 
