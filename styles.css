@@ -182,7 +182,7 @@ body, html {
 .menu-bar {
       position: fixed;
       left: 0;
-      background-color: teal;
+      background-color: #06C7C3;
       color: white; 
       display: flex;
       justify-content: space-evenly;
@@ -207,7 +207,7 @@ body, html {
           }
 
           .active {
-                    background-color: #174c4d;
+                    background-color: #1a7574;
           }
         
         
