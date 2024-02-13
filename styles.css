@@ -390,7 +390,7 @@ label {
                 .circle{
                     height: 10vh!important;
                     width: 10vh!important;
-                    border: 1vh solid blue!important;
+                    /*border: 1vh solid blue!important;*/
                   }
                 
                 .closeBtn {
