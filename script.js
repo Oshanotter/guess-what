@@ -184,24 +184,43 @@ var overlay;
             return;
         }
         if (event.gamma > -50 && event.gamma < 0) {
+	    if (lockAnswer){
+		    return;
+	    }
             overlay.style.backgroundColor = 'red';
             startText.innerText = "PASS"
-            if (currentPosition != "PASS"){
+            if (currentPosition == "NEUTRAL"){
                 // add current item to passed list
                 passCorrectList.push("PASS")
                 cardList.push(gameList[listNum])
                 currentPosition = "PASS";
+		lockAnswer = true;
             }
         } else if (event.gamma < 60 && event.gamma > 0) {
+	    if (lockAnswer){
+		    return;
+	    }
             overlay.style.backgroundColor = 'green';
             startText.innerText = "CORRECT"
-            if (currentPosition != "CORRECT"){
+            if (currentPosition == "NEUTRAL"){
                 // add current item to correct list
                 passCorrectList.push("CORRECT")
                 cardList.push(gameList[listNum])
                 currentPosition = "CORRECT";
+		lockAnswer = true;
             }
         } else {
+	    if (lockAnswer){
+		    if (waitingForLockAnswer){
+			    return;
+		    }
+		    setTimeout(function(){
+			    lockAnswer = false;
+			    waitingForLockAnswer = false;
+		    }, 500);
+		    waitingForLockAnswer = true;
+		    return;
+	    }
             overlay.style.backgroundColor = '';
             if (currentPosition != "NEUTRAL"){
                 listNum += 1;
@@ -1506,6 +1525,10 @@ window.addEventListener('beforeinstallprompt', function (e) {
 
 
 function main() {
+	// set some global variables
+	lockAnswer = false;
+	waitingForLockAnswer = false;
+	
 	// call functions that should run immediately upon load
     buildAllUserCreatedGames();
 	markFavorites();
