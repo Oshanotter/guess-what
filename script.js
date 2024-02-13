@@ -393,11 +393,11 @@ function buildGamePreview(title, description) {
     closeButton.style.aspectRatio = "1/1";
     closeButton.style.textAlign = "center";
     closeButton.style.verticalAlign = "middle";
-    closeButton.style.height = "5%";
+    closeButton.style.height = "8%";
 	closeButton.textContent = 'x';
 	closeButton.style.position = 'absolute';
-	closeButton.style.top = '1vh';
-	closeButton.style.left = '1vh';
+	closeButton.style.top = '2vh';
+	closeButton.style.left = '2vh';
 	closeButton.style.cursor = 'pointer';
 	closeButton.addEventListener('click', () => {
 	mainDiv.remove();
