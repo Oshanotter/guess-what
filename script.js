@@ -643,9 +643,9 @@ function addPlayAllOption() {
 		    replay = getAllGames;
 	    });
 	    gridItemDiv.style.borderRadius = "3vmin";
-	    gridItemDiv.className = "yellowGradient"
+	    gridItemDiv.className = "pinkGradient"
         //gridItemDiv.style.backgroundColor = "yellow";
-        gridItemDiv.style.color = "black";
+        gridItemDiv.style.color = "white";
         gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
 }
@@ -664,7 +664,7 @@ function getAllGames() {
 
 function addPlayButton() {
     var gridItemDiv = document.createElement('div');
-	    gridItemDiv.classList = "yellowGradient";
+	    gridItemDiv.classList = "pinkGradient";
 	    gridItemDiv.textContent = "Play";
 	    gridItemDiv.style.border = '1px solid #ddd';
 	    gridItemDiv.style.padding = '5px';
@@ -676,7 +676,7 @@ function addPlayButton() {
 	    gridItemDiv.style.borderRadius = "3vmin";
 	    //gridItemDiv.className = "transparent"
         //gridItemDiv.style.backgroundColor = "yellow";
-        gridItemDiv.style.color = "black";
+        gridItemDiv.style.color = "white";
         gridItemDiv.style.fontSize = "150%";
 	    return gridItemDiv;
 }
