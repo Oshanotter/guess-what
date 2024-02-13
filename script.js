@@ -60,7 +60,7 @@ var overlay;
       overlay.appendChild(resultsPage);
 
       var banner = document.createElement('div');
-      banner.style.backgroundColor = "blue";
+      banner.style.backgroundColor = "#06C7C3";
       banner.style.height = "15%";
       banner.style.width = "100%";
       banner.style.position = "absolute";
@@ -70,7 +70,7 @@ var overlay;
       circle = document.createElement('div');
       circle.className = "circle"
       circle.style.borderRadius = "50%";
-      circle.style.border =  "1vw solid blue";
+      circle.style.border =  "1vw solid #06C7C3";
       circle.style.height = "10vw";
       circle.style.width = "10vw";
       circle.style.top = "80%"
@@ -424,7 +424,7 @@ function buildGamePreview(title, description) {
     
 	// Create main container div
 	const mainDiv = document.createElement('div');
-	mainDiv.className = "blueGradient"
+	//mainDiv.className = "blueGradient"
         mainDiv.classList.add('mainGamePreview');
 	mainDiv.style.position = 'absolute';
 	mainDiv.style.top = '50%';
@@ -433,7 +433,7 @@ function buildGamePreview(title, description) {
 	mainDiv.style.width = '85%';
 	mainDiv.style.border = '1px solid #ccc';
 	mainDiv.style.padding = '10px';
-	//mainDiv.style.backgroundColor = 'grey';
+	mainDiv.style.backgroundColor = '#06C7C3';
 	mainDiv.style.textAlign = 'center';
         mainDiv.style.overflowY = "hidden";
 	
