@@ -76,9 +76,12 @@ body, html {
           background-color: rgba(0, 0, 0, 0);
         }
 
+        .timeOptions, .timeOptions div {
+                  color: black!important;
+        }
+
         .selectedTimer {
                   background: linear-gradient(to bottom right, #efff65, #ffbc00);
-                  color: black;
         }
 
         span {
