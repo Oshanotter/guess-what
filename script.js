@@ -402,10 +402,15 @@ function buildGamePreview(title, description) {
 	
 	// Create title
 	const titleDiv = document.createElement('div');
-	titleDiv.className = "transparent"
+	titleDiv.className = "transparent";
 	titleDiv.textContent = title;
 	titleDiv.style.fontWeight = 'bold';
-	titleDiv.style.fontSize = "200%"
+	titleDiv.style.fontSize = "200%";
+    titleDiv.style.display = "-webkit-box";
+    titleDiv.style.webkitLineClamp = "2";
+    //titleDiv.style.webkitBoxOrient = "vertical";
+    titleDiv.style.overflow = "hidden";
+    titleDiv.style.textOverflow = "ellipsis";
 	
 	
 	// Create time options div
