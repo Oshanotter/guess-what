@@ -195,6 +195,7 @@ var overlay;
                 cardList.push(gameList[listNum])
                 currentPosition = "PASS";
 		lockAnswer = true;
+		listNum += 1;
             }
         } else if (event.gamma < 60 && event.gamma > 0) {
 	    if (lockAnswer){
@@ -208,6 +209,7 @@ var overlay;
                 cardList.push(gameList[listNum])
                 currentPosition = "CORRECT";
 		lockAnswer = true;
+		listNum += 1;
             }
         } else {
 	    if (lockAnswer){
@@ -223,7 +225,7 @@ var overlay;
 	    }
             overlay.style.backgroundColor = '';
             if (currentPosition != "NEUTRAL"){
-                listNum += 1;
+                //listNum += 1;
                 if (listNum > gameList.length - 1){
                     listNum = 0;
                 }
