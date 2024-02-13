@@ -340,14 +340,20 @@ var overlay;
             for (var i = 0; i < passCorrectList.length; i++){
                 var card = cardList[i];
                 if (passCorrectList[i] == "CORRECT"){
-                    var color = "green";
+                    //var color = "green";
+		    var color = "linear-gradient(to bottom right, #86ff27, #03af15)";
                     totalPoints++;
                 }else{
-                    var color = "red";
+                    //var color = "red";
+		    var color = "linear-gradient(to bottom right, #ff76c0, #ff1818)";
                 }
                 var text = document.createElement('span');
                 text.innerText = card;
-                text.style.color = color;
+                //text.style.color = color;
+		text.style.backgroundImage = "linear-gradient(to bottom right, #47b7ee, #7e1fe0)";
+		text.style.backgroundClip = "text";
+		text.style.webkitBackgroundClip = "text";
+		text.style.color = "transparent";
                 text.style.marginTop = "3%";
                 var evenOdd = i % 2;
                 if (evenOdd == 0){
