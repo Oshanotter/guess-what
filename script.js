@@ -187,7 +187,8 @@ var overlay;
 	    if (lockAnswer){
 		    return;
 	    }
-            overlay.style.backgroundColor = 'red';
+            //overlay.style.backgroundColor = 'red';
+	    overlay.classList.add('redGradient');
             startText.innerText = "PASS"
             if (currentPosition == "NEUTRAL"){
                 // add current item to passed list
@@ -201,7 +202,8 @@ var overlay;
 	    if (lockAnswer){
 		    return;
 	    }
-            overlay.style.backgroundColor = 'green';
+            //overlay.style.backgroundColor = 'green';
+	    overlay.classList.add('greenGradient');
             startText.innerText = "CORRECT"
             if (currentPosition == "NEUTRAL"){
                 // add current item to correct list
@@ -223,7 +225,9 @@ var overlay;
 		    waitingForLockAnswer = true;
 		    return;
 	    }
-            overlay.style.backgroundColor = '';
+            //overlay.style.backgroundColor = '';
+	    overlay.classList.remove('greenGradient');
+	    overlay.classList.remove('redGradient');
             if (currentPosition != "NEUTRAL"){
                 //listNum += 1;
                 if (listNum > gameList.length - 1){
@@ -231,6 +235,14 @@ var overlay;
                 }
                 startText.innerText = gameList[listNum];
                 currentPosition = "NEUTRAL";
+		    // maybe remove me later v
+		    lockAnswer = true;
+		    waitingForLockAnswer = true;
+		    setTimeout(function(){
+			    lockAnswer = false;
+			    waitingForLockAnswer = false;
+		    }, 100);
+		    // maybe remove me later ^
             }
         }
     }
