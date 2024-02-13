@@ -235,14 +235,6 @@ var overlay;
                 }
                 startText.innerText = gameList[listNum];
                 currentPosition = "NEUTRAL";
-		    // maybe remove me later v
-		    lockAnswer = true;
-		    waitingForLockAnswer = true;
-		    setTimeout(function(){
-			    lockAnswer = false;
-			    waitingForLockAnswer = false;
-		    }, 100);
-		    // maybe remove me later ^
             }
         }
     }
@@ -276,7 +268,9 @@ var overlay;
     function endGame(){
         // end the game and show the results
         allowColorChange = false;
-        overlay.style.backgroundColor = ''
+        //overlay.style.backgroundColor = ''
+        overlay.classList.remove('greenGradient');
+	    overlay.classList.remove('redGradient');
         startText.innerText = "TIME'S UP!"
         setTimeout(function(){
             // display the results
