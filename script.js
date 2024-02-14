@@ -1568,6 +1568,8 @@ function detectThemeChange() {
 	      }
 	}
     var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    var currentTheme = prefersDarkScheme.matches ? "dark" : "light";
+    changeTheme(currentTheme);
     prefersDarkScheme.addListener((e) => {
       var newTheme = e.matches ? "dark" : "light";
       changeTheme(newTheme);
