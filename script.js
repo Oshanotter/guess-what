@@ -1567,6 +1567,7 @@ function setPreferedTheme(theme){
 // Define the listener function
 function themeChangeListener(e){
     var newTheme = e.matches ? "dark" : "light";
+    console.log('changing theme to' + newTheme);
     changeTheme(newTheme, true);
 };
 
@@ -1595,9 +1596,8 @@ function changeTheme(theme=null, listen=false){
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 		var currentTheme = prefersDarkScheme.matches ? "dark" : "light";
 	        changeTheme(currentTheme, true);
-		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 		console.log('add listener');
-		prefersDarkScheme.addListener('change', themeChangeListener);
+		prefersDarkScheme.addEventListener('change',themeChangeListener);
 		return;
       }
 
@@ -1605,7 +1605,7 @@ function changeTheme(theme=null, listen=false){
 		// remove the listener
 		console.log('remove listener');
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-		prefersDarkScheme.removeListener('change', themeChangeListener);
+		prefersDarkScheme.removeEventListener('change',themeChangeListener);
 	}
 }
 
