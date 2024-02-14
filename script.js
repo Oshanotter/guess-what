@@ -51,7 +51,7 @@ var overlay;
       overlay.style.position = "fixed";
 
       resultsPage = document.createElement('div');
-      resultsPage.classList = "transparent";
+      //resultsPage.classList = "transparent";
       resultsPage.style.height = "85%";
       resultsPage.style.width = "90%";
       resultsPage.style.top = "15%"
@@ -102,7 +102,7 @@ var overlay;
       overlay.appendChild(startText);
 
       const exitButton = document.createElement('div');
-      exitButton.classList = "transparent";
+      //exitButton.classList = "transparent";
       exitButton.style.top = "30%"
       exitButton.style.left = "4%";
       exitButton.style.position = "absolute";
@@ -309,7 +309,7 @@ var overlay;
             // display the results
             startText.innerText = '';
             var leftCol = document.createElement('div');
-            leftCol.classList = "transparent";
+            //leftCol.classList = "transparent";
             leftCol.style.width = "45%";
             leftCol.style.height = "100%";
             leftCol.style.justifyContent = "start";
@@ -326,7 +326,7 @@ var overlay;
             resultsPage.appendChild(middleCol);
 
             var rightCol = document.createElement('div');
-            rightCol.classList = "transparent";
+            //rightCol.classList = "transparent";
             rightCol.style.width = "45%";
             rightCol.style.height = "100%";
             rightCol.style.justifyContent = "start";
@@ -373,7 +373,7 @@ var overlay;
 	      replayButton.style.top = "30%"
 	      replayButton.style.right = "4%";
 	      replayButton.style.position = "absolute";
-	      replayButton.classList = "transparent";
+	      //replayButton.classList = "transparent";
 	      replayButton.style.fontSize = "150%";
 	      replayButton.innerText = 'Replay ↻';
 	      replayButton.addEventListener('click', function () {
@@ -468,7 +468,7 @@ function buildGamePreview(title, description) {
 	
 	// Create title
 	const titleDiv = document.createElement('div');
-	titleDiv.className = "transparent";
+	//titleDiv.className = "transparent";
 	titleDiv.textContent = title;
 	titleDiv.style.fontWeight = 'bold';
 	titleDiv.style.fontSize = "200%";
@@ -491,11 +491,11 @@ function buildGamePreview(title, description) {
 	timeOptionsDiv.style.fontSize = "125%";
 	
 	var chooseTimeText = document.createElement('div');
-	chooseTimeText.className = "transparent"
+	//chooseTimeText.className = "transparent"
 	chooseTimeText.innerText = "Game Timer Options"
 	timeOptionsDiv.appendChild(chooseTimeText);
 	var theOptions = document.createElement('div');
-	theOptions.className = "transparent";
+	//theOptions.className = "transparent";
 	theOptions.style.display = 'flex';
 	theOptions.style.flexDirection = 'row';
 	theOptions.style.justifyContent = 'center';
@@ -503,10 +503,10 @@ function buildGamePreview(title, description) {
 	
 	// Create options (60s, 90s, 120s)
 	const timeOptions = [60, 90, 120];
-	timeOptions.className = "transparent";
+	//timeOptions.className = "transparent";
 	timeOptions.forEach((option) => {
 	    optionDiv = document.createElement('div');
-	    optionDiv.className = "transparent";
+	    //optionDiv.className = "transparent";
         optionDiv.classList.add('timerOption');
 	    optionDiv.textContent = option + "s";
 	    optionDiv.style.cursor = 'pointer';
@@ -539,7 +539,7 @@ function buildGamePreview(title, description) {
 	
 	// Create description div
 	const descriptionDiv = document.createElement('div');
-	descriptionDiv.className = "transparent"
+	//descriptionDiv.className = "transparent"
 	//descriptionDiv.innerText = description
         descriptionDiv.style.flexGrow = "1";
         descriptionDiv.style.display = "flex";
@@ -556,7 +556,7 @@ function buildGamePreview(title, description) {
 	
 
 	const gridDiv = document.createElement('div');
-	gridDiv.className = "transparent";
+	//gridDiv.className = "transparent";
     gridDiv.style.height = "100%";
     gridDiv.style.overflowY = "auto";
     theKeys = Object.keys(gamesDict);
@@ -566,7 +566,7 @@ function buildGamePreview(title, description) {
         gridDiv.appendChild(playAll);
 
     var gamesGrid = document.createElement('div');
-    gamesGrid.className = "transparent";
+    //gamesGrid.className = "transparent";
     gamesGrid.classList.add('grid');
 	
 	// Create grid of div tags with titles and functions
@@ -584,7 +584,7 @@ function buildGamePreview(title, description) {
 		  getGameList(key);
 	    });
 	    gridItemDiv.style.borderRadius = "3vmin";
-	    gridItemDiv.className = "transparent"
+	    //gridItemDiv.className = "transparent"
 	    gamesGrid.appendChild(gridItemDiv);
 	});
     
@@ -604,13 +604,13 @@ function buildGamePreview(title, description) {
     
     var top = document.createElement('div');
     top.style.height = topHeight
-    top.className = "transparent";
+    //top.className = "transparent";
     top.style.display = "flex";
     top.style.flexFlow = "column";
     
     var bottom = document.createElement('div');
     bottom.style.height = bottomHeight
-    bottom.className = "transparent";
+    //bottom.className = "transparent";
     bottom.style.marginTop = "2%";
 	
 	mainDiv.style.borderRadius = "4vmin";
@@ -992,7 +992,7 @@ function hideOtherElements(unhiddenElementClass) {
 
 function displayFavorites() {
     var favesPage = document.getElementById('favorites');
-    favesPage.innerHTML = '<div class="gameCard transparent buffer"></div><div class="gameCard transparent stretch" style="height: 0px;"></div>';
+    favesPage.innerHTML = '<div class="gameCard buffer"></div><div class="gameCard stretch" style="height: 0px;"></div>';
     var buffer = favesPage.querySelector(".buffer");
     var favesList = getFavorites();
     console.log(favesList)
