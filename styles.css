@@ -250,6 +250,11 @@ label {
           }
 }
 
+.settingsBubble{
+        .selectedTheme{
+                background: linear-gradient(to bottom right, #47b7ee, #7e1fe0);
+        }
+}
 
         
         
@@ -329,6 +334,10 @@ label {
                         top: 2vh;
                         left: 2vh;
                 }
+                
+                .settingsBubble {
+                        width: 75%;
+                }
         }
         
         @media screen and (orientation:portrait) {
@@ -396,6 +405,10 @@ label {
                         height: 6%;
                         top: 1vh;
                         left: 1vh;
+                }
+                
+                .settingsBubble {
+                        width: 100%;
                 }
 
         }
