@@ -37,8 +37,8 @@
     <div class="gameCard pinkGradient"></div>
     -->
 
-    <div class="gameCard transparent buffer"></div>
-    <div class="gameCard transparent stretch" style="height: 0px;"></div>
+    <div class="gameCard buffer"></div>
+    <div class="gameCard stretch" style="height: 0px;"></div>
     
 </div>
 
@@ -46,24 +46,24 @@
 <div class="grid-container hidden" id="create">
     <div class="gameCard yellowGradient" id="createCard" onclick="createSet()"><img src="icons/menu-bar/create.png" alt="icon"><div>Create New Set</div></div>
     <div class="gameCard pinkGradient" id="importCard" onclick="importSet()"><img src="icons/menu-bar/create.png" alt="icon"><div>Import New Set</div></div>
-    <div class="gameCard transparent buffer"></div>
-    <div class="gameCard transparent stretch" style="height: 0px;"></div>
+    <div class="gameCard buffer"></div>
+    <div class="gameCard stretch" style="height: 0px;"></div>
 </div>
 
 <div class="settings-page hidden" id="settings">
 
         <div style="width: 90%; margin: auto; margin-top: 10%;">
             <div class="orangeGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
-                <div class="transparent">Default Game Timer</div><div class="transparent" style="display: flex; flex-direction: row; justify-content: center;">
-                    <div class="transparent timerOption selectedTimer" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(60)">60s</div>
-                    <div class="transparent timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(90)">90s</div>
-                    <div class="transparent timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(120)">120s</div>
+                <div>Default Game Timer</div><div style="display: flex; flex-direction: row; justify-content: center;">
+                    <div class="timerOption selectedTimer" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(60)">60s</div>
+                    <div class="timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(90)">90s</div>
+                    <div class="timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(120)">120s</div>
                 </div>
             </div>   
         </div>
         <div style="width: 90%; margin: auto; margin-top: 10%;">
             <div class="purpleGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
-                <div>Color Scheme</div><div class="transparent" style="display: flex; flex-direction: row; justify-content: center;">
+                <div>Color Scheme</div><div style="display: flex; flex-direction: row; justify-content: center;">
                     <div class="themeOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('light')">Light</div>
                     <div class="themeOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('dark')">Dark</div>
                     <div class="themeOption selectedTheme" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('auto')">Auto</div>
