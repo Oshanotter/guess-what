@@ -1565,6 +1565,18 @@ function setPreferedTheme(theme){
     changeTheme(theme);
 }
 
+function switchThemeBtn(theme){
+    var themeOptions = document.querySelectorAll('.themeOption');
+
+    themeOptions.forEach(option => {
+        if (option.innerText == theme) {
+            option.classList.add('selectedTheme');
+        } else {
+            option.classList.remove('selectedTheme');
+        }
+    });
+}
+
 // Define the listener function
 function themeChangeListener(e){
     var newTheme = e.matches ? "dark" : "light";
@@ -1587,11 +1599,13 @@ function changeTheme(theme=null, listen=false){
 	      metaTag.setAttribute('content', 'white');
 	      var html = document.querySelector("html");
 	      html.classList = "light-mode";
+          switchThemeBtn('Light');
       }else if (theme == "dark"){
 	      var metaTag = document.querySelector('meta[name="theme-color"]');
 	      metaTag.setAttribute('content', 'black');
 	      var html = document.querySelector("html");
 	      html.classList = "dark-mode";
+          switchThemeBtn('Dark');
       }else{
 		//theme must be auto
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -1599,6 +1613,7 @@ function changeTheme(theme=null, listen=false){
 	        changeTheme(currentTheme, true);
 		console.log('add listener');
 		windowMedia.addEventListener('change',themeChangeListener);
+        switchThemeBtn('Auto');
 		return;
       }
 
