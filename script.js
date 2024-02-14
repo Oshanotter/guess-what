@@ -1556,18 +1556,21 @@ function installPrompt() {
 
 
 function detectThemeChange() {
+	function changeTheme(theme){
+		if (theme == "light"){
+		      alert("changed theme to light");
+		      var metaTag = document.querySelector('meta[name="theme-color"]');
+		      metaTag.setAttribute('content', 'white');
+	      }else{
+		      alert("changed theme to dark");
+		      var metaTag = document.querySelector('meta[name="theme-color"]');
+		      metaTag.setAttribute('content', 'black');
+	      }
+	}
     var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
     prefersDarkScheme.addListener((e) => {
       var newTheme = e.matches ? "dark" : "light";
-      if (newTheme == light){
-	      alert("changed theme to light");
-	      var metaTag = document.querySelector('meta[name="theme-color"]');
-	      metaTag.setAttribute('content', 'white');
-      }else{
-	      alert("changed theme to dark");
-	      var metaTag = document.querySelector('meta[name="theme-color"]');
-	      metaTag.setAttribute('content', 'black');
-      }
+      changeTheme(newTheme);
     });
   }
 
