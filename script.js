@@ -87,7 +87,7 @@ var overlay;
       startText.style.position = "absolute";
       //startText.style.height = "80%";
       startText.style.width = "80%";
-      startText.style.fontSize = "400%";
+      startText.style.fontSize = "500%";
       startText.style.backgroundColor = "rgba(0, 0, 0, 0)";
       startText.style.top = "60%";
       startText.style.left = "50%";
