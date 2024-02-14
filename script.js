@@ -1597,15 +1597,14 @@ function changeTheme(theme=null, listen=false){
 		var currentTheme = prefersDarkScheme.matches ? "dark" : "light";
 	        changeTheme(currentTheme, true);
 		console.log('add listener');
-		prefersDarkScheme.addEventListener('change',themeChangeListener);
+		windowMedia.addEventListener('change',themeChangeListener);
 		return;
       }
 
 	if (listen == false){
 		// remove the listener
 		console.log('remove listener');
-		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-		prefersDarkScheme.removeEventListener('change',themeChangeListener);
+		windowMedia.removeEventListener('change',themeChangeListener);
 	}
 }
 
@@ -1627,6 +1626,7 @@ function main() {
 	// set some global variables
 	lockAnswer = false;
 	waitingForLockAnswer = false;
+	windowMedia = window.matchMedia("(prefers-color-scheme: dark)");
 	
 	// call functions that should run immediately upon load
     	buildAllUserCreatedGames();
