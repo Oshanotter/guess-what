@@ -184,6 +184,7 @@ body, html {
       background-color: #06C7C3;
       display: flex;
       justify-content: space-evenly;
+      overflow: hidden;
     }
 
 
