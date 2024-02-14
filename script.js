@@ -1596,12 +1596,14 @@ function changeTheme(theme=null, listen=false){
 		var currentTheme = prefersDarkScheme.matches ? "dark" : "light";
 	        changeTheme(currentTheme, true);
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+		console.log('add listener');
 		prefersDarkScheme.addListener(listenerFunction);
 		return;
       }
 
 	if (listen == false){
 		// remove the listener
+		console.log('remove listener');
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 		prefersDarkScheme.removeListener(listenerFunction);
 	}
