@@ -1566,7 +1566,7 @@ function setPreferedTheme(theme){
 
 function changeTheme(theme=null, listen=false){
 	// Define the listener function
-	var listenerFunction = (e) => {
+	function listenerFunction(e){
 	    var newTheme = e.matches ? "dark" : "light";
 	    changeTheme(newTheme, true);
 	};
