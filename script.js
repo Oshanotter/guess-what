@@ -43,6 +43,7 @@ var overlay;
       // create the overlay
       overlay = document.createElement('div');
       overlay.id = "overlay";
+      overlay.classList = "light-or-dark";
       overlay.style.height = "100%";
       overlay.style.width = "100%";
       overlay.style.overflow = "hidden";
@@ -68,7 +69,7 @@ var overlay;
       overlay.appendChild(banner);
 
       circle = document.createElement('div');
-      circle.className = "circle"
+      circle.classList = "circle light-or-dark"
       circle.style.borderRadius = "50%";
       circle.style.border =  "1vw solid #06C7C3";
       circle.style.height = "10vw";
@@ -828,6 +829,7 @@ function displayPopup(message, closeText=null, continueText=null, continueFuncti
         document.body.appendChild(preventInput);
         
         var mainDiv = document.createElement('div');
+	mainDiv.classList = "light-or-dark";
         mainDiv.style.width = "70%";
         mainDiv.style.position = "fixed";
         mainDiv.style.top = "50%";
@@ -1336,7 +1338,7 @@ function makeDropDownMenu(gameID){
 	};
 	// make table
 	var table = document.createElement('table');
-	table.classList = "dropDownMenu hidden";
+	table.classList = "dropDownMenu light-or-dark hidden";
 	var tbody = document.createElement('tbody');
 	table.appendChild(tbody);
 	var shareBtn = makeRowCells('Share ➦', shareGame);
