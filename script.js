@@ -90,7 +90,7 @@ var overlay;
       startText.style.fontSize = "400%";
       startText.style.backgroundColor = "rgba(0, 0, 0, 0)";
       startText.style.top = "60%";
-      startText.style.top = "60%";
+      startText.style.left = "50%";
       startText.style.transform = "translate(-50%, -50%)";
       startText.style.textAlign = "center";
     startText.style.display = "-webkit-box";
