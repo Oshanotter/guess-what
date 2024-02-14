@@ -1557,28 +1557,55 @@ function installPrompt() {
 
 
 
-function detectThemeChange() {
-	function changeTheme(theme){
-		if (theme == "light"){
-		      var metaTag = document.querySelector('meta[name="theme-color"]');
-		      metaTag.setAttribute('content', 'white');
-		      var html = document.querySelector("html");
-		      html.classList = "light-mode";
-	      }else{
-		      var metaTag = document.querySelector('meta[name="theme-color"]');
-		      metaTag.setAttribute('content', 'black');
-		      var html = document.querySelector("html");
-		      html.classList = "dark-mode";
-	      }
+
+
+function setPreferedTheme(theme){
+	// set which theme the user prefers
+	localStorage.setItem("theme", theme);
+}
+
+function changeTheme(theme=null, listen=false){
+	// Define the listener function
+	var listenerFunction = (e) => {
+	    var newTheme = e.matches ? "dark" : "light";
+	    changeTheme(newTheme, true);
+	};
+	
+	if (theme == null){
+		// get theme from local storage
+		var theme = localStorage.getItem("theme");
+		    if(theme !== null){
+			    changeTheme(theme);
+		    }else{
+			    changeTheme('auto');
+		    }
+		    return;
+	}else if (theme == "light"){
+	      var metaTag = document.querySelector('meta[name="theme-color"]');
+	      metaTag.setAttribute('content', 'white');
+	      var html = document.querySelector("html");
+	      html.classList = "light-mode";
+      }else if (theme == "dark"){
+	      var metaTag = document.querySelector('meta[name="theme-color"]');
+	      metaTag.setAttribute('content', 'black');
+	      var html = document.querySelector("html");
+	      html.classList = "dark-mode";
+      }else{
+		//theme must be auto
+		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+		var currentTheme = prefersDarkScheme.matches ? "dark" : "light";
+	        changeTheme(currentTheme, true);
+		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+		prefersDarkScheme.addListener(listenerFunction);
+		return;
+      }
+
+	if (listen == false){
+		// remove the listener
+		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+		prefersDarkScheme.removeListener(listenerFunction);
 	}
-    var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    var currentTheme = prefersDarkScheme.matches ? "dark" : "light";
-    changeTheme(currentTheme);
-    prefersDarkScheme.addListener((e) => {
-      var newTheme = e.matches ? "dark" : "light";
-      changeTheme(newTheme);
-    });
-  }
+}
 
 
 
@@ -1603,7 +1630,7 @@ function main() {
     	buildAllUserCreatedGames();
 	markFavorites();
 	installPrompt();
-	detectThemeChange();
+	changeTheme();
 
 	// Add event listener for changes in orientation to adjust the stretch element
 	window.addEventListener('orientationchange', function(){
