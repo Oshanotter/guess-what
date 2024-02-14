@@ -1562,6 +1562,7 @@ function installPrompt() {
 function setPreferedTheme(theme){
 	// set which theme the user prefers
 	localStorage.setItem("theme", theme);
+    changeTheme(theme);
 }
 
 // Define the listener function
