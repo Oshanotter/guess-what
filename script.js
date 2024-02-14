@@ -351,16 +351,16 @@ var overlay;
 		    var color = "linear-gradient(to bottom right, #86ff27, #03af15)";
                     totalPoints++;
                 }else{
-                    var color = "red";
-		    //var color = "linear-gradient(to bottom right, #ff76c0, #ff1818)";
+                    //var color = "red";
+		    var color = "linear-gradient(to bottom right, #ff76c0, #ff1818)";
                 }
                 var text = document.createElement('span');
                 text.innerText = card;
                 //text.style.color = color;
-		text.style.backgroundImage = color;
+		text.style.background = color;
 		text.style.backgroundClip = "text";
 		text.style.webkitBackgroundClip = "text";
-		text.style.color = color //"transparent";
+		text.style.color = "transparent";
                 text.style.marginTop = "3%";
                 var evenOdd = i % 2;
                 if (evenOdd == 0){
