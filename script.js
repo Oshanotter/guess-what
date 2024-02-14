@@ -1555,6 +1555,24 @@ function installPrompt() {
 
 
 
+function detectThemeChange() {
+    var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    prefersDarkScheme.addListener((e) => {
+      var newTheme = e.matches ? "dark" : "light";
+      if (newTheme == light){
+	      alert("changed theme to light");
+	      var metaTag = document.querySelector('meta[name="theme-color"]');
+	      metaTag.setAttribute('content', 'white');
+      }else{
+	      alert("changed theme to dark");
+	      var metaTag = document.querySelector('meta[name="theme-color"]');
+	      metaTag.setAttribute('content', 'black');
+      }
+    });
+  }
+
+
+
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', function (e) {
@@ -1573,9 +1591,10 @@ function main() {
 	waitingForLockAnswer = false;
 	
 	// call functions that should run immediately upon load
-    buildAllUserCreatedGames();
+    	buildAllUserCreatedGames();
 	markFavorites();
 	installPrompt();
+	detectThemeChange();
 
 	// Add event listener for changes in orientation to adjust the stretch element
 	window.addEventListener('orientationchange', function(){
