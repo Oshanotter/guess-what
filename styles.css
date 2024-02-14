@@ -13,36 +13,35 @@ body, html {
           touch-action: none; /*manipulation;*/
         }
 
-        @media (prefers-color-scheme: dark) {
-        	body, div	{
-        		background-color:black;
-        		color:white;
-        	}
-
-          .menu-bar-items {
-                img {
-                      filter: invert(100%);
-                      -webkit-filter: invert(100%);
-                }
+        .dark-mode {
+                  background-color:black;
+                  		color:white;
+                  .menu-bar-items {
+                          img {
+                                filter: invert(100%);
+                                -webkit-filter: invert(100%);
+                          }
+                  }
+                  input, textarea {
+                       background-color: #404040;
+                       color: white;
+                  }
+                  .light-or-dark{
+                          background-color: black;
+                  }
           }
-        
-        input, textarea {
-             background-color: #404040;
-             color: white;
-        }
 
-          
-        }
-
-        @media (prefers-color-scheme: light) {
-        	body, div	{
+        .light-mode {
         		background-color:white;
         		color:black;
-        	}
                 
                 input, textarea {
                      background-color: #D8D8D8;
                 }
+
+                  .light-or-dark{
+                          background-color: white;
+                  }
         }
 
         /*@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
