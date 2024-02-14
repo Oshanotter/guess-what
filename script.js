@@ -1597,7 +1597,7 @@ function changeTheme(theme=null, listen=false){
 	        changeTheme(currentTheme, true);
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 		console.log('add listener');
-		prefersDarkScheme.addListener(themeChangeListener);
+		prefersDarkScheme.addListener('change', themeChangeListener);
 		return;
       }
 
@@ -1605,7 +1605,7 @@ function changeTheme(theme=null, listen=false){
 		// remove the listener
 		console.log('remove listener');
 		var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-		prefersDarkScheme.removeListener(themeChangeListener);
+		prefersDarkScheme.removeListener('change', themeChangeListener);
 	}
 }
 
