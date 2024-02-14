@@ -1320,7 +1320,7 @@ function makeDropDownMenu(gameID){
 		// Add event listener to detect if user clicked outside of menu
 		document.addEventListener("click", function handleClickOutsideMenu(evt) {
 		    // Check if the target element or any of its ancestors have the 'dropDownMenu' class
-		    if (evt.target.closest(".dropDownMenu")) {
+		    if (evt.target.closest(".dropDownMenu") || evt.target.closest(".dropDownButton")) {
 		        // This is a click inside the dropdown menu, do nothing
 		        console.log("Clicked inside menu!");
 		        return;
