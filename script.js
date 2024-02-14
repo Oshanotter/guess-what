@@ -1560,13 +1560,15 @@ function installPrompt() {
 function detectThemeChange() {
 	function changeTheme(theme){
 		if (theme == "light"){
-		      alert("changed theme to light");
 		      var metaTag = document.querySelector('meta[name="theme-color"]');
 		      metaTag.setAttribute('content', 'white');
+		      var html = document.querySelector("html");
+		      html.classList = "light-mode";
 	      }else{
-		      alert("changed theme to dark");
 		      var metaTag = document.querySelector('meta[name="theme-color"]');
 		      metaTag.setAttribute('content', 'black');
+		      var html = document.querySelector("html");
+		      html.classList = "dark-mode";
 	      }
 	}
     var prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
