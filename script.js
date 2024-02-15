@@ -1493,59 +1493,17 @@ function displaySettingsPage(){
 	
 function installPrompt() {
     if (!isRunningStandalone()){
-    	// Create a new div element
-    	var newDiv = document.createElement('div');
-    
-    	// Style the div
-    	newDiv.style.position = 'fixed';
-        	newDiv.style.top = '50%';
-        	newDiv.style.left = '50%';
-        	newDiv.style.transform = 'translate(-50%, -50%)';
-        	newDiv.style.padding = '10px';
-    	newDiv.style.border = '1px solid #0000ff';
-    	newDiv.style.flexFlow = "column";
-    
-    	// add default text
-    	var theText = document.createElement('p');
-    	theText.innerText = "Please install the PWA"
-    	newDiv.appendChild(theText);
-    
-    	// Style the close button
-    	var closeBtn = document.createElement('span');
-    	closeBtn.style.cursor = 'pointer';
-    	closeBtn.innerText = "x"
-    	closeBtn.style.position = "absolute";
-    	closeBtn.style.top = 0;
-    	closeBtn.style.left = 0;
-    	closeBtn.style.display = "flex";
-    	newDiv.appendChild(closeBtn)
-    
-    	// Add a click event listener to close the div
-    	closeBtn.addEventListener('click', function() {
-    	  document.body.removeChild(newDiv);
-    	});
-    	
-    	// Append the div to the body
-    	document.body.appendChild(newDiv);
-    	
     	if (isiOS()){
     		// prompt to install on iOS
-    		theText.innerHTML = "<p>The experience is better with the App!</p><p>Download it by tapping the share button <img src='https://i.imgur.com/eUbPxhg.png' style='display: inline; height: 10px; width: auto;' alt='img-mail' /> below, then tap on 'Add to Home Screen'</p>"
-    		
+    		var message = "<h1>Welcome to Guess What?!</h1><p>The experience is better with the App!</p><p>Download it by tapping the share button <img src='https://i.imgur.com/eUbPxhg.png' style='display: inline; height: 10px; width: auto;' alt='img-mail' /> below, then tap on 'Add to Home Screen'</p>"
+    		displayPopup(message, "Stay On The Web");
     	}else if (!isiOS()){
     		// prompt to install on Android
-    		theText.innerText = "The experience is better with the App!\nTo install the Web App please click the install button below.";
-            var installBtn = document.createElement('div');
-            installBtn.innerText = "Install";
-            installBtn.style.borderRadius = "999px";
-            installBtn.style.backgroundColor = "yellow";
-	    installBtn.style.padding = "2% 8%";
-	    installBtn.style.color = "black";
-            installBtn.addEventListener('click', function() {
+    		var message = "<h1>Welcome to Guess What?!</h1>The experience is better with the App!<br><br>To install the Web App please click the install button below.";
+                displayPopup(message, "Stay On Web", "Install", function() {
         	  // install the PWA
-              deferredPrompt.prompt();
+                  deferredPrompt.prompt();
         	});
-            newDiv.appendChild(installBtn);
     	}
     }
 }
