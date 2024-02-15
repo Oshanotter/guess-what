@@ -16,11 +16,9 @@ body, html {
         .dark-mode {
                   background-color:black;
                   		color:white;
-                  .menu-bar-items {
-                          img {
-                                filter: invert(100%);
-                                -webkit-filter: invert(100%);
-                          }
+                  .invertable-image {
+                      filter: invert(100%);
+                      -webkit-filter: invert(100%);
                   }
                   input, textarea {
                        background-color: #404040;
