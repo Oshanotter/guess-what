@@ -245,6 +245,11 @@ label {
           border-radius: 10px;
           tr:last-child{
                     color: red;
+                    img {
+                              /* make the image red */
+                              filter: invert(50%) brightness(100%) sepia(100%) hue-rotate(-30deg) saturate(100) !important;
+                              -webkit-filter: invert(50%) brightness(100%) sepia(100%) hue-rotate(-30deg) saturate(100) !important;
+                }
           }
 }
 
