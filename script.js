@@ -1495,7 +1495,7 @@ function installPrompt() {
     if (!isRunningStandalone()){
     	if (isiOS()){
     		// prompt to install on iOS
-    		var message = "<h1>Welcome to Guess What?!</h1><p>The experience is better with the App!</p><p>Download it by tapping the share button <img src='https://i.imgur.com/eUbPxhg.png' style='display: inline; height: 10px; width: auto;' alt='img-mail' class='invertable-image'/> below, then tap on 'Add to Home Screen'</p>"
+    		var message = "<h1>Welcome to Guess What?!</h1><p>The experience is better with the App!</p><p>Download it by tapping the share button <img src='icons/general/share.png' style='display: inline; height: 10px; width: auto;' alt='img-mail' class='invertable-image'/> below, then tap on 'Add to Home Screen'</p>"
     		displayPopup(message, "Stay On The Web");
     	}else if (!isiOS()){
     		// prompt to install on Android
