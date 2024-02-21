@@ -17,7 +17,9 @@ const PRECACHE_URLS = [
   'icons/general/settings.png',
   'icons/general/share.png',
   'icons/general/import.png', 
-  'icons/general/plus.png'
+  'icons/general/plus.png',
+  'icons/general/edit.png',
+  'icons/general/delete.png'
 ];
 
 // The install handler takes care of precaching the resources we always need.
