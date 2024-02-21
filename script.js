@@ -1300,9 +1300,11 @@ function makeDropDownMenu(gameID){
 	    		clickFunction(gameID);
 			event.stopPropagation();
 		};
-		var cell1 = document.createElement('td');
+		var cell1 = document.createElement('th');
 		cell1.innerText = title;
 		var cell2 = document.createElement('td');
+		cell2.style.display = "flex";
+		cell2.style.alignItems = "center";
 		cell2.innerHTML = '<img src="icons/general/' + title.toLowerCase() + '.png" style="display: inline; width: 1em;" alt="img-mail" class="invertable-image">';
 		row.appendChild(cell1);
 		row.appendChild(cell2);
