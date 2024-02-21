@@ -1296,13 +1296,16 @@ function makeDropDownMenu(gameID){
 	// create a sub-function to create the table rows and cells
 	function makeRowCells(title, clickFunction){
 		var row = document.createElement('tr');
-		var cell = document.createElement('th');
-		cell.innerText = title;
-		cell.onclick = function() {
+		row.onclick = function() {
 	    		clickFunction(gameID);
 			event.stopPropagation();
 		};
-		row.appendChild(cell);
+		var cell1 = document.createElement('th');
+		cell1.innerText = title;
+		var cell2 = document.createElement('th');
+		cell2.innerHTML = '<img src="icons/general/' + title.toLowerCase() + '.png" style="display: inline; width: 1.5em;" alt="img-mail" class="invertable-image">';
+		row.appendChild(cell1);
+		row.appendChild(cell2);
 		return row;
 	}
 	
@@ -1336,9 +1339,9 @@ function makeDropDownMenu(gameID){
 	table.classList = "dropDownMenu light-or-dark hidden";
 	var tbody = document.createElement('tbody');
 	table.appendChild(tbody);
-	var shareBtn = makeRowCells('Share ➦', shareGame);
-	var editBtn = makeRowCells('Edit ✎', editGame);
-	var deleteBtn = makeRowCells('Delete ⌫', deleteGame);
+	var shareBtn = makeRowCells('Share', shareGame);
+	var editBtn = makeRowCells('Edit', editGame);
+	var deleteBtn = makeRowCells('Delete', deleteGame);
 	tbody.appendChild(shareBtn);
 	tbody.appendChild(editBtn);
 	tbody.appendChild(deleteBtn);
