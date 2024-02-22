@@ -242,6 +242,8 @@ label {
 .dropDownMenu{
           /*background-color: white;
           color: black;*/
+          position: absolute;
+          top: 80%;
           border-radius: 10px;
           tr:last-child{
                     color: red;
