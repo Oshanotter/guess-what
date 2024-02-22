@@ -1122,7 +1122,8 @@ async function uploadUserCreatedGame(data, errorCount=0){
 		var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data;
 		const response = await fetch(url);
 	  	const tinyURL = await response.text()
-		var id = tinyURL.replace('http://tinyurl.com/', '');
+		var split = tinyURL.split("/");
+		var id = split[split.length - 1];
 		displayPopup("Your Shareable Code:<br><br><b style='font-size: 150%;'>" + id + "</b>", "Close", "Copy Code", function (){
 			// Create a temporary input element to copy the code to the clipboard
 		      	var tempInput = document.createElement('input');
