@@ -293,7 +293,7 @@ var overlay;
         }
     }
 
-    function endGame(){
+    async function endGame(){
         // end the game and show the results
         allowColorChange = false;
         //overlay.style.backgroundColor = ''
