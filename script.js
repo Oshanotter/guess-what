@@ -1313,7 +1313,7 @@ function makeDropDownMenu(gameID){
 	
 	var dropDown = document.createElement('div');
 	dropDown.classList = "dropDownButton";
-	dropDown.innerText = '☰';
+	dropDown.innerHTML = '<img src="icons/general/dropdown-menu.svg" style="display: inline; width: 1em;" alt="dropdown-menu" class="invertable-image">';
 	dropDown.onclick = function() {
     		toggleDropDown(gameID);
 
