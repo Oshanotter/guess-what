@@ -1273,7 +1273,7 @@ function setUserCreatedGames(gamesDict) {
 
 function removeUserCreatedGame(idToRemove) {
     var gamesDict = getAllUserCreatedGames();
-    delete gamesDict.idToRemove;
+    delete gamesDict[idToRemove];
     setUserCreatedGames(gamesDict);
 }
 
