@@ -293,7 +293,7 @@ var overlay;
         }
     }
 
-    async function endGame(){
+    function endGame(){
         // end the game and show the results
         allowColorChange = false;
         //overlay.style.backgroundColor = ''
@@ -354,8 +354,11 @@ var overlay;
 	      banner.appendChild(replayButton);
             
             var totalPoints = 0;
-
-            for (var i = 0; i < passCorrectList.length; i++){
+	var length = passCorrectList.length;
+            function loopResults(indexLength, i=0){
+		    if (i == indexLength){
+			    return;
+		    }
                 var card = cardList[i];
                 if (passCorrectList[i] == "CORRECT"){
                     var color = "green";
@@ -376,8 +379,11 @@ var overlay;
                     rightCol.appendChild(text)
                 }
 		    circle.innerText = totalPoints;
-		    await new Promise(resolve => setTimeout(resolve, 1000));
+		    setTimeout(function(){
+			    loopResults(indexLength, i+1);
+		    }, 1000);
             }
+		loopResults(length);
             
 
 		
