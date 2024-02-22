@@ -1305,7 +1305,7 @@ function makeDropDownMenu(gameID){
 		var cell2 = document.createElement('td');
 		cell2.style.display = "flex";
 		cell2.style.alignItems = "center";
-		cell2.innerHTML = '<img src="icons/general/' + title.toLowerCase() + '.png" style="display: inline; width: 1em;" alt="img-mail" class="invertable-image">';
+		cell2.innerHTML = '<img src="icons/general/' + title.toLowerCase() + '.svg" style="display: inline; width: 1em;" alt="img-mail" class="invertable-image">';
 		row.appendChild(cell1);
 		row.appendChild(cell2);
 		return row;
