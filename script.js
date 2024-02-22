@@ -915,12 +915,12 @@ function displayLoadingPopup(message) {
 
 function toggleHeart(gameID) {
 	var theElement = document.getElementById(gameID);
-	var heartDiv = theElement.querySelector("div")
-	if (heartDiv.innerText == "♥︎") {
-		heartDiv.innerText = "♡";
+	var heartElem = theElement.querySelector("div>img")
+	if (heartElem.src.includes("fill")) {
+		heartElem.src = "icons/general/heart-outline.svg";
         removeFavorites(gameID);
 	} else {
-		heartDiv.innerText = "♥︎";
+		heartElem.src = "icons/general/heart-fill.svg";
         addToFavorites(gameID);
 	}
 	// now try to toggle the heart on the duplicate div too
@@ -928,11 +928,11 @@ function toggleHeart(gameID) {
 	if (theElement == null){
 		return;
 	}
-	var heartDiv = theElement.querySelector("div")
-	if (heartDiv.innerText == "♥︎") {
-		heartDiv.innerText = "♡";
+	var heartElem = theElement.querySelector("div>img")
+	if (heartElem.src.includes("fill")) {
+		heartElem.src = "icons/general/heart-outline.svg";
 	} else {
-		heartDiv.innerText = "♥︎";
+		heartElem.src = "icons/general/heart-fill.svg";
 	}
 }
 
@@ -1221,7 +1221,7 @@ function generateUserCreatedGame(dict){
 	};
 	// create heart div
 	var tempHeartContainer = document.createElement('div');
-	tempHeartContainer.innerHTML = '<div onclick="toggleHeart(\'' + gameID + '\'); event.stopPropagation();">♡</div>';
+	tempHeartContainer.innerHTML = '<div onclick="toggleHeart(\'' + gameID + '\'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" style="display: inline; width: 1em;" alt="heart" class="invertable-image"></div>';
 	var heartDiv = tempHeartContainer.firstChild;
 	// create the dropdown menu
 	var dropDown = makeDropDownMenu(gameID);
