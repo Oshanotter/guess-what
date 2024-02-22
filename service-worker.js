@@ -15,7 +15,7 @@ const PRECACHE_URLS = [
   'icons/general/favorites.png',
   'icons/general/create.png',
   'icons/general/settings.png',
-  'icons/general/share.png',
+  'icons/general/share.svg',
   'icons/general/import.png', 
   'icons/general/plus.png',
   'icons/general/edit.png',
