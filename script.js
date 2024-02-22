@@ -107,6 +107,8 @@ var overlay;
       exitButton.style.fontSize = "150%";
       exitButton.innerHTML = '<img src="icons/general/arrow-left.svg" style="display: inline; width: 1em;" alt="back" class="invertable-image">Back';
       exitButton.addEventListener('click', function () {
+	      // break the loop for displaying the results
+		      breakLoop = true;
           document.body.removeChild(overlay);
 	      // set the gameCancled variable to true to stop the countdown timers
           gameCancled = true;
@@ -347,6 +349,8 @@ var overlay;
 	      replayButton.style.fontSize = "150%";
 	      replayButton.innerHTML = 'Replay<img src="icons/general/arrow-replay.svg" style="display: inline; width: 1em;" alt="replay" class="invertable-image">';
 	      replayButton.addEventListener('click', function () {
+		      // break the loop for displaying the results
+		      breakLoop = true;
 	          overlay.remove();
 		  replay();
 	      });
@@ -355,8 +359,10 @@ var overlay;
             
             var totalPoints = 0;
 	var length = passCorrectList.length;
+		breakLoop = false;
+		loopTime = 1000;
             function loopResults(indexLength, i=0){
-		    if (i == indexLength){
+		    if (i == indexLength || breakLoop == true){
 			    return;
 		    }
                 var card = cardList[i];
@@ -381,10 +387,18 @@ var overlay;
 		    circle.innerText = totalPoints;
 		    setTimeout(function(){
 			    loopResults(indexLength, i+1);
-		    }, 1000);
+		    }, loopTime);
             }
+		// call the function to loop through the results
 		loopResults(length);
-            
+		
+		// add an event listener to change the loop time to 0 seconds if the screen is tapped
+            function changeLoopTime() {
+		    loopTime = 0;
+		    // Remove the event listener after it executes once
+		    document.removeEventListener('click', changeLoopTime);
+		}
+		document.addEventListener('click', changeLoopTime);
 
 		
 		
