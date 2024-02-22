@@ -337,6 +337,21 @@ var overlay;
     	    allowScroll(resultsPage);
 		
             overlay.removeChild(startText);
+
+		// create the replay button
+	      const replayButton = document.createElement('div');
+	      replayButton.style.top = "30%"
+	      replayButton.style.right = "4%";
+	      replayButton.style.position = "absolute";
+	      //replayButton.classList = "transparent";
+	      replayButton.style.fontSize = "150%";
+	      replayButton.innerHTML = 'Replay<img src="icons/general/arrow-replay.svg" style="display: inline; width: 1em;" alt="replay" class="invertable-image">';
+	      replayButton.addEventListener('click', function () {
+	          overlay.remove();
+		  replay();
+	      });
+		var banner = document.querySelector("#overlay > div:nth-child(2)");
+	      banner.appendChild(replayButton);
             
             var totalPoints = 0;
 
@@ -360,23 +375,12 @@ var overlay;
                     // it is odd, add to right list
                     rightCol.appendChild(text)
                 }
+		    circle.innerText = totalPoints;
+		    await new Promise(resolve => setTimeout(resolve, 1000));
             }
-            circle.innerText = totalPoints;
+            
 
-		// create the replay button
-	      const replayButton = document.createElement('div');
-	      replayButton.style.top = "30%"
-	      replayButton.style.right = "4%";
-	      replayButton.style.position = "absolute";
-	      //replayButton.classList = "transparent";
-	      replayButton.style.fontSize = "150%";
-	      replayButton.innerHTML = 'Replay<img src="icons/general/arrow-replay.svg" style="display: inline; width: 1em;" alt="replay" class="invertable-image">';
-	      replayButton.addEventListener('click', function () {
-	          overlay.remove();
-		  replay();
-	      });
-		var banner = document.querySelector("#overlay > div:nth-child(2)");
-	      banner.appendChild(replayButton);
+		
 		
         }, 3000);
     }
