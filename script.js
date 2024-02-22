@@ -105,7 +105,7 @@ var overlay;
       exitButton.style.position = "absolute";
       //exitButton.style.backgroundColor = "blue";
       exitButton.style.fontSize = "150%";
-      exitButton.innerText = '← Back';
+      exitButton.innerHTML = '<img src="icons/general/arrow-left.svg" style="display: inline; width: 1em;" alt="back" class="invertable-image">Back';
       exitButton.addEventListener('click', function () {
           document.body.removeChild(overlay);
 	      // set the gameCancled variable to true to stop the countdown timers
@@ -370,7 +370,7 @@ var overlay;
 	      replayButton.style.position = "absolute";
 	      //replayButton.classList = "transparent";
 	      replayButton.style.fontSize = "150%";
-	      replayButton.innerText = 'Replay ↻';
+	      replayButton.innerHTML = 'Replay<img src="icons/general/arrow-replay.svg" style="display: inline; width: 1em;" alt="replay" class="invertable-image">';
 	      replayButton.addEventListener('click', function () {
 	          overlay.remove();
 		  replay();
