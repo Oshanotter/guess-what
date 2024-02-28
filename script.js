@@ -1113,7 +1113,7 @@ async function importUserCreatedGame(id, errorCount=0){
 }
 
 async function uploadUserCreatedGame(data, errorCount=0){
-	if (errorCount > 5){
+	if (errorCount > 105){
 		console.log('upload failed')
 		displayPopup("Code Fetch Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
 		return;
@@ -1207,6 +1207,7 @@ function shareGame(id){
 	var gameDict = getUserCreatedGame(id);
 	var string = JSON.stringify(gameDict);
 	var urlEncoded = encodeURIComponent(string);
+    console.log(urlEncoded);
 	uploadUserCreatedGame(urlEncoded);
 }
 
