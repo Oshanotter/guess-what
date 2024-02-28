@@ -1120,8 +1120,6 @@ async function uploadUserCreatedGame(data, errorCount=0){
 	}
 	try{
 		var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data;
-        alert(url);
-        console.log(url);
 		const response = await fetch(url);
 	  	const tinyURL = await response.text()
 		var parts = tinyURL.split("/");
