@@ -1129,7 +1129,7 @@ async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
     const tinyURL = await response.text()
     var parts = tinyURL.split("/");
     var id = parts[parts.length - 1];
-    var idList = uploadUserCreatedGame(data, index + 1);
+    var idList = await uploadUserCreatedGame(data, index + 1);
     idList.unshift(id); // add the first id to the fron tof the list
     if (index != 0) {
       return idList;
@@ -1158,12 +1158,16 @@ async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
         var string = JSON.stringify(idList);
         var urlEncoded = encodeURIComponent(string);
         var newData = "ListOfTinyUrlCodes" + urlEncoded;
-        // upload the new data
-        uploadUserCreatedGame(newData);
+				// split the encoded data into chunks if it is too large
+			  var chunkSize = 12000;
+			  var dataList = [];
+			  for (var i = 0; i < newData.length; i += chunkSize) {
+			    dataList.push(newData.slice(i, i + chunkSize));
+			  }
+
+			  uploadUserCreatedGame(dataList);
       }
     }
-
-
   } catch {
     setTimeout(function() {
       uploadUserCreatedGame(data, index, errorCount + 1)
