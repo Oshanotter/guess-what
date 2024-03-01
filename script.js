@@ -1112,39 +1112,63 @@ async function importUserCreatedGame(id, errorCount=0){
 	}
 }
 
-async function uploadUserCreatedGame(data, errorCount=0){
-	if (errorCount > 5){
-		console.log('upload failed')
-		displayPopup("Code Fetch Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
-		return;
-	}
-	try{
-		var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data;
-		const response = await fetch(url);
-	  	const tinyURL = await response.text()
-		var parts = tinyURL.split("/");
-		var id = parts[parts.length - 1];
-		displayPopup("Your Shareable Code:<br><br><b style='font-size: 150%;'>" + id + "</b>", "Close", "Copy Code", function (){
-			// Create a temporary input element to copy the code to the clipboard
-		      	var tempInput = document.createElement('input');
-		      	tempInput.value = id;
-			tempInput.classList = "hidden";
-		      	document.body.appendChild(tempInput);
-		      	tempInput.select();
-			tempInput.setSelectionRange(0, 99999); // For mobile devices
-		      	navigator.clipboard.writeText(tempInput.value);
-		      	tempInput.remove();
-			// change the continue text
-			var continueBtn = preventInput.querySelector("div.blueGradient");
-			continueBtn.innerText = "Copied!";
-			// generate an error to prevent the window from closing after copying
-			throw new Error('This is expected behavior. Please Ignore. Window prevented from closing');
-		});
-	}catch{
-		setTimeout(function () {
-			uploadUserCreatedGame(data, errorCount + 1)
-		}, 1000)
-	}
+async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
+  if (errorCount > 5) {
+    console.log('upload failed')
+    displayPopup("Code Fetch Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
+    return;
+  }
+  if (index >= data.length) {
+    // there are no more items in the data list
+    return [];
+  }
+
+  try {
+    var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data[index];
+    const response = await fetch(url);
+    const tinyURL = await response.text()
+    var parts = tinyURL.split("/");
+    var id = parts[parts.length - 1];
+    var idList = uploadUserCreatedGame(data, index + 1);
+    idList.unshift(id); // add the first id to the fron tof the list
+    if (index != 0) {
+      return idList;
+    } else {
+      // if the length of the idList is 1, display the popup
+      if (idList.length == 1) {
+        displayPopup("Your Shareable Code:<br><br><b style='font-size: 150%;'>" + id + "</b>", "Close", "Copy Code", function() {
+          // Create a temporary input element to copy the code to the clipboard
+          var tempInput = document.createElement('input');
+          tempInput.value = id;
+          tempInput.classList = "hidden";
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          tempInput.setSelectionRange(0, 99999); // For mobile devices
+          navigator.clipboard.writeText(tempInput.value);
+          tempInput.remove();
+          // change the continue text
+          var continueBtn = preventInput.querySelector("div.blueGradient");
+          continueBtn.innerText = "Copied!";
+          // generate an error to prevent the window from closing after copying
+          throw new Error('This is expected behavior. Please Ignore. Window prevented from closing');
+        });
+      } else {
+        // the length of the list is greater than 1
+        // convert the list to a string
+        var string = JSON.stringify(idList);
+        var urlEncoded = encodeURIComponent(string);
+        var newData = "ListOfTinyUrlCodes" + urlEncoded;
+        // upload the new data
+        uploadUserCreatedGame(newData);
+      }
+    }
+
+
+  } catch {
+    setTimeout(function() {
+      uploadUserCreatedGame(data, index, errorCount + 1)
+    }, 1000)
+  }
 }
 
 function createGame(addToFaves=false) {
@@ -1202,12 +1226,20 @@ function createGame(addToFaves=false) {
 	}
 }
 
-function shareGame(id){
-	displayLoadingPopup("Generating Shareable Code");
-	var gameDict = getUserCreatedGame(id);
-	var string = JSON.stringify(gameDict);
-	var urlEncoded = encodeURIComponent(string);
-	uploadUserCreatedGame(urlEncoded);
+function shareGame(id) {
+  displayLoadingPopup("Generating Shareable Code");
+  var gameDict = getUserCreatedGame(id);
+  var string = JSON.stringify(gameDict);
+  var urlEncoded = encodeURIComponent(string);
+
+  // split the encoded data into chunks if it is too large
+  var chunkSize = 12000;
+  var dataList = [];
+  for (var i = 0; i < urlEncoded.length; i += chunkSize) {
+    dataList.push(urlEncoded.slice(i, i + chunkSize));
+  }
+
+  uploadUserCreatedGame(dataList);
 }
 
 function buildImportedGame(data){
