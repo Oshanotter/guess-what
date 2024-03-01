@@ -1084,32 +1084,48 @@ function importSet() {
 	displayPopup(message, "Cancel", "Import Set", function(){
 		var code = document.getElementById('shareableCode').value.trim();
 		displayLoadingPopup("Importing Game");
-		importUserCreatedGame(code);
+		importUserCreatedGame([code]);
 	});
 }
 
-async function importUserCreatedGame(id, errorCount=0){
-	if (errorCount > 5){
-		console.log('fetch failed')
-		displayPopup("Import Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
-		return;
-	}
-	try{
-		var url = 'https://tinyurl.com/' + id;
-		const response = await fetch(url);
-	  	const tinyURL = await response.url
-		if (!tinyURL.includes(location.href)){
-			displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
-			return;
-		}
-		var data = tinyURL.replace(location.href + '?s=', '');
-		console.log(data);
-		buildImportedGame(data);
-	}catch{
-		setTimeout(function () {
-			importUserCreatedGame(id, errorCount + 1)
-		}, 1000)
-	}
+async function importUserCreatedGame(id, index = 0, errorCount = 0) {
+  if (errorCount > 5) {
+    console.log('fetch failed')
+    displayPopup("Import Failed<br><br>Please try again later when internet connection is more stable.", "Exit");
+    return;
+  }
+  if (index >= id.length) {
+    // there are no more items in the data list
+    return "";
+  }
+  
+  try {
+    var url = 'https://tinyurl.com/' + id[index];
+    const response = await fetch(url);
+    const tinyURL = await response.url
+    if (!tinyURL.includes(location.href)) {
+      displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
+      return;
+    }
+    var data = tinyURL.replace(location.href + '?s=', '');
+    console.log(data);
+    var dataString = await importUserCreatedGame(id, index + 1);
+    var fullDataString = data + dataString;
+    if (index != 0){
+      return fullDataString;
+    }
+    if (fullDataString.includes("ListOfTinyUrlCodes")){
+      var encodedList = fullDataString.replace("ListOfTinyUrlCodes", "");
+      var idList = JSON.parse(decodeURIComponent(data));
+      importUserCreatedGame(idList);
+    }else{
+      buildImportedGame(fullDataString);
+    }
+  } catch {
+    setTimeout(function() {
+      importUserCreatedGame(id, index, errorCount + 1)
+    }, 1000)
+  }
 }
 
 async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
