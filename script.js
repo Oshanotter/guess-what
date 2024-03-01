@@ -1101,8 +1101,10 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
   
   try {
     var url = 'https://tinyurl.com/' + id[index];
+    console.log(url);
     const response = await fetch(url);
     const tinyURL = await response.url
+    console.log(tinyURL);
     if (!tinyURL.includes(location.href)) {
       displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
       return;
@@ -1110,16 +1112,12 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
     var data = tinyURL.replace(location.href + '?s=', '');
     console.log(data);
     var dataString = await importUserCreatedGame(id, index + 1);
-    console.log(dataString)
     var fullDataString = data + dataString;
-    console.log(fullDataString)
     if (index != 0){
       return fullDataString;
     }
     if (fullDataString.includes("ListOfTinyUrlCodes")){
-        console.log("includes ListOfTinyUrlCodes");
       var encodedList = fullDataString.replace("ListOfTinyUrlCodes", "");
-    console.log(encodedList);
       var idList = JSON.parse(decodeURIComponent(encodedList));
     console.log(idList);
       importUserCreatedGame(idList);
