@@ -1256,7 +1256,7 @@ function shareGame(id) {
   var urlEncoded = encodeURIComponent(string);
 
   // split the encoded data into chunks if it is too large
-  var chunkSize = 12000;
+  var chunkSize = 10000;
   var dataList = [];
   for (var i = 0; i < urlEncoded.length; i += chunkSize) {
     dataList.push(urlEncoded.slice(i, i + chunkSize));
