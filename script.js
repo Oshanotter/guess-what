@@ -1110,7 +1110,9 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
     var data = tinyURL.replace(location.href + '?s=', '');
     console.log(data);
     var dataString = await importUserCreatedGame(id, index + 1);
+    console.log(dataString)
     var fullDataString = data + dataString;
+    console.log(fullDataString)
     if (index != 0){
       return fullDataString;
     }
