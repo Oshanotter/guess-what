@@ -1105,11 +1105,11 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
     const response = await fetch(url);
     const tinyURL = await response.url
     console.log(tinyURL);
-    if (!tinyURL.includes(location.href)) {
+    if (!tinyURL.includes("https://oshanotter.github.io/noRepository/")) {
       displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
       return;
     }
-    var data = tinyURL.replace(location.href + '?s=', '');
+    var data = tinyURL.replace("https://oshanotter.github.io/noRepository/" + '?s=', '');
     console.log(data);
     var dataString = await importUserCreatedGame(id, index + 1);
     var fullDataString = data + dataString;
@@ -1143,7 +1143,7 @@ async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
   }
 
   try {
-    var url = 'https://tinyurl.com/api-create.php?url=' + location.href + '?s=' + data[index];
+    var url = 'https://tinyurl.com/api-create.php?url=' + "https://oshanotter.github.io/noRepository/" + '?s=' + data[index];
     const response = await fetch(url);
     const tinyURL = await response.text()
     var parts = tinyURL.split("/");
