@@ -1101,16 +1101,13 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
   
   try {
     var url = 'https://tinyurl.com/' + id[index];
-    console.log(url);
     const response = await fetch(url);
     const tinyURL = await response.url
-    console.log(tinyURL);
     if (!tinyURL.includes(location.href)) {
       displayPopup("This code is invalid.<br><br>There is no such game with that code.", "Exit");
       return;
     }
     var data = tinyURL.replace(location.href + '?s=', '');
-    console.log(data);
     var dataString = await importUserCreatedGame(id, index + 1);
     var fullDataString = data + dataString;
     if (index != 0){
@@ -1119,7 +1116,6 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
     if (fullDataString.includes("ListOfTinyUrlCodes")){
       var encodedList = fullDataString.replace("ListOfTinyUrlCodes", "");
       var idList = JSON.parse(decodeURIComponent(encodedList));
-    console.log(idList);
       importUserCreatedGame(idList);
     }else{
       buildImportedGame(fullDataString);
@@ -1256,7 +1252,7 @@ function shareGame(id) {
   var urlEncoded = encodeURIComponent(string);
 
   // split the encoded data into chunks if it is too large
-  var chunkSize = 9000;
+  var chunkSize = 8000;
   var dataList = [];
   for (var i = 0; i < urlEncoded.length; i += chunkSize) {
     dataList.push(urlEncoded.slice(i, i + chunkSize));
