@@ -1121,6 +1121,7 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
       var encodedList = fullDataString.replace("ListOfTinyUrlCodes", "");
     console.log(encodedList);
       var idList = JSON.parse(decodeURIComponent(data));
+    console.log(idList);
       importUserCreatedGame(idList);
     }else{
       buildImportedGame(fullDataString);
