@@ -1048,6 +1048,8 @@ function createSet() {
     var page = document.getElementById('create-page');
     page.classList.remove('hidden');
     selectedColor = "blueGradient";
+	var cardsTextBox = document.querySelector("#enterCards");
+	allowScroll(cardsTextBox);
 }
 
 function discardSet() {
@@ -1080,7 +1082,7 @@ function selectColor(color) {
 
 function importSet() {
 	// show a popup with an input box
-	var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name='shareableCode' style='font-size: 150%; text-align: center;'>";
+	var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name='shareableCode' style='font-size: 150%; text-align: center; width: 80%;'>";
 	displayPopup(message, "Cancel", "Import Set", function(){
 		var code = document.getElementById('shareableCode').value.trim();
 		displayLoadingPopup("Importing Game");
@@ -1491,6 +1493,8 @@ function editGame(id) {
     	// reveal the create-page
    	 var page = document.getElementById('create-page');
     	page.classList.remove('hidden');
+	var cardsTextBox = document.querySelector("#enterCards");
+	allowScroll(cardsTextBox);
 }
 
 function deleteGame(id, confirm=true){
