@@ -1048,8 +1048,11 @@ function createSet() {
     var page = document.getElementById('create-page');
     page.classList.remove('hidden');
     selectedColor = "blueGradient";
+	// allow the cards text box and description input to scroll again
 	var cardsTextBox = document.querySelector("#enterCards");
 	allowScroll(cardsTextBox);
+	var descriptionTextBox = document.querySelector("#description");
+	allowScroll(descriptionTextBox);
 }
 
 function discardSet() {
@@ -1493,8 +1496,12 @@ function editGame(id) {
     	// reveal the create-page
    	 var page = document.getElementById('create-page');
     	page.classList.remove('hidden');
+	
+	// allow the cards text box and description input to scroll again
 	var cardsTextBox = document.querySelector("#enterCards");
 	allowScroll(cardsTextBox);
+	var descriptionTextBox = document.querySelector("#description");
+	allowScroll(descriptionTextBox);
 }
 
 function deleteGame(id, confirm=true){
