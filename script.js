@@ -1671,6 +1671,61 @@ function changeTheme(theme=null, listen=false){
 
 
 
+function toggleBackgroundMusic(boolean){
+    localStorage.setItem("playBackgroundMusic", boolean);
+}
+
+function toggleSoundEffects(boolean){
+    localStorage.setItem("playSoundEffects", boolean);
+}
+
+function playBackgroundMusic(){
+    var settings = localStorage.getItem("playBackgroundMusic");
+    if(settings !== null && settings == false){
+	    return;
+    }
+    var audio = document.getElementById('backgroundMusic');
+    audio.play();
+}
+
+function pauseBackgroundMusic(){
+    var settings = localStorage.getItem("playBackgroundMusic");
+    if(settings !== null && settings == false){
+	    return;
+    }
+    var audio = document.getElementById('backgroundMusic');
+    audio.pause();
+}
+
+function playCorrectSound(){
+    var settings = localStorage.getItem("playSoundEffects");
+    if(settings !== null && settings == false){
+	    return;
+    }
+    var audio = document.getElementById('correctSound');
+    audio.play();
+}
+
+function playPassSound(){
+    var settings = localStorage.getItem("playSoundEffects");
+    if(settings !== null && settings == false){
+	    return;
+    }
+    var audio = document.getElementById('passSound');
+    audio.play();
+}
+
+function playCountSound(){
+    var settings = localStorage.getItem("playSoundEffects");
+    if(settings !== null && settings == false){
+	    return;
+    }
+    var audio = document.getElementById('countSound');
+    audio.play();
+}
+
+
+
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', function (e) {
