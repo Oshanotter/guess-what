@@ -134,6 +134,8 @@ var overlay;
         }else{
             var newNum = countdown - 1;
             startText.innerText = "Get Ready\n" + newNum;
+            // play the count sound
+            playCountSound();
             setTimeout(function(){
                 getReady(newNum);
             }, 1000);
@@ -165,6 +167,8 @@ var overlay;
         listNum = 0;
         startText.innerText = gameList[listNum];
         allowColorChange = true;
+        // start the background music
+        playBackgroundMusic();
     }
 
     function getGameList(gameName){
@@ -196,6 +200,7 @@ var overlay;
             //overlay.style.backgroundColor = 'red';
 	    overlay.classList.add('redGradient');
             startText.innerText = "PASS"
+            playPassSound();
             
                 // add current item to passed list
                 passCorrectList.push("PASS")
@@ -214,6 +219,7 @@ var overlay;
             //overlay.style.backgroundColor = 'green';
 	    overlay.classList.add('greenGradient');
             startText.innerText = "CORRECT"
+            playCorrectSound();
             
                 // add current item to correct list
                 passCorrectList.push("CORRECT")
@@ -301,7 +307,9 @@ var overlay;
         //overlay.style.backgroundColor = ''
         overlay.classList.remove('greenGradient');
 	    overlay.classList.remove('redGradient');
-        startText.innerText = "TIME'S UP!"
+        startText.innerText = "TIME'S UP!";
+        // stop the background music
+        pauseBackgroundMusic;
         setTimeout(function(){
             // display the results
             startText.innerText = '';
@@ -369,6 +377,10 @@ var overlay;
                 if (passCorrectList[i] == "CORRECT"){
                     var color = "green";
                     totalPoints++;
+                    if (loopTime == 1000){
+                        // play the count sound
+                        playCountSound();
+                    }
                 }else{
                     var color = "red";
                 }
