@@ -1673,6 +1673,22 @@ function changeTheme(theme=null, listen=false){
 
 function toggleBackgroundMusic(boolean){
     localStorage.setItem("playBackgroundMusic", boolean);
+    
+    if (boolean){
+        var text = "On";
+    }ese{
+        var text = "Off";
+    }
+    
+    var musicOptions = document.querySelectorAll('.musicOption');
+
+    musicOptions.forEach(option => {
+        if (option.innerText == text) {
+            option.classList.add('selectedMusic');
+        } else {
+            option.classList.remove('selectedMusic');
+        }
+    });
 }
 
 function toggleSoundEffects(boolean){
