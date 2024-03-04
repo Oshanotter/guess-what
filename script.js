@@ -1693,6 +1693,22 @@ function toggleBackgroundMusic(boolean){
 
 function toggleSoundEffects(boolean){
     localStorage.setItem("playSoundEffects", boolean);
+    
+    if (boolean){
+        var text = "On";
+    }ese{
+        var text = "Off";
+    }
+    
+    var soundEffectOptions = document.querySelectorAll('.soundEffectOption');
+
+    soundEffectOptions.forEach(option => {
+        if (option.innerText == text) {
+            option.classList.add('selectedSoundEffect');
+        } else {
+            option.classList.remove('selectedSoundEffect');
+        }
+    });
 }
 
 function playBackgroundMusic(){
