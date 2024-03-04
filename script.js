@@ -1674,9 +1674,9 @@ function changeTheme(theme=null, listen=false){
 function toggleBackgroundMusic(boolean){
     localStorage.setItem("playBackgroundMusic", boolean);
     
-    if (boolean){
+    if (boolean == "true"){
         var text = "On";
-    }ese{
+    }else{
         var text = "Off";
     }
     
@@ -1694,9 +1694,9 @@ function toggleBackgroundMusic(boolean){
 function toggleSoundEffects(boolean){
     localStorage.setItem("playSoundEffects", boolean);
     
-    if (boolean){
+    if (boolean == "true"){
         var text = "On";
-    }ese{
+    }else{
         var text = "Off";
     }
     
@@ -1713,7 +1713,7 @@ function toggleSoundEffects(boolean){
 
 function playBackgroundMusic(){
     var settings = localStorage.getItem("playBackgroundMusic");
-    if(settings !== null && settings == false){
+    if(settings !== null && settings == "false"){
 	    return;
     }
     var audio = document.getElementById('backgroundMusic');
@@ -1722,7 +1722,7 @@ function playBackgroundMusic(){
 
 function pauseBackgroundMusic(){
     var settings = localStorage.getItem("playBackgroundMusic");
-    if(settings !== null && settings == false){
+    if(settings !== null && settings == "false"){
 	    return;
     }
     var audio = document.getElementById('backgroundMusic');
@@ -1731,7 +1731,7 @@ function pauseBackgroundMusic(){
 
 function playCorrectSound(){
     var settings = localStorage.getItem("playSoundEffects");
-    if(settings !== null && settings == false){
+    if(settings !== null && settings == "false"){
 	    return;
     }
     var audio = document.getElementById('correctSound');
@@ -1740,7 +1740,7 @@ function playCorrectSound(){
 
 function playPassSound(){
     var settings = localStorage.getItem("playSoundEffects");
-    if(settings !== null && settings == false){
+    if(settings !== null && settings == "false"){
 	    return;
     }
     var audio = document.getElementById('passSound');
@@ -1749,7 +1749,7 @@ function playPassSound(){
 
 function playCountSound(){
     var settings = localStorage.getItem("playSoundEffects");
-    if(settings !== null && settings == false){
+    if(settings !== null && settings == "false"){
 	    return;
     }
     var audio = document.getElementById('countSound');
