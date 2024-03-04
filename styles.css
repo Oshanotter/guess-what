@@ -114,6 +114,9 @@ body, html {
         .settings-page {
                   padding-top: 1%;
                   box-sizing: border-box;
+                  display: flex;
+                  flex-flow: column;
+                  justify-content: space-evenly;
         }
 
         .gameCard {
