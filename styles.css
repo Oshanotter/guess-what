@@ -265,6 +265,9 @@ label {
         .selectedMusic{
                 background: linear-gradient(to bottom right, #ff76c0, #ff1818);
         }
+        .selectedSoundEffect{
+                background: linear-gradient(to bottom right, #ff76c0, #ff1818);
+        }
 }
 
         
