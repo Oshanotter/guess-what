@@ -24,7 +24,11 @@ const PRECACHE_URLS = [
   'icons/general/arrow-replay.svg',
   'icons/general/dropdown-menu.svg',
   'icons/general/heart-fill.svg',
-  'icons/general/heart-outline.svg'
+  'icons/general/heart-outline.svg',
+  'audio/background_music.wav',
+  'audio/correct.mp3',
+  'audio/pass.mp3',
+  'audio/count.mp3'
 ];
 
 // The install handler takes care of precaching the resources we always need.
