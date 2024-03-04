@@ -259,6 +259,9 @@ label {
         .selectedTheme{
                 background: linear-gradient(to bottom right, #47b7ee, #7e1fe0);
         }
+        .selectedMusic{
+                background: linear-gradient(to bottom right, #ff8be3, #ff1493);
+        }
 }
 
         
