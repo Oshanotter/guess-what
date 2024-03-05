@@ -306,6 +306,8 @@ var overlay;
         overlay.classList.remove('greenGradient');
 	    overlay.classList.remove('redGradient');
         startText.innerText = "TIME'S UP!";
+	    // play the pass sound
+	    playPassSound();
         setTimeout(function(){
             // display the results
             startText.innerText = '';
