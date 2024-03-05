@@ -135,7 +135,7 @@ var overlay;
             var newNum = countdown - 1;
             startText.innerText = "Get Ready\n" + newNum;
             // play the count sound
-            playCountSound();
+            //playCountSound();
             setTimeout(function(){
                 getReady(newNum);
             }, 1000);
