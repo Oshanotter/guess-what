@@ -135,8 +135,7 @@ var overlay;
             var newNum = countdown - 1;
             startText.innerText = "Get Ready\n" + newNum;
             // play the count sound
-            //playCountSound();
-		playBackgroundMusic();
+            playCountSound();
             setTimeout(function(){
                 getReady(newNum);
             }, 1000);
@@ -168,8 +167,6 @@ var overlay;
         listNum = 0;
         startText.innerText = gameList[listNum];
         allowColorChange = true;
-        // start the background music
-        //playBackgroundMusic();
     }
 
     function getGameList(gameName){
@@ -309,8 +306,6 @@ var overlay;
         overlay.classList.remove('greenGradient');
 	    overlay.classList.remove('redGradient');
         startText.innerText = "TIME'S UP!";
-        // stop the background music
-        pauseBackgroundMusic();
         setTimeout(function(){
             // display the results
             startText.innerText = '';
@@ -1684,25 +1679,7 @@ function changeTheme(theme=null, listen=false){
 
 
 
-function toggleBackgroundMusic(boolean){
-    localStorage.setItem("playBackgroundMusic", boolean);
-    
-    if (boolean == "true"){
-        var text = "On";
-    }else{
-        var text = "Off";
-    }
-    
-    var musicOptions = document.querySelectorAll('.musicOption');
 
-    musicOptions.forEach(option => {
-        if (option.innerText == text) {
-            option.classList.add('selectedMusic');
-        } else {
-            option.classList.remove('selectedMusic');
-        }
-    });
-}
 
 function toggleSoundEffects(boolean){
     localStorage.setItem("playSoundEffects", boolean);
@@ -1724,25 +1701,6 @@ function toggleSoundEffects(boolean){
     });
 }
 
-function playBackgroundMusic(){
-    var settings = localStorage.getItem("playBackgroundMusic");
-    if(settings !== null && settings == "false"){
-	    return;
-    }
-    var audio = document.getElementById('backgroundMusic');
-    audio.play();
-	//var sound = new Audio("https://oshanotter.github.io/new-offline-webapp/audio/background_music.mp3")
-    	//sound.play()
-}
-
-function pauseBackgroundMusic(){
-    var settings = localStorage.getItem("playBackgroundMusic");
-    if(settings !== null && settings == "false"){
-	    return;
-    }
-    var audio = document.getElementById('backgroundMusic');
-    audio.pause();
-}
 
 function playCorrectSound(){
     var settings = localStorage.getItem("playSoundEffects");
