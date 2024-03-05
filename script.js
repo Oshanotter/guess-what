@@ -136,6 +136,7 @@ var overlay;
             startText.innerText = "Get Ready\n" + newNum;
             // play the count sound
             //playCountSound();
+		playBackgroundMusic();
             setTimeout(function(){
                 getReady(newNum);
             }, 1000);
@@ -168,7 +169,7 @@ var overlay;
         startText.innerText = gameList[listNum];
         allowColorChange = true;
         // start the background music
-        playBackgroundMusic();
+        //playBackgroundMusic();
     }
 
     function getGameList(gameName){
@@ -1728,10 +1729,10 @@ function playBackgroundMusic(){
     if(settings !== null && settings == "false"){
 	    return;
     }
-    //var audio = document.getElementById('backgroundMusic');
-    //audio.play();
-	var sound = new Audio("https://oshanotter.github.io/new-offline-webapp/audio/background_music.mp3")
-    	sound.play()
+    var audio = document.getElementById('backgroundMusic');
+    audio.play();
+	//var sound = new Audio("https://oshanotter.github.io/new-offline-webapp/audio/background_music.mp3")
+    	//sound.play()
 }
 
 function pauseBackgroundMusic(){
