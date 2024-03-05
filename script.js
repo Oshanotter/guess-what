@@ -310,7 +310,7 @@ var overlay;
 	    overlay.classList.remove('redGradient');
         startText.innerText = "TIME'S UP!";
         // stop the background music
-        pauseBackgroundMusic;
+        pauseBackgroundMusic();
         setTimeout(function(){
             // display the results
             startText.innerText = '';
