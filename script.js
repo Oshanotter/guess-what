@@ -1728,8 +1728,10 @@ function playBackgroundMusic(){
     if(settings !== null && settings == "false"){
 	    return;
     }
-    var audio = document.getElementById('backgroundMusic');
-    audio.play();
+    //var audio = document.getElementById('backgroundMusic');
+    //audio.play();
+	var sound = new Audio("https://oshanotter.github.io/new-offline-webapp/audio/background_music.mp3")
+    	sound.play()
 }
 
 function pauseBackgroundMusic(){
