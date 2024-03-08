@@ -39,7 +39,8 @@ const audioFiles = [
 // cache the json files for individual games
 const gameJSONs = [
   'game-sets/pokemon.json',
-  'game-sets/test.json'
+  'game-sets/test.json',
+  'game-sets/marvel.json'
 ];
 
 // cache the icon files for individual games
