@@ -27,6 +27,13 @@ body, html {
                   .light-or-dark{
                           background-color: black;
                   }
+                  /* use this instead of wirting "invertable-image" for every image in the html file */
+                  .gameCard{
+                        img{
+                                filter: invert(100%);
+                                -webkit-filter: invert(100%);
+                        }
+                  }
           }
 
         .light-mode {
