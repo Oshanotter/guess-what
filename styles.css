@@ -141,8 +141,6 @@ body, html {
                 img {
                           width: 70%;
                           margin: 5%;
-                          filter: invert(100%);
-                          -webkit-filter: invert(100%);
                 }
                 div:last-child {
                           font-size: 125%;
