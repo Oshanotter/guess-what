@@ -133,10 +133,16 @@ body, html {
                           top: 3%;
                           right: 5%;
                           font-size: 150%;
+                          img {
+                                    display: inline;
+                                    width: 1em;
+                          }
                 }
                 img {
                           width: 70%;
                           margin: 5%;
+                          filter: invert(100%);
+                          -webkit-filter: invert(100%);
                 }
                 div:last-child {
                           font-size: 125%;
