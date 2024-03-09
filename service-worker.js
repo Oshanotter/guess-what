@@ -36,6 +36,40 @@ const audioFiles = [
   'audio/count.mp3'
 ];
 
+// cache the icon files for individual games
+const gameIcons = [
+  "book.svg", 
+  "car.svg", 
+  "clapboard.svg", 
+  "comic.svg", 
+  "copyright.svg", 
+  "currency.svg", 
+  "dice.svg", 
+  "drink.svg", 
+  "earth.svg", 
+  "flower.svg", 
+  "food.svg", 
+  "graduation_cap.svg", 
+  "internet.svg", 
+  "landmark.svg", 
+  "magic_wand.svg", 
+  "mask.svg", 
+  "music_note.svg", 
+  "paw_print.svg", 
+  "profession.svg", 
+  "robot.svg", 
+  "rocket.svg", 
+  "science.svg", 
+  "skull.svg", 
+  "soccer_ball.svg", 
+  "star.svg", 
+  "stethoscope.svg", 
+  "theater_masks.svg", 
+  "trophy.svg", 
+  "tv.svg", 
+  "videogame_controller.svg"
+];
+
 // cache the json files for individual games
 const gameJSONs = [
   'game-sets/pokemon.json',
@@ -43,10 +77,6 @@ const gameJSONs = [
   'game-sets/marvel.json'
 ];
 
-// cache the icon files for individual games
-const gameIcons = [
-  
-];
 
 
 // combine all of the cached pages into one list
