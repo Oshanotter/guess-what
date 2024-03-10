@@ -73,8 +73,8 @@ const gameIcons = [
 // cache the json files for individual games
 const gameJSONs = [
   'game-sets/pokemon.json',
-  'game-sets/test.json',
-  'game-sets/marvel.json'
+  'game-sets/marvel.json',
+  'game-sets/act_it_out.json'
 ];
 
 
