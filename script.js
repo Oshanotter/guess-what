@@ -163,7 +163,7 @@ var overlay;
 
     function startGame(){
         // start the game timer
-        startTimer(10); // change 10 to roundTimer
+        startTimer(roundTimer); // how many seconds the game will last. Default is roundTimer
         listNum = 0;
         startText.innerText = gameList[listNum];
         allowColorChange = true;
