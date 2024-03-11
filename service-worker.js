@@ -74,7 +74,8 @@ const gameIcons = [
 const gameJSONs = [
   'game-sets/pokemon.json',
   'game-sets/marvel.json',
-  'game-sets/act_it_out.json'
+  'game-sets/act_it_out.json',
+  'game-sets/animals.json'
 ];
 
 
