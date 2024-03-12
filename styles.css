@@ -29,7 +29,7 @@ body, html {
                   }
                   /* use this instead of wirting "invertable-image" for every image in the html file */
                   .gameCard{
-                        img{
+                        img:not(.noInvert){
                                 filter: invert(100%);
                                 -webkit-filter: invert(100%);
                         }
