@@ -78,7 +78,8 @@ const gameJSONs = [
   'game-sets/animals.json',
   'game-sets/us_states_and_capitals.json',
   'game-sets/occupations.json',
-  'game-sets/brands_and_products.json'
+  'game-sets/brands_and_products.json',
+  'game-sets/food.json'
 ];
 
 
