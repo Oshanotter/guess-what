@@ -1320,6 +1320,7 @@ function generateUserCreatedGame(dict){
 	var image = document.createElement('img');
 	image.src = "icons/masked.png";
 	image.alt = "icon";
+	image.classList = "noInvert";
 	// create title div
 	var titleDiv = document.createElement('div');
 	titleDiv.innerText = title;
