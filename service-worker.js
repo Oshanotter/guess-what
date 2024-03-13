@@ -1,3 +1,10 @@
+// make a function to easily add prefixes to each list item
+function addPrefixToList(list, prefix) {
+  for (let i = 0; i < list.length; i++) {
+    list[i] = prefix + list[i];
+  }
+}
+
 const PRECACHE = 'precache';
 
 // cache the main files needed for the webpage
@@ -69,6 +76,7 @@ const gameIcons = [
   "tv.svg", 
   "videogame_controller.svg"
 ];
+addPrefixToList(gameIcons, "icons/game-sets/");
 
 // cache the json files for individual games
 const gameJSONs = [
