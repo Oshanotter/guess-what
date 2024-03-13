@@ -20,21 +20,22 @@ const mainFiles = [
 
 // cache the icons for the menu bar and other stuff
 const generalIcons = [
-  'icons/general/allGames.png',
-  'icons/general/favorites.png',
-  'icons/general/create.png',
-  'icons/general/settings.png',
-  'icons/general/share.svg',
-  'icons/general/import.svg', 
-  'icons/general/create.svg',
-  'icons/general/edit.svg',
-  'icons/general/delete.svg',
-  'icons/general/arrow-left.svg',
-  'icons/general/arrow-replay.svg',
-  'icons/general/dropdown-menu.svg',
-  'icons/general/heart-fill.svg',
-  'icons/general/heart-outline.svg'
+  'allGames.png',
+  'favorites.png',
+  'create.png',
+  'settings.png',
+  'share.svg',
+  'import.svg', 
+  'create.svg',
+  'edit.svg',
+  'delete.svg',
+  'arrow-left.svg',
+  'arrow-replay.svg',
+  'dropdown-menu.svg',
+  'heart-fill.svg',
+  'heart-outline.svg'
 ];
+addPrefixToList(generalIcons, "icons/general/");
 
 // cache the audio files
 const audioFiles = [
@@ -45,53 +46,54 @@ const audioFiles = [
 
 // cache the icon files for individual games
 const gameIcons = [
-  "book.svg", 
-  "car.svg", 
-  "clapboard.svg", 
-  "comic.svg", 
-  "copyright.svg", 
-  "currency.svg", 
-  "dice.svg", 
-  "drink.svg", 
-  "earth.svg", 
-  "flower.svg", 
-  "food.svg", 
-  "graduation_cap.svg", 
-  "internet.svg", 
-  "landmark.svg", 
-  "magic_wand.svg", 
-  "mask.svg", 
-  "music_note.svg", 
-  "paw_print.svg", 
-  "profession.svg", 
-  "robot.svg", 
-  "rocket.svg", 
-  "science.svg", 
-  "skull.svg", 
-  "soccer_ball.svg", 
-  "star.svg", 
-  "stethoscope.svg", 
-  "theater_masks.svg", 
-  "trophy.svg", 
-  "tv.svg", 
-  "videogame_controller.svg"
+  'book.svg', 
+  'car.svg', 
+  'clapboard.svg', 
+  'comic.svg', 
+  'copyright.svg', 
+  'currency.svg', 
+  'dice.svg', 
+  'drink.svg', 
+  'earth.svg', 
+  'flower.svg', 
+  'food.svg', 
+  'graduation_cap.svg', 
+  'internet.svg', 
+  'landmark.svg', 
+  'magic_wand.svg', 
+  'mask.svg', 
+  'music_note.svg', 
+  'paw_print.svg', 
+  'profession.svg', 
+  'robot.svg', 
+  'rocket.svg', 
+  'science.svg', 
+  'skull.svg', 
+  'soccer_ball.svg', 
+  'star.svg', 
+  'stethoscope.svg', 
+  'theater_masks.svg', 
+  'trophy.svg', 
+  'tv.svg', 
+  'videogame_controller.svg'
 ];
 addPrefixToList(gameIcons, "icons/game-sets/");
 
 // cache the json files for individual games
 const gameJSONs = [
-  'game-sets/pokemon.json',
-  'game-sets/marvel.json',
-  'game-sets/act_it_out.json',
-  'game-sets/animals.json',
-  'game-sets/us_states_and_capitals.json',
-  'game-sets/occupations.json',
-  'game-sets/brands_and_products.json',
-  'game-sets/food.json',
-  'game-sets/car_manufacturers.json',
-  'game-sets/famous_landmarks.json',
-  'game-sets/plants.json'
+  'pokemon.json',
+  'marvel.json',
+  'act_it_out.json',
+  'animals.json',
+  'us_states_and_capitals.json',
+  'occupations.json',
+  'brands_and_products.json',
+  'food.json',
+  'car_manufacturers.json',
+  'famous_landmarks.json',
+  'plants.json'
 ];
+addPrefixToList(gameJSONs, "game-sets/");
 
 
 
