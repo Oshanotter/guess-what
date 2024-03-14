@@ -91,7 +91,8 @@ const gameJSONs = [
   'food.json',
   'car_manufacturers.json',
   'famous_landmarks.json',
-  'plants.json'
+  'plants.json',
+  'sports.json'
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
