@@ -152,13 +152,20 @@ body, html {
                 div:last-child {
                           font-size: 125%;
                           margin-bottom: 5%;
-                          display: -webkit-box;
-                          overflow: hidden;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          text-overflow: ellipsis; 
+                          display: flex;
+                          overflow: hidden; 
                           text-align: center;
                           font-weight: bold;
+                          align-items: center;
+                          height: 2.3em;
+                          p {
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 2;
+                                    -webkit-box-orient: vertical;
+                                    text-overflow: ellipsis; 
+                                    overflow: hidden;
+                                    width: 100%;
+                          }
                 }
       }
 
