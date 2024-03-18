@@ -98,7 +98,8 @@ const gameJSONs = [
   'school_subjects.json',
   'blockbuster_films.json',
   'periodic_table.json',
-  'greatest_hits.json'
+  'greatest_hits.json',
+  'world_currencies.json'
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
