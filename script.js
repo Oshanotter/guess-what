@@ -1759,6 +1759,10 @@ function main() {
 	markFavorites();
 	installPrompt();
 	changeTheme();
+    
+    // control stretch on the main games element
+    var allGamesElem = document.getElementById('allGames');
+    controlStretch(allGamesElem);
 
 	// Add event listener for changes in orientation to adjust the stretch element
 	window.addEventListener('orientationchange', function(){
