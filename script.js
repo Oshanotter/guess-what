@@ -998,7 +998,9 @@ function removeFavorites(valueToRemove) {
 function markFavorites() {
     var favesList = getFavorites();
     favesList.forEach(value => {
-        document.getElementById(value).firstChild.innerText = '♥︎';
+        var theElement = document.getElementById(value);
+        var heartElem = theElement.querySelector("div>img")
+        heartElem.src = "icons/general/heart-fill.svg";
     });
 }
 
