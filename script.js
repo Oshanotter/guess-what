@@ -1760,9 +1760,9 @@ function main() {
 	installPrompt();
 	changeTheme();
     
-    // control stretch on the main games element
+    // allow the main games element to scroll upon load because sometimes it does not automatically scroll
     var allGamesElem = document.getElementById('allGames');
-    controlStretch(allGamesElem);
+    allowScroll(allGamesElem);
 
 	// Add event listener for changes in orientation to adjust the stretch element
 	window.addEventListener('orientationchange', function(){
