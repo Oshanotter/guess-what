@@ -107,7 +107,8 @@ const gameJSONs = [
   'literary_classics.json',
   'halloween.json',
   'oscar_winners.json',
-  'hashtags.json'
+  'hashtags.json',
+  'nasa.json'
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
