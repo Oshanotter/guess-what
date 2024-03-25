@@ -1,0 +1,8 @@
+{
+  "title": "Oscar Winners",
+  "description": "The Oscar goes to…? Guess these Oscar winning actors, films, and more!",
+  "games": {
+    "Actors": ["Emil Jannings", "Warner Baxter", "George Arliss", "Lionel Barrymore", "Wallace Beery", "Fredric March", "Charles Laughton", "Clark Gable", "Victor McLaglen", "Paul Muni", "Spencer Tracy", "Robert Donat", "James Stewart", "Gary Cooper", "James Cagney", "Paul Lukas", "Bing Crosby", "Ray Milland", "Ronald Colman", "Laurence Olivier", "Broderick Crawford", "José Ferrer", "Humphrey Bogart", "William Holden", "Marlon Brando", "Ernest Borgnine", "Yul Brynner", "Alec Guinness", "David Niven", "Charlton Heston", "Burt Lancaster", "Maximilian Schell", "Gregory Peck", "Sidney Poitier", "Rex Harrison", "Lee Marvin", "Paul Scofield", "Rod Steiger", "Cliff Robertson", "John Wayne", "Gene Hackman", "Jack Lemmon", "Art Carney", "Jack Nicholson", "Richard Dreyfuss", "Jon Voight", "Dustin Hoffman", "Robert De Niro", "Henry Fonda", "Ben Kingsley", "Robert Duvall", "F. Murray Abraham", "William Hurt", "Paul Newman", "Michael Douglas", "Daniel Day-Lewis", "Jeremy Irons", "Anthony Hopkins", "Al Pacino", "Tom Hanks", "Nicolas Cage", "Geoffrey Rush", "Roberto Benigni", "Kevin Spacey", "Russell Crowe", "Denzel Washington", "Adrien Brody", "Sean Penn", "Jamie Foxx", "Philip Seymour Hoffman", "Forest Whitaker", "Jeff Bridges", "Colin Firth", "Jean Dujardin", "Matthew McConaughey", "Eddie Redmayne", "Leonardo DiCaprio", "Casey Affleck", "Gary Oldman", "Rami Malek", "Joaquin Phoenix", "Will Smith", "Brendan Fraser", "Cillian Murphy"],
+    "Films": [""]
+  }
+}
