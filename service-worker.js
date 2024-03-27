@@ -82,7 +82,7 @@ addPrefixToList(gameIcons, "icons/game-sets/");
 // cache the json files for individual games
 const gameJSONs = [
   'food.json',
-  'marvel.json',
+  'famous_landmarks.json',
   'act_it_out.json',
   'animals.json',
   'us_states_and_capitals.json',
@@ -90,7 +90,7 @@ const gameJSONs = [
   'brands_and_products.json',
   'video_game_characters.json',
   'car_manufacturers.json',
-  'famous_landmarks.json',
+  'manga.json',
   'plants.json',
   'sports.json',
   'anatomy.json',
@@ -115,7 +115,8 @@ const gameJSONs = [
   'sound_effects.json',
   'constellations.json',
   'toys.json',
-  'pokemon.json'
+  'pokemon.json',
+  'marvel.json'
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
