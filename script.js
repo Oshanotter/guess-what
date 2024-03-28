@@ -1741,7 +1741,7 @@ function playCountSound(){
 function generateSplashScreens(iconUrl, backgroundColor = "white") {
 
 // make sure that the PWA is running in standalone mode on iOS
-if (isRunningStandalone() || !isiOS()){
+if (!isRunningStandalone() || !isiOS()){
 	return;
 }
 	
