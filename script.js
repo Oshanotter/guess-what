@@ -1736,6 +1736,87 @@ function playCountSound(){
 
 
 
+
+
+function generateSplashScreens(iconUrl, backgroundColor = "white") {
+
+// make sure that the PWA is running in standalone mode on iOS
+if (isRunningStandalone() || !isiOS()){
+	return;
+}
+	
+  // Check if a valid icon URL is provided
+  if (typeof iconUrl !== "string" || iconUrl.length === 0) {
+    throw Error("Invalid icon URL provided");
+  }
+
+  // Get screen dimensions and device pixel ratio
+  let screenWidth = screen.width,
+    screenHeight = screen.height,
+    devicePixelRatio = window.devicePixelRatio || 1;
+
+  // Create canvases and contexts
+  let portraitCanvas = document.createElement("canvas"),
+    landscapeCanvas = document.createElement("canvas"),
+    portraitContext = portraitCanvas.getContext("2d"),
+    landscapeContext = landscapeCanvas.getContext("2d");
+
+  // Create an image element to load the icon
+  let iconImage = new Image;
+  iconImage.onerror = function() {
+    throw Error("Failed to load icon image");
+  };
+  iconImage.src = iconUrl;
+  iconImage.onload = function() {
+    // Calculate scaled dimensions for the icon
+    let iconWidth = iconImage.width / (3 / devicePixelRatio),
+      iconHeight = iconImage.height / (3 / devicePixelRatio);
+
+    // Set canvas sizes
+    portraitCanvas.width = screenWidth * devicePixelRatio;
+    landscapeCanvas.height = portraitCanvas.width;
+    portraitCanvas.height = screenHeight * devicePixelRatio;
+    landscapeCanvas.width = portraitCanvas.height;
+
+    // Set background color
+    portraitContext.fillStyle = backgroundColor;
+    landscapeContext.fillStyle = backgroundColor;
+    portraitContext.fillRect(0, 0, portraitCanvas.width, portraitCanvas.height);
+    landscapeContext.fillRect(0, 0, landscapeCanvas.width, landscapeCanvas.height);
+
+    // Calculate positions for centering the icon
+    let portraitIconX = (portraitCanvas.width - iconWidth) / 2,
+      portraitIconY = (portraitCanvas.height - iconHeight) / 2,
+      landscapeIconX = (landscapeCanvas.width - iconWidth) / 2,
+      landscapeIconY = (landscapeCanvas.height - iconHeight) / 2;
+
+    // Draw the icon on both canvases
+    portraitContext.drawImage(iconImage, portraitIconX, portraitIconY, iconWidth, iconHeight);
+    landscapeContext.drawImage(iconImage, landscapeIconX, landscapeIconY, iconWidth, iconHeight);
+
+    // Convert canvases to data URLs
+    let portraitDataURL = portraitCanvas.toDataURL("image/png"),
+      landscapeDataURL = landscapeCanvas.toDataURL("image/png");
+
+    // Create link elements for startup images
+    let portraitLink = document.createElement("link");
+    portraitLink.setAttribute("rel", "apple-touch-startup-image");
+    portraitLink.setAttribute("media", "screen and (orientation: portrait)");
+    portraitLink.setAttribute("href", portraitDataURL);
+    document.head.appendChild(portraitLink);
+
+    let landscapeLink = document.createElement("link");
+    landscapeLink.setAttribute("rel", "apple-touch-startup-image");
+    landscapeLink.setAttribute("media", "screen and (orientation: landscape)");
+    landscapeLink.setAttribute("href", landscapeDataURL);
+    document.head.appendChild(landscapeLink);
+  }
+}
+
+
+
+
+
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', function (e) {
@@ -1759,6 +1840,7 @@ function main() {
 	markFavorites();
 	installPrompt();
 	changeTheme();
+	generateSplashScreens("icons/masked.png");
     
     // allow the main games element to scroll upon load because sometimes it does not automatically scroll
     var allGamesElem = document.getElementById('allGames');
