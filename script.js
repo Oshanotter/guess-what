@@ -1794,7 +1794,7 @@ function main() {
 	markFavorites();
 	installPrompt();
 	changeTheme();
-	iosPWASplash("icons/masked.png");
+	//iosPWASplash("icons/masked.png");
     
     // allow the main games element to scroll upon load because sometimes it does not automatically scroll
     var allGamesElem = document.getElementById('allGames');
