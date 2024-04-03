@@ -120,7 +120,8 @@ const gameJSONs = [
   'marvel.json',
   'sports_teams.json',
   'game_shows.json',
-  'olympics.json'
+  'olympics.json',
+  'dance_moves.json'
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
