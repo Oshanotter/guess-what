@@ -9,10 +9,5 @@ The rules are simple, hold your mobile device to your forehead and have your fri
 Who can guess the most cards correctly?
 
 <h5>Game Sets</h5>
-For a full list of the available game sets visit the 
-[Install Link](./game-sets) 
-folder.
-
-[Install Link](https://github.com/Oshanotter/new-offline-webapp/tree/main/game-sets)
-
+For a full list of the available game sets visit the Game Sets folder linked below.  
 [Install Link](./game-sets)
