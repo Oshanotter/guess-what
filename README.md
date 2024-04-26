@@ -8,7 +8,7 @@ Play online at https://oshanotter.github.io/guess-what/ and follow the prompt to
 The rules are simple, hold your mobile device to your forehead and have your friends and family give you hints about what is on the screen. If you guess correctly, tilt your device down. If you want to pass, tilt your device up.  
 Who can guess the most cards correctly?
 
-<h5>Game Sets</h5>
+## Game Sets
 For a full list of the available game sets visit the Game Sets folder linked below.  
 
 [Install Link](./game-sets)
