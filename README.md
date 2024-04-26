@@ -10,4 +10,5 @@ Who can guess the most cards correctly?
 
 <h5>Game Sets</h5>
 For a full list of the available game sets visit the Game Sets folder linked below.  
+
 [Install Link](./game-sets)
