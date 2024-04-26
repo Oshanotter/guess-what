@@ -1,5 +1,6 @@
-Basic Service Worker Sample
+Welcome to the Guess What?! GitHub Page
 ===========================
-See https://googlechrome.github.io/samples/service-worker/basic/index.html for a live demo.
+Play over 50 unique sets for the classic guessing game of what am I!
+Some sets even have several sub-sets for more fun!
 
-Learn more at https://www.chromestatus.com/feature/6561526227927040
+Play online at https://oshanotter.github.io/guess-what/ and follow the prompt to install the Web App!
