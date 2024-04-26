@@ -9,4 +9,4 @@ The rules are simple, hold your mobile device to your forehead and have your fri
 Who can guess the most cards correctly?
 
 <h5>Game Sets</h5>
-For a full list of the available game sets visit the [GameSets](./index) folder.
+For a full list of the available game sets visit the [GameSets](./README.md) folder.
