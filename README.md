@@ -12,3 +12,5 @@ Who can guess the most cards correctly?
 For a full list of the available game sets visit the [Game Sets](https://github.com/Oshanotter/new-offline-webapp/tree/main/game-sets) folder.
 
 [Install Link](https://github.com/Oshanotter/new-offline-webapp/tree/main/game-sets)
+
+[Install Link](./game-sets)
