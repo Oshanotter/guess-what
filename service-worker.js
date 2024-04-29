@@ -130,7 +130,8 @@ const gameJSONs = [
   'instruments.json',
   'anime.json',
   'pixar.json',
-  'social_media.json'
+  'social_media.json',
+  'harry_potter.json'
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
