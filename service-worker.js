@@ -139,7 +139,7 @@ const gameJSONs = [
   'ryan_reynolds_movies',
   'pop_culture',
   'nintendo',
-  'twilight',
+  'twilight'/*,
   'music_through_the_decades',
   'dwayne_johnson_movies',
   'cosplay',
@@ -177,7 +177,7 @@ const gameJSONs = [
   'starbucks_drinks',
   'royal_figures',
   'draw_it',
-  'julia_roberts_movies'
+  'julia_roberts_movies'*/
 ];
 addPrefixToList(gameJSONs, "game-sets/");
 
