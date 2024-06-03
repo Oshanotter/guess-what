@@ -1254,11 +1254,15 @@ function createGame(addToFaves=false) {
 	    "id": gameID
 	}
 
-	//var dictString = JSON.stringify(dict);
-	storeUserCreatedGame(dict);
-	generateUserCreatedGame(dict);
-	if (addToFaves == true){
-		toggleHeart(gameID);
+	// try to store the user created game if the storage isn't full
+	try{
+		storeUserCreatedGame(dict);
+		generateUserCreatedGame(dict);
+		if (addToFaves == true){
+			toggleHeart(gameID);
+		}
+	}catch{
+		displayPopup("Failed.<br><br> User storage is full. Please remove some user-created games to make a new one.", "Okay");
 	}
 }
 
@@ -1287,17 +1291,23 @@ function buildImportedGame(data){
 		displayPopup("This game already exists in your library.<br><br><b>" + name + "</b><br><br>It will not be added again.", "Okay");
 		return;
 	}
+
+	// try to store the user made game if the storage isn't full
+	try{
 	storeUserCreatedGame(gameDict);
 	generateUserCreatedGame(gameDict);
 	displayPopup("Success!<br><br>" + name + " was imported successfully!", "Great!");
+	}catch{
+		displayPopup("Failed.<br><br> User storage is full. Please remove some user-created games to make a new one.", "Okay");
+	}
 }
 
 function generateUserCreatedGame(dict){
+	// create the game card for a user created game	
     var gameID = dict['id'];
     var title = dict['title'];
     var des = dict['description'];
     
-	// create the game card for a user created game	
 	// make a container for it first so that we can set the onclick event as part of the html
 	var container = document.createElement('div');
 	container.innerHTML = '<div onclick="requestPermission(); gamesDict=getUserCreatedGame(\'' + gameID + '\')[\'games\']; buildGamePreview(\'' + title + '\', \'' + des + '\');"></div>';
