@@ -1684,5 +1684,9 @@ function main() {
   } else {
     defaultTimer = time;
   }
+  
+  // adjust the option for sound effects so it displays correctly
+  var soundBool = localStorage.getItem("playSoundEffects");
+  toggleSoundEffects(soundBool);
 }
 main();
