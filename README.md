@@ -10,4 +10,4 @@ Who can guess the most cards correctly?
 
 ## Game Sets
 For a full list of the available game sets visit the Game Sets folder linked below.  
-[Install Link](./game-sets)
+[Game Sets](./game-sets)
