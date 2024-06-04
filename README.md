@@ -1,6 +1,6 @@
 Welcome to the Guess What?! GitHub Page
 ===========================
-Play over 50 unique sets for this classic guessing game!  
+Play over 90 unique sets for this classic guessing game!  
 Some sets even have several sub-sets for more fun!
 
 Play online at https://oshanotter.github.io/guess-what/ and follow the prompt to install the Web App!
