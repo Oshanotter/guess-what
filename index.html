@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1, initial-scale=1, minimal-ui, viewport-fit=cover">
-    <meta name="theme-color" content="#06C7C3">
-    <title>Guess What?!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap">
-    <link rel="manifest" href="manifest.json" />
-    <link rel="stylesheet" href="styles.css">
-    
-    <link rel="icon" href="icons/masked.png" />
-    <link rel="apple-touch-icon" href="icons/full.png">
-    <link rel="mask-icon" href="icons/masked.png" color="#000000">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1, initial-scale=1, minimal-ui, viewport-fit=cover">
+  <meta name="theme-color" content="#06C7C3">
+  <title>Guess What?!</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" href="icons/masked.png" />
+  <link rel="apple-touch-icon" href="icons/full.png">
+  <link rel="mask-icon" href="icons/masked.png" color="#000000">
 </head>
 <body>
 
-<div class="grid-container" id="allGames">
+  <div class="grid-container" id="allGames">
     <div class="gameCard blueGradient" id="food" onclick="getDictionary('food.json')"><div onclick="toggleHeart('food'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" alt="heart"></div><img src="icons/game-sets/food.svg" alt="icon"><div><p>Food</p></div></div>
     <div class="gameCard greenGradient" id="act_it_out" onclick="getDictionary('act_it_out.json')"><div onclick="toggleHeart('act_it_out'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" alt="heart"></div><img src="icons/game-sets/theater_masks.svg" alt="icon"><div><p>Act It Out</p></div></div>
     <div class="gameCard redGradient" id="famous_landmarks" onclick="getDictionary('famous_landmarks.json')"><div onclick="toggleHeart('famous_landmarks'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" alt="heart"></div><img src="icons/game-sets/landmark.svg" alt="icon"><div><p>Famous Landmarks</p></div></div>
@@ -114,7 +114,7 @@
     <div class="gameCard orangeGradient" id="royal_figures" onclick="getDictionary('royal_figures.json')"><div onclick="toggleHeart('royal_figures'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" alt="heart"></div><img src="icons/game-sets/landmark.svg" alt="icon"><div><p>Royal Figures</p></div></div>
     <div class="gameCard yellowGradient" id="draw_it" onclick="getDictionary('draw_it.json')"><div onclick="toggleHeart('draw_it'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" alt="heart"></div><img src="icons/game-sets/copyright.svg" alt="icon"><div><p>Draw It</p></div></div>
     <div class="gameCard pinkGradient" id="julia_roberts_movies" onclick="getDictionary('julia_roberts_movies.json')"><div onclick="toggleHeart('julia_roberts_movies'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" alt="heart"></div><img src="icons/game-sets/clapboard.svg" alt="icon"><div><p>Julia Roberts Movies</p></div></div>
-    
+
     <!-- This is the Default order of the colors
     <div class="gameCard blueGradient"></div>
     <div class="gameCard greenGradient"></div>
@@ -123,58 +123,58 @@
     <div class="gameCard orangeGradient"></div>
     <div class="gameCard yellowGradient"></div>
     <div class="gameCard pinkGradient"></div>
-    -->
+  -->
 
-    <div class="gameCard buffer"></div>
-    <div class="gameCard stretch" style="height: 0px;"></div>
-    
+  <div class="gameCard buffer"></div>
+  <div class="gameCard stretch" style="height: 0px;"></div>
+
 </div>
 
 <div class="grid-container hidden" id="favorites"></div>
 <div class="grid-container hidden" id="create">
-    <div class="gameCard yellowGradient" id="createCard" onclick="createSet()"><img src="icons/general/create.svg" alt="icon" class="invertable-image"><div>Create New Set</div></div>
-    <div class="gameCard pinkGradient" id="importCard" onclick="importSet()"><img src="icons/general/import.svg" alt="icon" class="invertable-image"><div>Import New Set</div></div>
-    <div class="gameCard buffer"></div>
-    <div class="gameCard stretch" style="height: 0px;"></div>
+  <div class="gameCard yellowGradient" id="createCard" onclick="createSet()"><img src="icons/general/create.svg" alt="icon" class="invertable-image"><div>Create New Set</div></div>
+  <div class="gameCard pinkGradient" id="importCard" onclick="importSet()"><img src="icons/general/import.svg" alt="icon" class="invertable-image"><div>Import New Set</div></div>
+  <div class="gameCard buffer"></div>
+  <div class="gameCard stretch" style="height: 0px;"></div>
 </div>
 
 <div class="settings-page hidden" id="settings">
 
-        <div style="width: 90%; margin: auto;">
-            <div class="orangeGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
-                <div>Default Game Timer</div><div style="display: flex; flex-direction: row; justify-content: center;">
-                    <div class="timerOption selectedTimer" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(60)">60s</div>
-                    <div class="timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(90)">90s</div>
-                    <div class="timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(120)">120s</div>
-                </div>
-            </div>   
-        </div>
-        <div style="width: 90%; margin: auto;">
-            <div class="purpleGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
-                <div>Color Scheme</div><div style="display: flex; flex-direction: row; justify-content: center;">
-                    <div class="themeOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('light')">Light</div>
-                    <div class="themeOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('dark')">Dark</div>
-                    <div class="themeOption selectedTheme" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('auto')">Auto</div>
-                </div>
-            </div>   
-        </div>
-        <div style="width: 90%; margin: auto;">
-            <div class="greenGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
-                <div>Sound Effects</div><div style="display: flex; flex-direction: row; justify-content: center;">
-                    <div class="soundEffectOption selectedSoundEffect" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="toggleSoundEffects('true')">On</div>
-                    <div class="soundEffectOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="toggleSoundEffects('false')">Off</div>
-                </div>
-            </div>   
-        </div>
-        <div style="width: 90%; margin: auto; display: flex; justifyContent: space-evenly;">
-            <div style="margin: auto; padding: 3%; font-size: 125%; border-radius: 999px; text-align: center; display: inline-block; background-color: #06C7C3;" onclick="displayPopup('<h3>Privacy Policy</h3>We do not collect any information from users. Period.<br><br>Regarding TinyUrl: TinyUrl is used to share user created games. As such, their <a href=\'https://tinyurl.com/app/privacy-policy#\' target=\'_blank\'>privacy policy</a> also applies.<br><br>Regarding GitHub Pages: This Web App is hosted on GitHub Pages. As such, their <a href=\'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\' target=\'_blank\'>privacy policy</a> also applies.', 'Close')">
-                Privacy Policy
-            </div>   
-            <div style="margin: auto; padding: 3% 6%; font-size: 125%; border-radius: 999px; text-align: center; display: inline-block; background-color: #06C7C3;" onclick="displayPopup('<h3>Disclaimers</h3>All references to copyrighted or trademarked material are used solely for entertainment purposes within the context of <i>Guess what?!</i><br><br>We do not claim ownership of any intellectual property mentioned. All rights belong to their respective owners. This usage falls under the doctrine of fair use.', 'Close')">
-                Disclaimers
-            </div>
-        </div>
-    
+  <div style="width: 90%; margin: auto;">
+    <div class="orangeGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
+      <div>Default Game Timer</div><div style="display: flex; flex-direction: row; justify-content: center;">
+        <div class="timerOption selectedTimer" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(60)">60s</div>
+        <div class="timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(90)">90s</div>
+        <div class="timerOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setDefaultTimer(120)">120s</div>
+      </div>
+    </div>
+  </div>
+  <div style="width: 90%; margin: auto;">
+    <div class="purpleGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
+      <div>Color Scheme</div><div style="display: flex; flex-direction: row; justify-content: center;">
+        <div class="themeOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('light')">Light</div>
+        <div class="themeOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('dark')">Dark</div>
+        <div class="themeOption selectedTheme" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="setPreferedTheme('auto')">Auto</div>
+      </div>
+    </div>
+  </div>
+  <div style="width: 90%; margin: auto;">
+    <div class="greenGradient settingsBubble" style="margin: auto; display: flex; flex-direction: column; font-size: 125%; border-radius: 999px; text-align: center;">
+      <div>Sound Effects</div><div style="display: flex; flex-direction: row; justify-content: center;">
+        <div class="soundEffectOption selectedSoundEffect" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="toggleSoundEffects('true')">On</div>
+        <div class="soundEffectOption" style="cursor: pointer; padding: 2% 8%; border-radius: 999px;" onclick="toggleSoundEffects('false')">Off</div>
+      </div>
+    </div>
+  </div>
+  <div style="width: 90%; margin: auto; display: flex; justifyContent: space-evenly;">
+    <div style="margin: auto; padding: 3%; font-size: 125%; border-radius: 999px; text-align: center; display: inline-block; background-color: #06C7C3;" onclick="displayPopup('<h3>Privacy Policy</h3>We do not collect any information from users. Period.<br><br>Regarding TinyUrl: TinyUrl is used to share user created games. As such, their <a href=\'https://tinyurl.com/app/privacy-policy#\' target=\'_blank\'>privacy policy</a> also applies.<br><br>Regarding GitHub Pages: This Web App is hosted on GitHub Pages. As such, their <a href=\'https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement\' target=\'_blank\'>privacy policy</a> also applies.', 'Close')">
+      Privacy Policy
+    </div>
+    <div style="margin: auto; padding: 3% 6%; font-size: 125%; border-radius: 999px; text-align: center; display: inline-block; background-color: #06C7C3;" onclick="displayPopup('<h3>Disclaimers</h3>All references to copyrighted or trademarked material are used solely for entertainment purposes within the context of <i>Guess what?!</i><br><br>We do not claim ownership of any intellectual property mentioned. All rights belong to their respective owners. This usage falls under the doctrine of fair use.', 'Close')">
+      Disclaimers
+    </div>
+  </div>
+
 </div>
 
 <div class="menu-bar">
@@ -187,67 +187,67 @@
 
 
 <div id="create-page" class="light-or-dark hidden" style="font-size: 150%; width: 100%; height: 100%; top: 0; position: fixed; box-sizing: border-box; padding-left: env(safe-area-inset-left, 0px);">
-        <div class="half" style="margin-left: 1%; margin-right: 1%;">
-              <br>
-              <div style="display: flex; flex-direction: column;">
-                <label for="gameTitle">Title of New Set:</label>
-                <input type="text" id="gameTitle" name="gameTitle" style="font-size: 100%;">
-              </div>
-              <br>
-              <div style="display: flex; flex-direction: column;">
-                <label for="description">Description:</label>
-                <input type="text" id="description" name="description" style="font-size: 100%;">
-              </div>
-              <br>
-              <div>
-                <label>Choose Color of Set:</label>
-                <div style="display: flex; justify-content: space-between; width: 90%; margin: auto; align-items: center;">
-                  <div class="blueGradient color-circle selectedColor" onclick="selectColor('blueGradient')"></div>
-                  <div class="greenGradient color-circle" onclick="selectColor('greenGradient')"></div>
-                  <div class="redGradient color-circle" onclick="selectColor('redGradient')"></div>
-                  <div class="purpleGradient color-circle" onclick="selectColor('purpleGradient')"></div>
-                  <div class="orangeGradient color-circle" onclick="selectColor('orangeGradient')"></div>
-                  <div class="yellowGradient color-circle" onclick="selectColor('yellowGradient')"></div>
-                  <div class="pinkGradient color-circle" onclick="selectColor('pinkGradient')"></div>
-                </div>
-              </div>
-        </div>
-        <div class="half" style="margin-left: 1%; margin-right: 1%; display: flex; flex-flow: column; flex-grow: 1;">
-              <br>
-              <div style="display: flex; flex-direction: column; flex-grow: 1; display: flex; flex-direction: column;">
-                <label for="enterCards">Enter Cards Here:<p style="margin: 0; font-size: 60%;">(each item should be on its own line)</p></label>
-                <textarea id="enterCards" name="enterCards" rows="6" style="font-size: 100%; flex-grow: 1; display: flex; flex-direction: column;"></textarea>
-              </div>
-              <br>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 5%;">
-                <div class="redGradient" style="padding: 3% 5% 3% 5%; border-radius: 999px;" onclick="discardSet()">Cancel</div>
-                <div class="blueGradient" style="padding: 3% 8% 3% 8%; border-radius: 999px;" onclick="createGame()">Create Game</div>
-              </div>
-        </div>
+  <div class="half" style="margin-left: 1%; margin-right: 1%;">
+    <br>
+    <div style="display: flex; flex-direction: column;">
+      <label for="gameTitle">Title of New Set:</label>
+      <input type="text" id="gameTitle" name="gameTitle" style="font-size: 100%;">
+    </div>
+    <br>
+    <div style="display: flex; flex-direction: column;">
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" style="font-size: 100%;">
+    </div>
+    <br>
+    <div>
+      <label>Choose Color of Set:</label>
+      <div style="display: flex; justify-content: space-between; width: 90%; margin: auto; align-items: center;">
+        <div class="blueGradient color-circle selectedColor" onclick="selectColor('blueGradient')"></div>
+        <div class="greenGradient color-circle" onclick="selectColor('greenGradient')"></div>
+        <div class="redGradient color-circle" onclick="selectColor('redGradient')"></div>
+        <div class="purpleGradient color-circle" onclick="selectColor('purpleGradient')"></div>
+        <div class="orangeGradient color-circle" onclick="selectColor('orangeGradient')"></div>
+        <div class="yellowGradient color-circle" onclick="selectColor('yellowGradient')"></div>
+        <div class="pinkGradient color-circle" onclick="selectColor('pinkGradient')"></div>
+      </div>
+    </div>
+  </div>
+  <div class="half" style="margin-left: 1%; margin-right: 1%; display: flex; flex-flow: column; flex-grow: 1;">
+    <br>
+    <div style="display: flex; flex-direction: column; flex-grow: 1; display: flex; flex-direction: column;">
+      <label for="enterCards">Enter Cards Here:<p style="margin: 0; font-size: 60%;">(each item should be on its own line)</p></label>
+      <textarea id="enterCards" name="enterCards" rows="6" style="font-size: 100%; flex-grow: 1; display: flex; flex-direction: column;"></textarea>
+    </div>
+    <br>
+    <div style="display: flex; justify-content: space-between; margin-bottom: 5%;">
+      <div class="redGradient" style="padding: 3% 5% 3% 5%; border-radius: 999px;" onclick="discardSet()">Cancel</div>
+      <div class="blueGradient" style="padding: 3% 8% 3% 8%; border-radius: 999px;" onclick="createGame()">Create Game</div>
+    </div>
+  </div>
 </div>
 
 
 <!-- Add sound effects-->
 <audio id="correctSound">
   <source src="audio/correct.mp3" type="audio/mpeg">
-</audio>
-<audio id="passSound">
-  <source src="audio/pass.mp3" type="audio/mpeg">
-</audio>
-<audio id="countSound">
-  <source src="audio/count.mp3" type="audio/mpeg">
-</audio>
+  </audio>
+  <audio id="passSound">
+    <source src="audio/pass.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="countSound">
+      <source src="audio/count.mp3" type="audio/mpeg">
+      </audio>
 
 
-<script>
+      <script>
 
-    if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('service-worker.js');
-    }
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+      }
 
-</script>
-<script src="script.js" defer></script>
+    </script>
+    <script src="script.js" defer></script>
 
 
-</body>
-</html>
+  </body>
+  </html>
