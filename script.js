@@ -1,4 +1,4 @@
-// initalize some variables
+// initialize some variables
 var overlay;
 var resultsPage;
 var startText;
@@ -97,25 +97,25 @@ function createOverlay() {
   exitButton.style.left = "4%";
   exitButton.style.position = "absolute";
   exitButton.style.fontSize = "150%";
-  exitButton.innerHTML = '<img src="icons/general/arrow-left.svg" style="display: inline; width: 1em;" alt="back" class="invertable-image">Back';
-  exitButton.addEventListener('click', function() {
+  exitButton.innerHTML = '<img src="icons/general/arrow-left.svg" style="display: inline; width: 1em;" alt="back" class="invertible-image">Back';
+  exitButton.addEventListener('click', function () {
     // break the loop for displaying the results
     breakLoop = true;
     document.body.removeChild(overlay);
-    // set the gameCancled variable to true to stop the countdown timers
-    gameCancled = true;
+    // set the gameCanceled variable to true to stop the countdown timers
+    gameCanceled = true;
     allowColorChange = false;
   });
   banner.appendChild(exitButton);
 
   document.body.appendChild(overlay);
 
-  gameCancled = false;
+  gameCanceled = false;
   getReady(6);
 }
 
 function getReady(countdown) {
-  if (gameCancled) {
+  if (gameCanceled) {
     return;
   }
   // start counting down to get ready
@@ -125,17 +125,17 @@ function getReady(countdown) {
     startGame();
   } else {
     var newNum = countdown - 1;
-    startText.innerText = "Get Ready\n" + newNum;
+    startText.textContent = "Get Ready\n" + newNum;
     // play the count sound
     playCountSound();
-    setTimeout(function() {
+    setTimeout(function () {
       getReady(newNum);
     }, 1000);
   }
 }
 
 function startTimer(countdown) {
-  if (gameCancled) {
+  if (gameCanceled) {
     return;
   }
   // start the game timer
@@ -147,7 +147,7 @@ function startTimer(countdown) {
   } else {
     var newNum = countdown - 1;
     circle.innerText = newNum;
-    setTimeout(function() {
+    setTimeout(function () {
       startTimer(newNum);
     }, 1000);
   }
@@ -163,7 +163,7 @@ function startGame() {
 
 function getGameList(gameName) {
   // set a global variable to know what the key for the game is
-  replay = function() {
+  replay = function () {
     getGameList(gameName);
   }
   // get the array from the dictionary
@@ -217,7 +217,7 @@ function handleOrientation(event) {
       if (waitingForLockAnswer) {
         return;
       }
-      setTimeout(function() {
+      setTimeout(function () {
         lockAnswer = false;
         waitingForLockAnswer = false;
       }, 500);
@@ -248,7 +248,7 @@ function skippedNeutral() {
     startText.innerText = gameList[listNum];
     currentPosition = "NEUTRAL";
   }
-  setTimeout(function() {
+  setTimeout(function () {
     lockAnswer = false;
     waitingForLockAnswer = false;
   }, 100);
@@ -288,7 +288,7 @@ function endGame() {
   startText.innerText = "TIME'S UP!";
   // play the pass sound
   playPassSound();
-  setTimeout(function() {
+  setTimeout(function () {
     // display the results
     startText.innerText = '';
     var leftCol = document.createElement('div');
@@ -327,8 +327,8 @@ function endGame() {
     replayButton.style.right = "4%";
     replayButton.style.position = "absolute";
     replayButton.style.fontSize = "150%";
-    replayButton.innerHTML = 'Replay<img src="icons/general/arrow-replay.svg" style="display: inline; width: 1em;" alt="replay" class="invertable-image">';
-    replayButton.addEventListener('click', function() {
+    replayButton.innerHTML = 'Replay<img src="icons/general/arrow-replay.svg" style="display: inline; width: 1em;" alt="replay" class="invertible-image">';
+    replayButton.addEventListener('click', function () {
       // break the loop for displaying the results
       breakLoop = true;
       overlay.remove();
@@ -370,7 +370,7 @@ function endGame() {
         rightCol.appendChild(text);
       }
       circle.innerText = totalPoints;
-      setTimeout(function() {
+      setTimeout(function () {
         loopResults(indexLength, i + 1);
       }, loopTime);
     }
@@ -557,7 +557,7 @@ function buildGamePreview(title, description) {
       gridItemDiv.style.display = 'flex';
       gridItemDiv.style.justifyContent = 'center';
       gridItemDiv.style.alignItems = 'center';
-      gridItemDiv.addEventListener('click', function() {
+      gridItemDiv.addEventListener('click', function () {
         getGameList(key);
       });
       gridItemDiv.style.borderRadius = "3vmin";
@@ -614,7 +614,7 @@ function addPlayAllOption() {
   gridItemDiv.style.padding = '5px';
   gridItemDiv.style.margin = '5px';
   gridItemDiv.style.cursor = 'pointer';
-  gridItemDiv.addEventListener('click', function() {
+  gridItemDiv.addEventListener('click', function () {
     getAllGames();
     replay = getAllGames;
   });
@@ -645,7 +645,7 @@ function addPlayButton() {
   gridItemDiv.style.padding = '5px';
   gridItemDiv.style.margin = '5px';
   gridItemDiv.style.cursor = 'pointer';
-  gridItemDiv.addEventListener('click', function() {
+  gridItemDiv.addEventListener('click', function () {
     getGameList("Play");
   });
   gridItemDiv.style.borderRadius = "3vmin";
@@ -657,7 +657,7 @@ function addPlayButton() {
 
 function preventScroll() {
   // prevent any element from scrolling after the user has clicked on an input
-  var preventDefault = function(e) {
+  var preventDefault = function (e) {
     e.preventDefault();
     e.stopPropagation(); // Stop the event from propagating to parent or child elements
   };
@@ -672,7 +672,7 @@ function preventScroll() {
 }
 
 function allowScroll(element) {
-  var allowDefault = function(e) {
+  var allowDefault = function (e) {
     // do nothing
     e.stopPropagation();
   };
@@ -684,7 +684,7 @@ function allowScroll(element) {
     passive: false
   });
 
-  element.addEventListener('scroll', function() {
+  element.addEventListener('scroll', function () {
     // Check if the scroll position is at the top
     if (element.scrollTop === 0) {
       // If at the top, prevent further scrolling up
@@ -695,8 +695,8 @@ function allowScroll(element) {
     }
   });
 
-  setTimeout(function() {
-    // set topscroll to 1 immediately so that scrolling up doesn't casue the whole screen to move
+  setTimeout(function () {
+    // set topscroll to 1 immediately so that scrolling up doesn't cause the whole screen to move
     element.scrollTop = 1;
   }, 1);
 
@@ -739,7 +739,7 @@ function addEmptyClickEvent() {
     var currentElement = allElements[i];
     // Check if the element does not already have an onclick attribute
     if (!currentElement.hasAttribute("onclick")) {
-      currentElement.addEventListener("click", function() {
+      currentElement.addEventListener("click", function () {
         // simply return to prevent scrolling
         return;
       });
@@ -948,7 +948,7 @@ function displayFavorites() {
   });
   hideOtherElements('favorites');
   // sometimes the stretch function doesn't work because not all elements have been appended, so delay it
-  setTimeout(function() {
+  setTimeout(function () {
     var element = document.getElementById('favorites');
     controlStretch(element);
   }, 100);
@@ -1006,7 +1006,7 @@ function selectColor(color) {
 function importSet() {
   // show a popup with an input box
   var message = "Enter the shareable code below:<br><br><input type='text' id='shareableCode' name='shareableCode' style='font-size: 150%; text-align: center; width: 80%;'>";
-  displayPopup(message, "Cancel", "Import Set", function() {
+  displayPopup(message, "Cancel", "Import Set", function () {
     var code = document.getElementById('shareableCode').value.trim();
     displayLoadingPopup("Importing Game");
     importUserCreatedGame([code]);
@@ -1046,7 +1046,7 @@ async function importUserCreatedGame(id, index = 0, errorCount = 0) {
       buildImportedGame(fullDataString);
     }
   } catch {
-    setTimeout(function() {
+    setTimeout(function () {
       importUserCreatedGame(id, index, errorCount + 1);
     }, 1000);
   }
@@ -1070,13 +1070,13 @@ async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
     var parts = tinyURL.split("/");
     var id = parts[parts.length - 1];
     var idList = await uploadUserCreatedGame(data, index + 1);
-    idList.unshift(id); // add the first id to the fron tof the list
+    idList.unshift(id); // add the first id to the front of the list
     if (index != 0) {
       return idList;
     } else {
       // if the length of the idList is 1, display the popup
       if (idList.length == 1) {
-        displayPopup("Your Shareable Code:<br><br><b style='font-size: 150%;'>" + id + "</b>", "Close", "Copy Code", function() {
+        displayPopup("Your Shareable Code:<br><br><b style='font-size: 150%;'>" + id + "</b>", "Close", "Copy Code", function () {
           // Create a temporary input element to copy the code to the clipboard
           var tempInput = document.createElement('input');
           tempInput.value = id;
@@ -1109,7 +1109,7 @@ async function uploadUserCreatedGame(data, index = 0, errorCount = 0) {
       }
     }
   } catch {
-    setTimeout(function() {
+    setTimeout(function () {
       uploadUserCreatedGame(data, index, errorCount + 1);
     }, 1000);
   }
@@ -1222,7 +1222,7 @@ function generateUserCreatedGame(dict) {
   var mainDiv = container.firstChild;
   mainDiv.classList = "gameCard " + dict['color'];
   mainDiv.id = gameID;
-  mainDiv.onclick = function() {
+  mainDiv.onclick = function () {
     //first, request permission to use the device's orientation
     requestPermission();
     var cardDict = getUserCreatedGame(gameID);
@@ -1231,7 +1231,7 @@ function generateUserCreatedGame(dict) {
   };
   // create heart div
   var tempHeartContainer = document.createElement('div');
-  tempHeartContainer.innerHTML = '<div onclick="toggleHeart(\'' + gameID + '\'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" style="display: inline; width: 1em;" alt="heart" class="invertable-image"></div>';
+  tempHeartContainer.innerHTML = '<div onclick="toggleHeart(\'' + gameID + '\'); event.stopPropagation();"><img src="icons/general/heart-outline.svg" style="display: inline; width: 1em;" alt="heart" class="invertible-image"></div>';
   var heartDiv = tempHeartContainer.firstChild;
   // create the dropdown menu
   var dropDown = makeDropDownMenu(gameID);
@@ -1307,7 +1307,7 @@ function makeDropDownMenu(gameID) {
   // create a sub-function to create the table rows and cells
   function makeRowCells(title, clickFunction) {
     var row = document.createElement('tr');
-    row.onclick = function() {
+    row.onclick = function () {
       clickFunction(gameID);
       event.stopPropagation();
     };
@@ -1316,7 +1316,7 @@ function makeDropDownMenu(gameID) {
     var cell2 = document.createElement('td');
     cell2.style.display = "flex";
     cell2.style.alignItems = "center";
-    cell2.innerHTML = '<img src="icons/general/' + title.toLowerCase() + '.svg" style="display: inline; width: 1em;" alt="img-mail" class="invertable-image">';
+    cell2.innerHTML = '<img src="icons/general/' + title.toLowerCase() + '.svg" style="display: inline; width: 1em;" alt="img-mail" class="invertible-image">';
     row.appendChild(cell1);
     row.appendChild(cell2);
     return row;
@@ -1324,8 +1324,8 @@ function makeDropDownMenu(gameID) {
 
   var dropDown = document.createElement('div');
   dropDown.classList = "dropDownButton";
-  dropDown.innerHTML = '<img src="icons/general/dropdown-menu.svg" style="display: inline; width: 1em;" alt="dropdown-menu" class="invertable-image">';
-  dropDown.onclick = function() {
+  dropDown.innerHTML = '<img src="icons/general/dropdown-menu.svg" style="display: inline; width: 1em;" alt="dropdown-menu" class="invertible-image">';
+  dropDown.onclick = function () {
     toggleDropDown(gameID);
 
     // Add event listener to detect if user clicked outside of menu
@@ -1396,7 +1396,7 @@ function editGame(id) {
   var originalCreateButtonText = createButton.innerText;
   titleLabel.innerText = "Title of Current Set:";
   createButton.innerText = "Update Game";
-  createButton.onclick = function() {
+  createButton.onclick = function () {
     createGame(addToFavesImmediately);
     deleteGame(id, false);
     // change the title text, the button text, and the button function back to normal
@@ -1407,7 +1407,7 @@ function editGame(id) {
 
   // change the cancel button's onclick event too
   var cancelButton = document.querySelector("#create-page > div:nth-child(2) > div:nth-child(4) > div.redGradient");
-  cancelButton.onclick = function() {
+  cancelButton.onclick = function () {
     // change the title text, the button text, and the button function back to normal
     titleLabel.innerText = originalTitleLabelText;
     createButton.innerText = originalCreateButtonText;
@@ -1507,12 +1507,12 @@ function installPrompt() {
   if (!isRunningStandalone()) {
     if (isiOS()) {
       // prompt to install on iOS
-      var message = '<h1>Welcome to Guess What?!</h1><p>The experience is better with the App!</p><p>Download it by tapping the share button <img src="icons/general/share.svg" style="display: inline; width: 1.5em;" alt="share-icon" class="invertable-image"/> below, then tap on "Add to Home Screen"</p>';
+      var message = '<h1>Welcome to Guess What?!</h1><p>The experience is better with the App!</p><p>Download it by tapping the share button <img src="icons/general/share.svg" style="display: inline; width: 1.5em;" alt="share-icon" class="invertible-image"/> below, then tap on "Add to Home Screen"</p>';
       displayPopup(message, "Stay On The Web");
     } else if (!isiOS()) {
       // prompt to install on Android
       var message = "<h1>Welcome to Guess What?!</h1>The experience is better with the App!<br><br>To install the Web App please click the install button below.";
-      displayPopup(message, "Stay On Web", "Install", function() {
+      displayPopup(message, "Stay On Web", "Install", function () {
         // install the PWA
         deferredPrompt.prompt();
       });
@@ -1524,7 +1524,7 @@ function installPrompt() {
 
 
 
-function setPreferedTheme(theme) {
+function setPreferredTheme(theme) {
   // set which theme the user prefers
   localStorage.setItem("theme", theme);
   changeTheme(theme);
@@ -1645,7 +1645,7 @@ function playCountSound() {
 
 let deferredPrompt;
 
-window.addEventListener('beforeinstallprompt', function(e) {
+window.addEventListener('beforeinstallprompt', function (e) {
 
   // Prevent the mini-infobar from appearing on mobile
   e.preventDefault();
@@ -1672,7 +1672,7 @@ function main() {
   allowScroll(allGamesElem);
 
   // Add event listener for changes in orientation to adjust the stretch element
-  window.addEventListener('orientationchange', function() {
+  window.addEventListener('orientationchange', function () {
     var currentElement = document.querySelector('.grid-container:not(.hidden)');
     controlStretch(currentElement);
   });
@@ -1684,9 +1684,12 @@ function main() {
   } else {
     defaultTimer = time;
   }
-  
+
   // adjust the option for sound effects so it displays correctly
   var soundBool = localStorage.getItem("playSoundEffects");
+  if (soundBool == null) {
+    var soundBool = "true";
+  }
   toggleSoundEffects(soundBool);
 }
 main();
